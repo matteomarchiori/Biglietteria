@@ -5,6 +5,7 @@
  */
 package mappa;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 import javax.persistence.Column;
@@ -16,14 +17,15 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 /**
- *
+ * classe di mappa per biglietti
  * @author dorado3349
  */
 @Entity
 @Table(name="BIGLIETTI")
-public class Biglietto {
+public class Biglietto implements Serializable {
     
     //variabili
     @Id @GeneratedValue
@@ -31,6 +33,7 @@ public class Biglietto {
     private int codice;
     
     @Column(name="dataV")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date data;
     
     @ManyToOne
@@ -49,17 +52,21 @@ public class Biglietto {
             inverseJoinColumns = {@JoinColumn(name = "codS")}
     )
     private Set<Servizio> servizi;
+    
+    @ManyToOne
+    private Categoria categoria;
 
     public Biglietto() {
     }//costruttore vuoto
 
-    public Biglietto(Date data, Visitatore visitatore, VisitaBase visitaBase, VisitaEvento visitaEvento, Set<Servizio> servizi) {
+    public Biglietto(Date data, Visitatore visitatore, VisitaBase visitaBase, VisitaEvento visitaEvento, Set<Servizio> servizi, Categoria categoria) {
         this.data = data;
         this.visitatore = visitatore;
         this.visitaBase = visitaBase;
         this.visitaEvento = visitaEvento;
         this.servizi = servizi;
-    }//costruttore
+        this.categoria = categoria;
+    }
 
     public int getCodice() {
         return codice;
@@ -84,7 +91,37 @@ public class Biglietto {
     public Set<Servizio> getServizi() {
         return servizi;
     }
-    
-    
-    
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCodice(int codice) {
+        this.codice = codice;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public void setVisitatore(Visitatore visitatore) {
+        this.visitatore = visitatore;
+    }
+
+    public void setVisitaBase(VisitaBase visitaBase) {
+        this.visitaBase = visitaBase;
+    }
+
+    public void setVisitaEvento(VisitaEvento visitaEvento) {
+        this.visitaEvento = visitaEvento;
+    }
+
+    public void setServizi(Set<Servizio> servizi) {
+        this.servizi = servizi;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
 }

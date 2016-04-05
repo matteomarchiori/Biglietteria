@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -21,7 +22,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="CARTEDICREDITO")
-public class CartadiCredito implements Serializable {
+public class CartaDiCredito implements Serializable {
     
     //variabili esemplare
     
@@ -33,6 +34,7 @@ public class CartadiCredito implements Serializable {
     private String tipoCarta;
     
     @Column(name="scadenza")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date scadenza;
     
     @Column(name="descrizione")
@@ -41,14 +43,15 @@ public class CartadiCredito implements Serializable {
     @OneToMany(mappedBy="carta")
     private Set<Visitatore> visitatori;
 
-    public CartadiCredito() {
+    public CartaDiCredito() {
     }//costruttore
 
-    public CartadiCredito(String tipoCarta, Date scadenza, String descrizione) {
+    public CartaDiCredito(String tipoCarta, Date scadenza, String descrizione, Set<Visitatore> visitatori) {
         this.tipoCarta = tipoCarta;
         this.scadenza = scadenza;
         this.descrizione = descrizione;
-    }//costruttore
+        this.visitatori = visitatori;
+    }
 
     public int getNumeroCarta() {
         return numeroCarta;
@@ -65,8 +68,29 @@ public class CartadiCredito implements Serializable {
     public String getDescrizione() {
         return descrizione;
     }
-    
-    
-    
 
-}
+    public Set<Visitatore> getVisitatori() {
+        return visitatori;
+    }
+
+    public void setNumeroCarta(int numeroCarta) {
+        this.numeroCarta = numeroCarta;
+    }
+
+    public void setTipoCarta(String tipoCarta) {
+        this.tipoCarta = tipoCarta;
+    }
+
+    public void setScadenza(Date scadenza) {
+        this.scadenza = scadenza;
+    }
+
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
+    }
+
+    public void setVisitatori(Set<Visitatore> visitatori) {
+        this.visitatori = visitatori;
+    }
+
+}//CartaDiCredito

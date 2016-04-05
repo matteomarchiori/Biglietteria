@@ -36,16 +36,11 @@ public class Servizio implements Serializable {
      */
     public Servizio() {
     }//Costruttore
-    
-    /**
-     * Costruttore parametrico
-     * @param descrizione : descrizione del servizio
-     * @param prezzo : prezzo del servizio
-     */
+
     public Servizio(String descrizione, double prezzo) {
         this.descrizione = descrizione;
         this.prezzo = prezzo;
-    }//Costruttore
+    }
 
     public int getCodice() {
         return codice;

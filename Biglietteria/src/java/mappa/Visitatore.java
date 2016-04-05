@@ -34,23 +34,20 @@ public class Visitatore implements Serializable{
     private String password;
     
     @ManyToOne
-    private Categoria categoria;
-    
-    @ManyToOne
-    private CartadiCredito carta;
+    private CartaDiCredito carta;
     
     @OneToMany(mappedBy="biglietto")
     private Set<Biglietto> biglietti;
 
     public Visitatore() {
-    }//costruttore vuoto
-    
-    public Visitatore(String mail, String password, Categoria categoria, CartadiCredito carta) {
+    }
+
+    public Visitatore(String mail, String password, CartaDiCredito carta, Set<Biglietto> biglietti) {
         this.mail = mail;
         this.password = password;
-        this.categoria = categoria;
         this.carta = carta;
-    }//costruttore
+        this.biglietti = biglietti;
+    }
 
     public int getNumero() {
         return numero;
@@ -64,12 +61,32 @@ public class Visitatore implements Serializable{
         return password;
     }
 
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public CartadiCredito getCarta() {
+    public CartaDiCredito getCarta() {
         return carta;
     }
-    
+
+    public Set<Biglietto> getBiglietti() {
+        return biglietti;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setCarta(CartaDiCredito carta) {
+        this.carta = carta;
+    }
+
+    public void setBiglietti(Set<Biglietto> biglietti) {
+        this.biglietti = biglietti;
+    }
+
 }//Visitatore

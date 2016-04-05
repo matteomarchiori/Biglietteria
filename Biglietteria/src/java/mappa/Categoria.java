@@ -33,16 +33,17 @@ public class Categoria implements Serializable {
     private int sconto;
     
     @OneToMany(mappedBy="categoria")
-    private Set<Visitatore> visitatori;
+    private Set<Biglietto> biglietti;
 
     public Categoria() {
     }//costruttore vuoto
-    
-    public Categoria(String descrizione, String documento, int sconto) {
+
+    public Categoria(String descrizione, String documento, int sconto, Set<Biglietto> biglietti) {
         this.descrizione = descrizione;
         this.documento = documento;
         this.sconto = sconto;
-    }//costruttore
+        this.biglietti = biglietti;
+    }
 
     public int getCodice() {
         return codice;
@@ -59,5 +60,29 @@ public class Categoria implements Serializable {
     public int getSconto() {
         return sconto;
     }
-    
+
+    public Set<Biglietto> getBiglietti() {
+        return biglietti;
+    }
+
+    public void setCodice(int codice) {
+        this.codice = codice;
+    }
+
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
+    }
+
+    public void setDocumento(String documento) {
+        this.documento = documento;
+    }
+
+    public void setSconto(int sconto) {
+        this.sconto = sconto;
+    }
+
+    public void setBiglietti(Set<Biglietto> biglietti) {
+        this.biglietti = biglietti;
+    }
+
 }//Categoria
