@@ -5,11 +5,14 @@
  */
 package mappa;
 
+import java.io.Serializable;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -18,7 +21,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="VISITATORI")
-public class Visitatore {
+public class Visitatore implements Serializable{
     //variabili
     @Id @GeneratedValue
     @Column(name="numero")
@@ -35,6 +38,9 @@ public class Visitatore {
     
     @ManyToOne
     private CartadiCredito carta;
+    
+    @OneToMany(mappedBy="biglietto")
+    private Set<Biglietto> biglietti;
 
     public Visitatore() {
     }//costruttore vuoto
