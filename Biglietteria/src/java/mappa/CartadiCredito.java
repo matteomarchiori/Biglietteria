@@ -5,6 +5,7 @@
  */
 package mappa;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 import javax.persistence.Column;
@@ -20,7 +21,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="CARTEDICREDITO")
-public class CartadiCredito {
+public class CartadiCredito implements Serializable {
     
     //variabili esemplare
     
@@ -37,7 +38,7 @@ public class CartadiCredito {
     @Column(name="descrizione")
     private String descrizione;
     
-    @OneToMany
+    @OneToMany(mappedBy="carta")
     private Set<Visitatore> visitatori;
 
     public CartadiCredito() {
