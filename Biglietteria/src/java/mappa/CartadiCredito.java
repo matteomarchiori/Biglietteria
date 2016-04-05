@@ -6,10 +6,12 @@
 package mappa;
 
 import java.util.Date;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -34,6 +36,9 @@ public class CartadiCredito {
     
     @Column(name="descrizione")
     private String descrizione;
+    
+    @OneToMany
+    private Set<Visitatore> visitatori;
 
     public CartadiCredito() {
     }//costruttore
