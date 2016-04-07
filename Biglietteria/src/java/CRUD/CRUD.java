@@ -43,6 +43,46 @@ public class CRUD {
             sessione.close();
         }
     }
+    
+    public void insertVisitatore(Visitatore v){
+        Session sessione = factory.openSession();
+        Transaction transazione = null;
+        try{
+            transazione = sessione.beginTransaction();
+            sessione.save(v);
+            transazione.commit();
+        }catch(HibernateException e){
+            if(transazione!=null) transazione.rollback();
+        }finally{
+            sessione.close();
+        }
+    }
+    
+    public List selectCategorie(){
+        Session sessione = factory.openSession();
+        Transaction transazione = null;
+        try{
+            transazione = sessione.beginTransaction();
+            List categorie = sessione.createQuery("FROM CATEGORIE").list();
+            transazione.commit();
+            return categorie;
+        }catch(HibernateException e){
+            if(transazione!=null) transazione.rollback();
+        }finally{
+            sessione.close();
+        }
+        return null;
+    }
+    
+    public Categoria selectCategoria(Integer codice){
+        List categorie = selectCategorie();
+        Categoria c;
+        for(Iterator i = categorie.iterator();i.hasNext();){
+            c = (Categoria)i.next();
+            if(c.getCodice()==codice)return c;
+        }
+        return null;
+    }
     /*
     public List leggiDipartimenti(){
         Session sessione = factory.openSession();
