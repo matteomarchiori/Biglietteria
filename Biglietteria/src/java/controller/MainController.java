@@ -5,11 +5,14 @@
  */
 package controller;
 
+import CRUD.CRUD;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import mappa.*;
+import hibernate.*;
 
 /**
  *
@@ -18,21 +21,28 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class MainController {
     
-   
+   private CRUD crud;
 
     public MainController() {
-        
+        crud = new CRUD(HibernateUtil.getSessionFactory());
     }
     
     
     
     @RequestMapping(value="/", method= RequestMethod.GET)
     public String index(ModelMap map){
-       return null;
+       return "index";
     }
     
-    @RequestMapping(value="/visionaLibro", params = {"id"},method= RequestMethod.GET)
-    public String jora(ModelMap map, @RequestParam(value="id") int id){
-        return null;
+    @RequestMapping(value="/register",params = {"email","password"}, method= RequestMethod.POST)
+    public String register(){
+        return "register";
+    }
+    
+    @RequestMapping(value="/registration",params = {"email","password"}, method= RequestMethod.POST)
+    public String registration(ModelMap map, @RequestParam(value="email") String email, @RequestParam(value="password") String password){
+        Visitatore v = new Visitatore(email,password,null,null);
+        crud.insertVisitatore(v);
+        return "registration";
     }
 }
