@@ -37,13 +37,20 @@ public class Biglietto implements Serializable {
     private Date data;
     
     @ManyToOne
+    @JoinColumn(name="visitatore")
     private Visitatore visitatore;
     
     @ManyToOne
+    @JoinColumn(name="visitaB")
     private VisitaBase visitaBase;
     
     @ManyToOne
+    @JoinColumn(name="visitaE")
     private VisitaEvento visitaEvento;
+    
+    @ManyToOne
+    @JoinColumn(name="categoria")
+    private Categoria categoria;
     
     @ManyToMany
     @JoinTable(
@@ -53,9 +60,6 @@ public class Biglietto implements Serializable {
     )
     private Set<Servizio> servizi;
     
-    @ManyToOne
-    private Categoria categoria;
-
     public Biglietto() {
     }//costruttore vuoto
 
