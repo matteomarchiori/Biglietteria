@@ -14,14 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import mappa.*;
 import hibernate.*;
 
-/**
- *
- * @author W8
- */
 @Controller
 public class MainController {
     
-   private CRUD crud;
+   private final CRUD crud;
 
     public MainController() {
         crud = new CRUD(HibernateUtil.getSessionFactory());
@@ -34,14 +30,20 @@ public class MainController {
        return "index";
     }
     
-    @RequestMapping(value="/register",params = {"email","password"}, method= RequestMethod.POST)
+    @RequestMapping(value="/register", method= RequestMethod.GET)
     public String register(){
         return "register";
     }
+ 
+    @RequestMapping(value="/registration")
+    public String registration(){
+        return "registration";
+    }
     
-    @RequestMapping(value="/registration",params = {"email","password"}, method= RequestMethod.POST)
-    public String registration(ModelMap map, @RequestParam(value="email") String email, @RequestParam(value="password") String password){
-        Visitatore v = new Visitatore(email,password,null,null);
+    @RequestMapping(value="/registrazioneAvvenuta", method= RequestMethod.GET)
+    public String registrazioneAvvenuta(ModelMap map, @RequestParam(value="email") String email){
+        Visitatore v = new Visitatore("email","password",null,null);
+        map.put("v", v);
         crud.insertVisitatore(v);
         return "registration";
     }

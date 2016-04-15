@@ -9,6 +9,6 @@
     </head>
 
     <body>
-        
+        <a href="./register">Registrati</a>
     </body>
 </html>

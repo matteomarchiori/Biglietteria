@@ -4,6 +4,7 @@
     Author     : matteo
 --%>
 
+<%@page import="mappa.Visitatore"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,7 +13,7 @@
         <title>Registration</title>
     </head>
     <body>
-        <form method="post" action="registration.jsp">
+        <form method="post" action="./registration">
             <center>
             <table border="1" width="30%" cellpadding="5">
                 <thead>
@@ -23,7 +24,7 @@
                 <tbody>
                     <tr>
                         <td>Email</td>
-                        <td><input type="text" name="email" value="" /></td>
+                        <td><input type="text" name="email" value=""/></td>
                     </tr>
                     <tr>
                         <td>Password</td>
@@ -34,7 +35,7 @@
                         <td><input type="reset" value="Reset" /></td>
                     </tr>
                     <tr>
-                        <td colspan="2">Already registered!! <a href="index.jsp">Login Here</a></td>
+                        <td colspan="2">Already registered!! <a href="./">Login Here</a></td>
                     </tr>
                 </tbody>
             </table>

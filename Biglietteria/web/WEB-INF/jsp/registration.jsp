@@ -12,9 +12,14 @@
         <title>JSP Page</title>
     </head>
     <body>
+        
         <%
             String pwd = request.getParameter("password");
             String email = request.getParameter("email");
         %>
+        <a href="./registrazioneAvvenuta?email=<%=email%>&password=<%=pwd%>">esegui</a>
+        
+        Dopo : ${v.mail} ${v.password}
+        <%=email%></br><%=pwd%>
     </body>
 </html>

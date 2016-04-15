@@ -15,7 +15,6 @@ import mappa.*;
 
 /**
  * Classe per operazioni Create Read Update Delete sul database
- * @author FSEVERI\marchiori2904
  */
 public class CRUD {
     
