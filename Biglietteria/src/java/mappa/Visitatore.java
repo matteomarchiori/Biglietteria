@@ -38,7 +38,7 @@ public class Visitatore implements Serializable{
     @JoinColumn(name="carta")
     private CartaDiCredito carta;
     
-    @OneToMany(mappedBy="biglietto")
+    @OneToMany(mappedBy="visitatore")
     private Set<Biglietto> biglietti;
 
     public Visitatore() {

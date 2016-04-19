@@ -9,6 +9,7 @@ package hibernate;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import mappa.*;
 
 /**
  * Hibernate Utility class with a convenient method to get Session Factory
@@ -18,16 +19,21 @@ import org.hibernate.cfg.Configuration;
  */
 public class HibernateUtil {
 
-    private final static SessionFactory sessionFactory;
+    private static SessionFactory sessionFactory;
     
-    static {
-        Configuration configuration = new Configuration().configure();
+    public static SessionFactory getSessionFactory() {
+        Configuration configuration = new Configuration()
+                .addAnnotatedClass(Biglietto.class)
+                .addAnnotatedClass(CartaDiCredito.class)
+                .addAnnotatedClass(Categoria.class)
+                .addAnnotatedClass(Servizio.class)
+                .addAnnotatedClass(VisitaBase.class)
+                .addAnnotatedClass(VisitaEvento.class)
+                .addAnnotatedClass(Visitatore.class)
+                .configure();
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
         applySettings(configuration.getProperties());
         sessionFactory = configuration.buildSessionFactory(builder.build());
-    }
-    
-    public static SessionFactory getSessionFactory() {
         return sessionFactory;
     }
 }

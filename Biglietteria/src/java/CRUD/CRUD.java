@@ -12,6 +12,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import mappa.*;
+import org.hibernate.SQLQuery;
 
 /**
  * Classe per operazioni Create Read Update Delete sul database
@@ -60,9 +61,11 @@ public class CRUD {
     public List selectCategorie(){
         Session sessione = factory.openSession();
         Transaction transazione = null;
+        SQLQuery query;
         try{
             transazione = sessione.beginTransaction();
-            List categorie = sessione.createQuery("FROM CATEGORIE").list();
+            query = sessione.createSQLQuery("select * from CATEGORIE");
+            List categorie = query.list();
             transazione.commit();
             return categorie;
         }catch(HibernateException e){

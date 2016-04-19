@@ -6,6 +6,7 @@
 package controller;
 
 import CRUD.CRUD;
+import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +18,7 @@ import hibernate.*;
 @Controller
 public class MainController {
     
-   private final CRUD crud;
+   private static CRUD crud;
 
     public MainController() {
         crud = new CRUD(HibernateUtil.getSessionFactory());
@@ -27,6 +28,8 @@ public class MainController {
     
     @RequestMapping(value="/", method= RequestMethod.GET)
     public String index(ModelMap map){
+       List categorie = crud.selectCategorie();
+       map.put("categorie", categorie);
        return "index";
     }
     
@@ -41,8 +44,8 @@ public class MainController {
     }
     
     @RequestMapping(value="/registrazioneAvvenuta", method= RequestMethod.GET)
-    public String registrazioneAvvenuta(ModelMap map, @RequestParam(value="email") String email){
-        Visitatore v = new Visitatore("email","password",null,null);
+    public String registrazioneAvvenuta(ModelMap map, @RequestParam(value="email") String email,@RequestParam(value="password") String password){
+        Visitatore v = new Visitatore(email,password,null,null);
         map.put("v", v);
         crud.insertVisitatore(v);
         return "registration";
