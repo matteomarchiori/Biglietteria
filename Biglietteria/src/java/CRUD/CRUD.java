@@ -64,8 +64,8 @@ public class CRUD {
         SQLQuery query;
         try{
             transazione = sessione.beginTransaction();
-            query = sessione.createSQLQuery("select * from CATEGORIE");
-            List categorie = query.list();
+            query = sessione.createSQLQuery("select * from CATEGORIE").addEntity(Categoria.class);
+            List<Categoria> categorie = query.list();
             transazione.commit();
             return categorie;
         }catch(HibernateException e){

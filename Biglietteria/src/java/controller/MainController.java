@@ -27,9 +27,7 @@ public class MainController {
     
     
     @RequestMapping(value="/", method= RequestMethod.GET)
-    public String index(ModelMap map){
-       List categorie = crud.selectCategorie();
-       map.put("categorie", categorie);
+    public String index(){
        return "index";
     }
     
