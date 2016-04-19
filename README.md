@@ -1,2 +1,0 @@
-# Biglietteria
-School Project
