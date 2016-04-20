@@ -502,7 +502,7 @@ hr { border-top: 1px solid #111010; }
 	width: 272px;
 	height: 530px;
 	background-color: #E8BA0F;
-	float: left;
+	text-align: center;
 }
 .tm-testimonials-title {
 	background-color: rgb(96, 104, 116);
@@ -748,8 +748,7 @@ hr { border-top: 1px solid #111010; }
 	.tm-testimonials-box {
 	    max-width: 340px;
 	    width: 100%;
-	    margin: 30px auto 0;
-	    float: none;
+	    margin: auto 0;
 	    height: auto;
 	}
 	.flexslider.flexslider-about,
