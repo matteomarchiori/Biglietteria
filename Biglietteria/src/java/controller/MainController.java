@@ -31,17 +31,17 @@ public class MainController {
        return "index";
     }
     
+    @RequestMapping(value="/about", method= RequestMethod.GET)
+    public String about(){
+       return "about";
+    }
+    
     @RequestMapping(value="/register", method= RequestMethod.GET)
     public String register(){
         return "register";
     }
- 
-    @RequestMapping(value="/registration")
-    public String registration(){
-        return "registration";
-    }
     
-    @RequestMapping(value="/registrazioneAvvenuta", method= RequestMethod.GET)
+    @RequestMapping(value="/registration", method= RequestMethod.POST)
     public String registrazioneAvvenuta(ModelMap map, @RequestParam(value="email") String email,@RequestParam(value="password") String password){
         Visitatore v = new Visitatore(email,password,null,null);
         map.put("v", v);

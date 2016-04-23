@@ -13,7 +13,7 @@
         <title>Registration</title>
     </head>
     <body>
-        <form method="post" action="./registration">
+        <form method="post" action="./registration${email}&${password}">
             <center>
             <table border="1" width="30%" cellpadding="5">
                 <thead>
