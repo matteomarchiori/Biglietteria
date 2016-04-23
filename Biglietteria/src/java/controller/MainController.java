@@ -31,6 +31,16 @@ public class MainController {
        return "index";
     }
     
+    @RequestMapping(value="/", method= RequestMethod.GET)
+    public String login(){
+       return "index";
+    }
+    
+    @RequestMapping(value="/", method= RequestMethod.GET)
+    public String log(){
+       return "index";
+    }
+    
     @RequestMapping(value="/about", method= RequestMethod.GET)
     public String about(){
        return "about";
