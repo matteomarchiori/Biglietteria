@@ -6,7 +6,6 @@
 package controller;
 
 import CRUD.CRUD;
-import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import mappa.*;
 import hibernate.*;
+import java.util.List;
 
 @Controller
 public class MainController {
@@ -27,18 +27,22 @@ public class MainController {
     
     
     @RequestMapping(value="/", method= RequestMethod.GET)
-    public String index(){
+    public String index(ModelMap map){
+       List<Categoria> categorie = crud.selectCategorie();
+       for(int i=0;i<categorie.size();i++){
+           map.put("categoria"+(i+1), categorie.get(i));
+       }
        return "index";
     }
     
-    @RequestMapping(value="/", method= RequestMethod.GET)
+    @RequestMapping(value="/login", method= RequestMethod.GET)
     public String login(){
-       return "index";
+       return "login";
     }
     
-    @RequestMapping(value="/", method= RequestMethod.GET)
+    @RequestMapping(value="/log", method= RequestMethod.GET)
     public String log(){
-       return "index";
+       return "log";
     }
     
     @RequestMapping(value="/about", method= RequestMethod.GET)
@@ -52,9 +56,8 @@ public class MainController {
     }
     
     @RequestMapping(value="/registration", method= RequestMethod.POST)
-    public String registrazioneAvvenuta(ModelMap map, @RequestParam(value="email") String email,@RequestParam(value="password") String password){
+    public String registrazioneAvvenuta(@RequestParam(value="email") String email,@RequestParam(value="password") String password){
         Visitatore v = new Visitatore(email,password,null,null);
-        map.put("v", v);
         crud.insertVisitatore(v);
         return "registration";
     }

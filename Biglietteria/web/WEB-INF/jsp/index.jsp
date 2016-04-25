@@ -98,7 +98,7 @@ http://www.templatemo.com/tm-475-holiday
 					<img src="./resources/img/intero_icon.png" alt="image" class="img-responsive">
 					<a href="#">
 						<div class="tm-yellow-gradient-bg tm-city-price-container">
-							<span>Intero</span>
+							<span>${categoria1.descrizione}</span>
 							<span>€8,00</span>
 						</div>
 					</a>
@@ -109,8 +109,8 @@ http://www.templatemo.com/tm-475-holiday
 					<img src="./resources/img/student_icon.png" alt="image" class="img-responsive">
 					<a href="#">
 						<div class="tm-yellow-gradient-bg tm-city-price-container">
-							<span>Studente <br>(15-18 anni)</span>
-							<span>[-25%]</span>
+							<span>${categoria2.descrizione}</span>
+							<span>[-${categoria2.sconto}%]</span>
 						</div>
 					</a>
 				</div>
@@ -120,8 +120,8 @@ http://www.templatemo.com/tm-475-holiday
 						<img src="./resources/img/children_icon.png" alt="image" class="img-responsive">
 						<a href="#">
 							<div class="tm-yellow-gradient-bg tm-city-price-container">
-								<span>Bambino <br>(0-15 anni)</span>
-								<span>[-50%]</span>
+								<span>${categoria3.descrizione}</span>
+								<span>[-${categoria3.sconto}%]</span>
 							</div>
 						</a>
 					</div>
@@ -131,8 +131,8 @@ http://www.templatemo.com/tm-475-holiday
 					<img src="./resources/img/disabled_icon.png" alt="image" class="img-responsive" aligh="middle">
 					<a href="#">
 						<div class="tm-yellow-gradient-bg tm-city-price-container">
-							<span>Anziani <br>& Disabili</span>
-              <span>[-80%]</span>
+							<span>${categoria4.descrizione}</span>
+                                                        <span>[-${categoria2.sconto}%]</span>
 						</div>
 					</a>
 				</div>
@@ -142,7 +142,8 @@ http://www.templatemo.com/tm-475-holiday
 					<img src="./resources/img/military_icon.png" alt="image" class="img-responsive">
 					<a href="#">
 						<div class="tm-yellow-gradient-bg tm-city-price-container">
-							<span>Militari [-80%]</span>
+							<span>${categoria5.descrizione}</span>
+                                                        <span>[-${categoria5.sconto}%]</span>
 						</div>
 					</a>
 				</div>
