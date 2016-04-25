@@ -22,6 +22,16 @@ http://www.templatemo.com/tm-475-holiday
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+    .cssFooter {
+      position: relative;
+      top : 290px;
+    }
+    .registerText {
+      position: relative;
+      top : 20px;
+    }
+    </style>
   </head>
   <body class="tm-gray-bg">
   	<!-- Header -->
@@ -50,29 +60,53 @@ http://www.templatemo.com/tm-475-holiday
   	</div>
 
     <section class="container tm-home-section-2">
-      <div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
-      <div class="col-lg-4 col-md-6 col-sm-6"><h2 class="tm-section-title">Registrazione</h2></div>
-      <div class="col-lg-4 col-md-6 col-sm-3"><hr></div>
+      <div class="registerText">
+        <div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
+        <div class="col-lg-4 col-md-6 col-sm-6"><h2 class="tm-section-title">Registrazione</h2></div>
+        <div class="col-lg-4 col-md-6 col-sm-3"><hr></div>
+      </div>
       <div class="col-lg-6 col-sm-6 col-lg-offset-3">
         <form action="#" method="post" class="hotel-search-form">
 					<div class="tm-form-inner">
 						<div class="form-group">
               <div class="inner-addon left-addon">
-                <h4>Email :</h4><input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+                <h4>Email :</h4>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
               </div>
 			      </div>
             <div class="form-group">
               <div class="inner-addon left-addon">
                 <h4>Password :</h4><input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" autofocus="">
               </div>
-			      </div>
-					</div>
-          	<button type="submit" name="submit" class="tm-yellow-btn">Check Now</button>
+            </div>
+            <div class="form-group">
+              <div class="inner-addon left-addon">
+                <h4>Tipo :
+                  <select>
+                    <option value="mastercard">MasterCard</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="americanexpress">American Express</option>
+                    <option value="visa">Visa</option>
+                  </select>
+                </h4>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="inner-addon left-addon">
+              <h4>Numero Carta di Credito :</h4>
+              <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" autofocus="">
+            </div>
+          </div>
+          <div class="form-group">
+            <button type="submit" name="submit" class="tm-yellow-btn">Registrati!</button>
+		      </div>
+				</div>
 				</form>
       </div>
     </section>
 
-    <footer class="tm-black-bg">
+    <footer class=" cssFooter">
+      <div class="tm-black-bg">
       <div class="container">
         <div class="row">
           <p class="tm-copyright-text">Copyright &copy; 2084 Your Company Name
@@ -80,4 +114,5 @@ http://www.templatemo.com/tm-475-holiday
                   | Designed by <a rel="nofollow" href="http://www.templatemo.com" target="_parent">templatemo</a></p>
         </div>
       </div>
+    </div>
     </footer>
