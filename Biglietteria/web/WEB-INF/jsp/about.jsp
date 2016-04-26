@@ -37,7 +37,7 @@ http://www.templatemo.com/tm-475-holiday
   		<div class="container">
   			<div class="row">
   				<div class="col-lg-4 col-md-3 col-sm-1 tm-site-name-container">
-  					<a href="./index" class="tm-site-name">Museo</a>
+  					<a href="#" class="tm-site-name">Museo</a>
   				</div>
 	  			<div class="col-lg-8 col-md-9 col-sm-11">
 	  				<div class="mobile-menu-icon">
@@ -45,8 +45,8 @@ http://www.templatemo.com/tm-475-holiday
 		            </div>
 	  				<nav class="tm-nav">
 						<ul>
-							<li><a href="./index" >Home</a></li>
-							<li><a href="./about" class="active">Chi Siamo</a></li>
+							<li><a href="index.html" >Home</a></li>
+							<li><a href="about.html" class="active">Chi Siamo</a></li>
 							<li><a href="tours.html">Esposizioni</a></li>
 							<li><a href="contact.html">Contattaci</a></li>
               <li><a href="login.html">Login</a></li>

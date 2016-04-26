@@ -17,11 +17,11 @@ Holiday Template
 http://www.templatemo.com/tm-475-holiday
 -->
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
-  <link href="./resources/css/font-awesome.min.css" rel="stylesheet">
-  <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
-  <link href="./resources/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-  <link href="./resources/css/flexslider.css" rel="stylesheet">
-  <link href="./resources/css/templatemo-style.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+  <link href="css/flexslider.css" rel="stylesheet">
+  <link href="css/templatemo-style.css" rel="stylesheet">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,6 +39,31 @@ http://www.templatemo.com/tm-475-holiday
     .tm-home-section-1 {
       top : 0px;
     }
+    .cssFooter {
+      position: relative;
+      bottom : -430px;
+    }
+    .loginBox{
+      position: relative;
+       margin-left: auto;
+       margin-right: auto;
+       top: 100px;
+       right : 100px;
+       width: 400px;
+       height: 400px;
+       border: 2px solid black;
+       border-radius: 5px;
+       background-color: white;
+    }
+    .loginTitle{
+      position: relative;
+      top:0px;
+      width: auto;
+      height: 50px;
+      border-radius: inherit;
+      background-color: #FCDD44;
+      padding-top: 10px;
+    }
     </style>
   </head>
   <body class="tm-gray-bg">
@@ -55,11 +80,11 @@ http://www.templatemo.com/tm-475-holiday
 		            </div>
 	  				<nav class="tm-nav">
 						<ul>
-							<li><a href="./index">Home</a></li>
-							<li><a href="./about">Chi Siamo</a></li>
-							<li><a href="./tours">Esposizioni</a></li>
-							<li><a href="./contact">Contattaci</a></li>
-                                                        <li><a href="./login" class ="active">Login</a></li>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="about.html">Chi Siamo</a></li>
+							<li><a href="tours.html">Esposizioni</a></li>
+							<li><a href="contact.html">Contattaci</a></li>
+              <li><a href="login.html" class ="active">Login</a></li>
 						</ul>
 					</nav>
 	  			</div>
@@ -67,29 +92,45 @@ http://www.templatemo.com/tm-475-holiday
   		</div>
   	</div>
 
+
 	<section class="container tm-home-section-1">
     <div class="col-md-6 col-md-offset-4">
-      <div class="tm-testimonials-box">
-        <form>
-          <h3 class="tm-testimonials-title">Login</h3>
-          <div class="tm-testimonials-content">
-            <label for="inputEmail" class="sr-only">Email address</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+      <div class="loginBox">
+        <div class="loginTitle" align="center">
+          <h3> Login </h3>
+        </div>
+        <form action="#" method="post" class="hotel-search-form">
+					<div class="tm-form-inner">
+						<div class="form-group">
+              <div class="inner-addon left-addon">
+                <h4>Email :</h4><input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+              </div>
+			      </div>
+            <div class="form-group">
+              <div class="inner-addon left-addon">
+                <h4>Password :</h4><input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" autofocus="">
+            </div>
             <div class="checkbox">
               <label>
                 <input type="checkbox" value="remember-me"> Remember me
-                <a href="./log"><h5 style="font-style: normal; color: blue;">Registrati per Comprare!</h5></a>
               </label>
-              <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
             </div>
-          </div>
-        </form>
+            <div class="checkbox">
+              <label>
+                Non sei ancora registrato? <a href="registrazione.html">Registrati ora!</a>
+              </label>
+            </div>
+            <div class="form-group">
+              <button type="submit" name="submit" class="tm-yellow-btn">Accedi</button>
+            </div>
+			      </div>
+					</div>
+				</form>
+      </div>
     </div>
-  </div>
   </section>
-  <footer class="tm-black-bg">
+  <footer class=" cssFooter">
+    <div class="tm-black-bg">
     <div class="container">
       <div class="row">
         <p class="tm-copyright-text">Copyright &copy; 2084 Your Company Name
@@ -97,18 +138,19 @@ http://www.templatemo.com/tm-475-holiday
                 | Designed by <a rel="nofollow" href="http://www.templatemo.com" target="_parent">templatemo</a></p>
       </div>
     </div>
+  </div>
   </footer>
 
-    <script type="text/javascript" src="./resources/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
-      <script type="text/javascript" src="./resources/js/moment.js"></script>							<!-- moment.js -->
-    <script type="text/javascript" src="./resources/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
-    <script type="text/javascript" src="./resources/js/bootstrap-datetimepicker.min.js"></script>	<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
-    <script type="text/javascript" src="./resources/js/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
+      <script type="text/javascript" src="js/moment.js"></script>							<!-- moment.js -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>					<!-- bootstrap js -->
+    <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>	<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
+    <script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
     <!--
     <script src="js/froogaloop.js"></script>
     <script src="js/jquery.fitvid.js"></script>
     -->
-      <script type="text/javascript" src="./resources/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
+      <script type="text/javascript" src="js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
     <script>
       // HTML document is loaded. DOM is ready.
       $(function() {
@@ -197,4 +239,3 @@ http://www.templatemo.com/tm-475-holiday
     </script>
     </body>
     </html>
-

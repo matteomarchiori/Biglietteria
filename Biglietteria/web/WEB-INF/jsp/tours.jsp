@@ -17,11 +17,11 @@ Holiday Template
 http://www.templatemo.com/tm-475-holiday
 -->
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
-  <link href="./resources/css/font-awesome.min.css" rel="stylesheet">
-  <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
-  <link href="./resources/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-  <link href="./resources/css/flexslider.css" rel="stylesheet">
-  <link href="./resources/css/templatemo-style.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+  <link href="css/flexslider.css" rel="stylesheet">
+  <link href="css/templatemo-style.css" rel="stylesheet">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,11 +45,11 @@ http://www.templatemo.com/tm-475-holiday
 		            </div>
 	  				<nav class="tm-nav">
 						<ul>
-							<li><a href="./index">Home</a></li>
-							<li><a href="./about">Chi Siamo</a></li>
-							<li><a href="./tours" class="active">Esposizioni</a></li>
-							<li><a href="./contact">Contattaci</a></li>
-                                                        <li><a href="./login">Login</a></li>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="about.html">Chi Siamo</a></li>
+							<li><a href="tours.html" class="active">Esposizioni</a></li>
+							<li><a href="contact.html">Contattaci</a></li>
+              <li><a href="login.html">Login</a></li>
 						</ul>
 					</nav>
 	  			</div>
@@ -68,7 +68,7 @@ http://www.templatemo.com/tm-475-holiday
 					<p class="tm-banner-subtitle">lorem ipsum</p>
 					<a href="#more" class="tm-banner-link">Learn More</a>
 				</div>
-				<img src="./resouces/img/egizi1_banner.jpg" alt="Image" />
+				<img src="img/egizi1_banner.jpg" alt="Image" />
 		    </li>
 		    <li>
 			    <div class="tm-banner-inner">
@@ -76,7 +76,7 @@ http://www.templatemo.com/tm-475-holiday
 					<p class="tm-banner-subtitle">Meravigliose Mostre</p>
 					<a href="#more" class="tm-banner-link">Learn More</a>
 				</div>
-		      <img src="./resouces/img/egizi2_banner.jpg" alt="Image" />
+		      <img src="img/egizi2_banner.jpg" alt="Image" />
 		    </li>
 		    <li>
 			    <div class="tm-banner-inner">
@@ -84,7 +84,7 @@ http://www.templatemo.com/tm-475-holiday
 					<p class="tm-banner-subtitle">Reperti Misteriosi</p>
 					<a href="#more" class="tm-banner-link">Learn More</a>
 				</div>
-		      <img src="./resouces/img/egizi3_banner.jpg" alt="Image" />
+		      <img src="img/egizi3_banner.jpg" alt="Image" />
 		    </li>
 		  </ul>
 		</div>
@@ -96,7 +96,7 @@ http://www.templatemo.com/tm-475-holiday
     <div class="row">
 			<div class="col-lg-2 col-md-2 col-sm-6">
 				<div class="tm-home-box-2">
-					<img src="./resouces/img/noimage2.png" alt="image" class="img-responsive">
+					<img src="img/noimage2.png" alt="image" class="img-responsive">
 					<a href="#">
 						<div class="tm-yellow-gradient-bg tm-city-price-container">
 							<span>Servizio</span>
@@ -107,7 +107,7 @@ http://www.templatemo.com/tm-475-holiday
 			</div>
 			<div class="col-lg-2 col-md-2 col-sm-6">
 				<div class="tm-home-box-2">
-					<img src="./resouces/img/noimage2.png" alt="image" class="img-responsive">
+					<img src="img/noimage2.png" alt="image" class="img-responsive">
 					<a href="#">
 						<div class="tm-yellow-gradient-bg tm-city-price-container">
 							<span>Servizio</span>
@@ -118,7 +118,7 @@ http://www.templatemo.com/tm-475-holiday
 			</div>
 			<div class="col-lg-2 col-md-2 col-sm-6">
 					<div class="tm-home-box-2">
-						<img src="./resouces/img/noimage2.png" alt="image" class="img-responsive">
+						<img src="img/noimage2.png" alt="image" class="img-responsive">
 						<a href="#">
 							<div class="tm-yellow-gradient-bg tm-city-price-container">
 								<span>Servizio</span>
@@ -129,7 +129,7 @@ http://www.templatemo.com/tm-475-holiday
 				</div>
 				<div class="col-lg-2 col-md-2 col-sm-6">
 				<div class="tm-home-box-2">
-					<img src="./resouces/img/noimage2.png" alt="image" class="img-responsive" aligh="middle">
+					<img src="img/noimage2.png" alt="image" class="img-responsive" aligh="middle">
 					<a href="#">
 						<div class="tm-yellow-gradient-bg tm-city-price-container">
 							<span>Servizio</span>
@@ -140,7 +140,7 @@ http://www.templatemo.com/tm-475-holiday
 			</div>
 			<div class="col-lg-2 col-md-2 col-sm-6">
 				<div class="tm-home-box-2">
-					<img src="./resouces/img/noimage2.png" alt="image" class="img-responsive">
+					<img src="img/noimage2.png" alt="image" class="img-responsive">
 					<a href="#">
 						<div class="tm-yellow-gradient-bg tm-city-price-container">
 							<span>Servizio</span>
@@ -189,19 +189,19 @@ http://www.templatemo.com/tm-475-holiday
             <h3 class="tm-testimonials-title">Infobox</h3>
             <div class="tm-testimonials-content">
               <div class="tm-testimonial">
-                <img src="./resouces/img/clock.png" alt="image">
+                <img src="img/clock.png" alt="image">
                 <p>
                   <span><strong class="text-uppercase">Orari di Apertura</strong> <br> Lun: 9:00/14:00 <br> Mar-Dom: 8:30/19:30</span>
                 </p>
               </div>
               <div class="tm-testimonial">
-                <img src="./resouces/img/location.png" alt="image">
+                <img src="img/location.png" alt="image">
                 <p>
                   <span><strong class="text-uppercase">Indirizzo</strong> <br> Via Nome della Strada 10,<br> 35100 Padova </span>
                 </p>
               </div>
               <div class="tm-testimonial">
-                <img src="./resouces/img/mail.png" alt="image">
+                <img src="img/mail.png" alt="image">
                 <p>
                   <span><strong class="text-uppercase">Info & Prenotazioni</strong> <br> Tel. - 000 1111 222<br> info@museo.it</span>
                 </p>
@@ -222,12 +222,12 @@ http://www.templatemo.com/tm-475-holiday
 			</div>
 		</div>
 	</footer>
-	<script type="text/javascript" src="./resouces/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
-  	<script type="text/javascript" src="./resouces/js/moment.js"></script>							<!-- moment.js -->
-	<script type="text/javascript" src="./resouces/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
-	<script type="text/javascript" src="./resouces/js/bootstrap-datetimepicker.min.js"></script>	<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
-	<script type="text/javascript" src="./resouces/js/jquery.flexslider-min.js"></script>
-   	<script type="text/javascript" src="./resouces/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
+  	<script type="text/javascript" src="js/moment.js"></script>							<!-- moment.js -->
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>					<!-- bootstrap js -->
+	<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>	<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
+	<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+   	<script type="text/javascript" src="js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
 	<script>
 		// HTML document is loaded. DOM is ready.
 		$(function() {

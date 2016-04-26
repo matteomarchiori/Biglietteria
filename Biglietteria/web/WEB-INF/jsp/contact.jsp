@@ -17,11 +17,11 @@ Holiday Template
 http://www.templatemo.com/tm-475-holiday
 -->
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
-  <link href="./resources/css/font-awesome.min.css" rel="stylesheet">
-  <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
-  <link href="./resources/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-  <link href="./resources/css/flexslider.css" rel="stylesheet">
-  <link href="./resources/css/templatemo-style.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+  <link href="css/flexslider.css" rel="stylesheet">
+  <link href="css/templatemo-style.css" rel="stylesheet">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,7 +37,7 @@ http://www.templatemo.com/tm-475-holiday
   		<div class="container">
   			<div class="row">
           <div class="col-lg-4 col-md-3 col-sm-1 tm-site-name-container">
-  					<a href="./index" class="tm-site-name">Museo</a>
+  					<a href="#" class="tm-site-name">Museo</a>
   				</div>
 	  			<div class="col-lg-8 col-md-9 col-sm-11">
 	  				<div class="mobile-menu-icon">
@@ -45,11 +45,11 @@ http://www.templatemo.com/tm-475-holiday
 		            </div>
 	  				<nav class="tm-nav">
 						<ul>
-							<li><a href="./index">Home</a></li>
-							<li><a href="./about">Chi Siamo</a></li>
-							<li><a href="./tours">Esposizioni</a></li>
-							<li><a href="./contact" class="active">Contattaci</a></li>
-                                                        <li><a href="./login">Login</a></li>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="about.html">Chi Siamo</a></li>
+							<li><a href="tours.html">Esposizioni</a></li>
+							<li><a href="contact.html" class="active">Contattaci</a></li>
+              <li><a href="login.html">Login</a></li>
 						</ul>
 					</nav>
 	  			</div>
@@ -68,7 +68,7 @@ http://www.templatemo.com/tm-475-holiday
 					<p class="tm-banner-subtitle">lorem ipsum</p>
 					<a href="#more" class="tm-banner-link">Learn More</a>
 				</div>
-				<img src="./resources/img/egizi1_banner.jpg" alt="Image" />
+				<img src="img/egizi1_banner.jpg" alt="Image" />
 		    </li>
 		    <li>
 			    <div class="tm-banner-inner">
@@ -76,7 +76,7 @@ http://www.templatemo.com/tm-475-holiday
 					<p class="tm-banner-subtitle">Meravigliose Mostre</p>
 					<a href="#more" class="tm-banner-link">Learn More</a>
 				</div>
-		      <img src="./resources/img/egizi2_banner.jpg" alt="Image" />
+		      <img src="img/egizi2_banner.jpg" alt="Image" />
 		    </li>
 		    <li>
 			    <div class="tm-banner-inner">
@@ -84,7 +84,7 @@ http://www.templatemo.com/tm-475-holiday
 					<p class="tm-banner-subtitle">Reperti Misteriosi</p>
 					<a href="#more" class="tm-banner-link">Learn More</a>
 				</div>
-		      <img src="./resources/img/egizi3_banner.jpg" alt="Image" />
+		      <img src="img/egizi3_banner.jpg" alt="Image" />
 		    </li>
 		  </ul>
 		</div>
@@ -98,7 +98,7 @@ http://www.templatemo.com/tm-475-holiday
 			<div class="flexslider effect2 effect2-contact tm-contact-box-1">
 				<ul class="slides">
 					<li>
-						<img src="./resources/img/world-map.png" alt="image" class="contact-image" />
+						<img src="img/world-map.png" alt="image" class="contact-image" />
 						<div class="contact-text">
 							<h2 class="slider-title">Lorem Isum Dolor</h2>
 							<h3 class="slider-subtitle">Gravida nibh vel velit auctor aliquet enean sollicitudin lorem quis auctor, nisi elit consequat ipsum</h3>
@@ -170,10 +170,10 @@ http://www.templatemo.com/tm-475-holiday
 			</div>
 		</div>
 	</footer>
-	<script type="text/javascript" src="./resources/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
-	<script type="text/javascript" src="./resources/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
-	<script type="text/javascript" src="./resources/js/jquery.flexslider-min.js"></script>			<!-- flexslider js -->
-	<script type="text/javascript" src="./resources/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>					<!-- bootstrap js -->
+	<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>			<!-- flexslider js -->
+	<script type="text/javascript" src="js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
 	<script>
 		/* Google map
       	------------------------------------------------*/
