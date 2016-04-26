@@ -117,7 +117,7 @@ http://www.templatemo.com/tm-475-holiday
             </div>
             <div class="checkbox">
               <label>
-                Non sei ancora registrato? <a href="registrazione.html">Registrati ora!</a>
+                Non sei ancora registrato? <a href="./registrazione">Registrati ora!</a>
               </label>
             </div>
             <div class="form-group">

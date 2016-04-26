@@ -50,15 +50,17 @@ public class MainController {
        return "about";
     }
     
-    @RequestMapping(value="/register", method= RequestMethod.GET)
-    public String register(){
-        return "register";
-    }
-    
-    @RequestMapping(value="/registration", method= RequestMethod.POST)
-    public String registrazioneAvvenuta(@RequestParam(value="email") String email,@RequestParam(value="password") String password){
+    @RequestMapping(value="/registration", params = {"email","password"},method= RequestMethod.POST)
+    public String registration(ModelMap map, @RequestParam(value="email") String email,@RequestParam(value="password") String password){
         Visitatore v = new Visitatore(email,password,null,null);
         crud.insertVisitatore(v);
-        return "registration";
+        map.put("email",v.getMail());
+        map.put("password",v.getPassword());
+        return "index";
+    }
+    
+    @RequestMapping(value="/registrazione", method= RequestMethod.GET)
+    public String registrazione(){
+       return "registrazione";
     }
 }

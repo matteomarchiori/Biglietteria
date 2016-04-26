@@ -49,7 +49,7 @@
                                 <li><a href="about.html">Chi Siamo</a></li>
                                 <li><a href="tours.html">Esposizioni</a></li>
                                 <li><a href="contact.html">Biglietteria</a></li>
-                                <li><a href="login.html">Login</a></li>
+                                <li><a href="./login">Login</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -101,6 +101,8 @@
                             <div class="tm-yellow-gradient-bg tm-city-price-container">
                                 <span>Intero</span>
                                 <span>€8,00</span>
+                                <span>${email}</span>
+                                <span>${password}</span>
                             </div>
                         </a>
                     </div>
