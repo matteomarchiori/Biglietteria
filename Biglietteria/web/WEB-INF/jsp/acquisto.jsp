@@ -63,6 +63,37 @@ http://www.templatemo.com/tm-475-holiday
   		</div>
   	</div>
 
+        <section class="container tm-home-section-2">
+            <div class="registerText">
+              <div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
+              <div class="col-lg-4 col-md-6 col-sm-6"><h2 class="tm-section-title">Acquisto</h2></div>
+              <div class="col-lg-4 col-md-6 col-sm-3"><hr></div>
+            </div>
+            <div class="formPos">
+                <form action="#" method="post" class="hotel-search-form">
+                  <div class="tm-form-inner">
+                    <div class="form-group">
+                      <div class="col-lg-4 col-md-4 col-md-offset-3" align="center">
+                        <h4 align="left">Data della Visita :</h4>
+                                                    <div class="input-group date" id="datetimepicker1">
+                          <input type="text" class="form-control" placeholder="Check-in Date">
+                          <span class="input-group-addon">
+                              <span class="fa fa-calendar"></span>
+                          </span>
+                                                    </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 ">
+                        <div class="selButton" align="center">
+                          <button type="submit" name="submit" class="tm-yellow-btn">Seleziona</button>
+                        </div>
+                        </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+
+    </section>
 
     <footer class=" cssFooter">
       <div class="tm-black-bg">
