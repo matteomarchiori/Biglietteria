@@ -35,6 +35,15 @@ public class MainController {
        return "index";
     }
     
+    @RequestMapping(value="/index", method= RequestMethod.GET)
+    public String index2(ModelMap map){
+       List<Categoria> categorie = crud.selectCategorie();
+       for(int i=0;i<categorie.size();i++){
+           map.put("categoria"+(i+1), categorie.get(i));
+       }
+       return "index";
+    }
+    
     @RequestMapping(value="/login", method= RequestMethod.GET)
     public String login(){
        return "login";
@@ -62,5 +71,15 @@ public class MainController {
     @RequestMapping(value="/registrazione", method= RequestMethod.GET)
     public String registrazione(){
        return "registrazione";
+    }
+    
+    @RequestMapping(value="/tours", method=RequestMethod.GET)
+    public String tours(){
+        return "tours";
+    }
+    
+    @RequestMapping(value="/contact", method=RequestMethod.GET)
+    public String contact(){
+        return "contact";
     }
 }
