@@ -178,7 +178,7 @@
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
                     <div class="tm-home-box-2 tm-home-box-2-center">
-                        <img src="./resources/img/egizi3_index.jpg" alt="image" class="img-responsive">
+                        <img src="./resources/img/egizi3_index.JPG" alt="image" class="img-responsive">
                         <h3>Proin Gravida Nibhvel Lorem Quis Bind</h3>
                         <p class="tm-date">lorem ipsum</p>
                     </div>
