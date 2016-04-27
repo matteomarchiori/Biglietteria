@@ -182,7 +182,7 @@
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="tm-about-box-1">
-                            <a href="#"><img src="img/about-5.jpg" alt="img" class="tm-about-box-1-img"></a>
+                            <a href="#"><img src="./resources/img/about-5.jpg" alt="img" class="tm-about-box-1-img"></a>
                             <h3 class="tm-about-box-1-title"> Il Silenziatore </h3>
                             <p class="margin-bottom-15 gray-text">Proin gravida nibhvell aliquet. Aenean sollicitudin bibum auctor nisi elit.</p>
                             <div class="gray-text">
@@ -195,7 +195,7 @@
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="tm-about-box-1">
-                            <a href="#"><img src="img/about-6.jpg" alt="img" class="tm-about-box-1-img"></a>
+                            <a href="#"><img src="./resources/img/about-6.jpg" alt="img" class="tm-about-box-1-img"></a>
                             <h3 class="tm-about-box-1-title">La Spia</h3>
                             <p class="margin-bottom-15 gray-text">Proin gravida nibhvell aliquet. Aenean sollicitudin bibum auctor nisi elit.</p>
                             <div class="gray-text">
@@ -208,7 +208,7 @@
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="tm-about-box-1">
-                            <a href="#"><img src="img/about-7.jpg" alt="img" class="tm-about-box-1-img"></a>
+                            <a href="#"><img src="./resources/img/about-7.jpg" alt="img" class="tm-about-box-1-img"></a>
                             <h3 class="tm-about-box-1-title">Il destinato alle <br>Pubbliche Relazioni</h3>
                             <p class="margin-bottom-15 gray-text">Proin gravida nibhvell aliquet. Aenean sollicitudin bibum auctor nisi elit.</p>
                             <div class="gray-text">
@@ -236,10 +236,10 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
                         <div class="tm-tours-box-2">
-                            <img src="img/noimage.png" alt="image" class="img-responsive">
+                            <img src="./resources/img/noimage.png" alt="image" class="img-responsive">
                             <div class="tm-tours-box-2-info">
                                 <h3 class="margin-bottom-15">Proin Gravida Nibhvel Lorem Quis Bind</h3>
-                                <img src="img/rating.png" alt="image" class="margin-bottom-5">
+                                <img src="./resources/img/rating.png" alt="image" class="margin-bottom-5">
                                 <p>28 March 2084</p>
                             </div>
                             <a href="#" class="tm-tours-box-2-link">Scopri di più!</a>
@@ -247,10 +247,10 @@
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
                         <div class="tm-tours-box-2">
-                            <img src="img/noimage.png" alt="image" class="img-responsive">
+                            <img src="./resources/img/noimage.png" alt="image" class="img-responsive">
                             <div class="tm-tours-box-2-info">
                                 <h3 class="margin-bottom-15">Proin Gravida Nibhvel Lorem Quis Bind</h3>
-                                <img src="img/rating.png" alt="image" class="margin-bottom-5">
+                                <img src="./resources/img/rating.png" alt="image" class="margin-bottom-5">
                                 <p>26 March 2084</p>
                             </div>
                             <a href="#" class="tm-tours-box-2-link">Scopri di più!</a>
@@ -259,9 +259,9 @@
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
                         <div class="tm-tours-box-2">
                             <div class="tm-tours-box-2-info">
-                                <img src="img/noimage.png" alt="image" class="img-responsive">
+                                <img src="./resources/img/noimage.png" alt="image" class="img-responsive">
                                 <h3 class="margin-bottom-15">Proin Gravida Nibhvel Lorem Quis Bind</h3>
-                                <img src="img/rating.png" alt="image" class="margin-bottom-5">
+                                <img src="./resources/img/rating.png" alt="image" class="margin-bottom-5">
                                 <p>24 March 2084</p>
                             </div>
                             <a href="#" class="tm-tours-box-2-link">Scopri di più!</a>
@@ -269,10 +269,10 @@
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
                         <div class="tm-tours-box-2">
-                            <img src="img/noimage.png" alt="image" class="img-responsive">
+                            <img src="./resources/img/noimage.png" alt="image" class="img-responsive">
                             <div class="tm-tours-box-2-info">
                                 <h3 class="margin-bottom-15">Proin Gravida Nibhvel Lorem Quis Bind</h3>
-                                <img src="img/rating.png" alt="image" class="margin-bottom-5">
+                                <img src="./resources/img/rating.png" alt="image" class="margin-bottom-5">
                                 <p>22 March 2084</p>
                             </div>
                             <a href="#" class="tm-tours-box-2-link">Scopri di più!</a>
@@ -297,10 +297,10 @@
                 </div>
             </div>
         </footer>
-        <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>					<!-- bootstrap js -->
-        <script type="text/javascript" src="js/jquery.flexslider-min.js"></script>			<!-- flexslider js -->
-        <script type="text/javascript" src="js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
+        <script type="text/javascript" src="./resources/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
+        <script type="text/javascript" src="./resources/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
+        <script type="text/javascript" src="./resources/js/jquery.flexslider-min.js"></script>			<!-- flexslider js -->
+        <script type="text/javascript" src="./resources/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
         <script>
             $(function () {
 

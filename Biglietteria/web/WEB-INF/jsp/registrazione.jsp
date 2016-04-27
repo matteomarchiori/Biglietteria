@@ -18,11 +18,11 @@
         http://www.templatemo.com/tm-475-holiday
         -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
-        <link href="css/font-awesome.min.css" rel="stylesheet">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-        <link href="css/flexslider.css" rel="stylesheet">
-        <link href="css/templatemo-style.css" rel="stylesheet">
+        <link href="./resources/css/font-awesome.min.css" rel="stylesheet">
+        <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
+        <link href="./resources/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+        <link href="./resources/css/flexslider.css" rel="stylesheet">
+        <link href="./resources/css/templatemo-style.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -55,11 +55,11 @@
                         </div>
                         <nav class="tm-nav">
                             <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="about.html">Chi Siamo</a></li>
-                                <li><a href="tours.html">Esposizioni</a></li>
-                                <li><a href="contact.html">Contattaci</a></li>
-                                <li><a href="login.html">Login</a></li>
+                                <li><a href="./index">Home</a></li>
+                                <li><a href="./about">Chi Siamo</a></li>
+                                <li><a href="./tours">Esposizioni</a></li>
+                                <li><a href="./contact">Contattaci</a></li>
+                                <li><a href="./login">Login</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -138,3 +138,5 @@
                 </div>
             </div>
         </footer>
+    </body>
+</html>

@@ -17,11 +17,11 @@
         http://www.templatemo.com/tm-475-holiday
         -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
-        <link href="css/font-awesome.min.css" rel="stylesheet">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-        <link href="css/flexslider.css" rel="stylesheet">
-        <link href="css/templatemo-style.css" rel="stylesheet">
+        <link href="./resources/css/font-awesome.min.css" rel="stylesheet">
+        <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
+        <link href="./resources/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+        <link href="./resources/css/flexslider.css" rel="stylesheet">
+        <link href="./resources/css/templatemo-style.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,10 +45,10 @@
                         </div>
                         <nav class="tm-nav">
                             <ul>
-                                <li><a href="index.html" class="active">Home</a></li>
-                                <li><a href="about.html">Chi Siamo</a></li>
-                                <li><a href="tours.html">Esposizioni</a></li>
-                                <li><a href="contact.html">Biglietteria</a></li>
+                                <li><a href="./index" class="active">Home</a></li>
+                                <li><a href="./about">Chi Siamo</a></li>
+                                <li><a href="./tours">Esposizioni</a></li>
+                                <li><a href="./contact">Biglietteria</a></li>
                                 <li><a href="./login">Login</a></li>
                             </ul>
                         </nav>
@@ -69,7 +69,7 @@
                             <p class="tm-banner-subtitle">lorem ipsum</p>
                             <a href="#more" class="tm-banner-link">Learn More</a>
                         </div>
-                        <img src="img/egizi1_banner.jpg" alt="Image" />
+                        <img src="./resources/img/egizi1_banner.jpg" alt="Image" />
                     </li>
                     <li>
                         <div class="tm-banner-inner">
@@ -77,7 +77,7 @@
                             <p class="tm-banner-subtitle">Meravigliose Mostre</p>
                             <a href="#more" class="tm-banner-link">Learn More</a>
                         </div>
-                        <img src="img/egizi2_banner.jpg" alt="Image" />
+                        <img src="./resources/img/egizi2_banner.jpg" alt="Image" />
                     </li>
                     <li>
                         <div class="tm-banner-inner">
@@ -85,7 +85,7 @@
                             <p class="tm-banner-subtitle">Reperti Misteriosi</p>
                             <a href="#more" class="tm-banner-link">Learn More</a>
                         </div>
-                        <img src="img/egizi3_banner.jpg" alt="Image" />
+                        <img src="./resources/img/egizi3_banner.jpg" alt="Image" />
                     </li>
                 </ul>
             </div>
@@ -96,7 +96,7 @@
             <div class="row">
                 <div class="col-lg-2 col-md-2 col-sm-6">
                     <div class="tm-home-box-2">
-                        <img src="img/intero_icon.png" alt="image" class="img-responsive">
+                        <img src="./resources/img/intero_icon.png" alt="image" class="img-responsive">
                         <a href="#">
                             <div class="tm-yellow-gradient-bg tm-city-price-container">
                                 <span>Intero</span>
@@ -109,7 +109,7 @@
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-6">
                     <div class="tm-home-box-2">
-                        <img src="img/student_icon.png" alt="image" class="img-responsive">
+                        <img src="./resources/img/student_icon.png" alt="image" class="img-responsive">
                         <a href="#">
                             <div class="tm-yellow-gradient-bg tm-city-price-container">
                                 <span>Studente <br>(15-18 anni)</span>
@@ -120,7 +120,7 @@
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-6">
                     <div class="tm-home-box-2">
-                        <img src="img/children_icon.png" alt="image" class="img-responsive">
+                        <img src="./resources/img/children_icon.png" alt="image" class="img-responsive">
                         <a href="#">
                             <div class="tm-yellow-gradient-bg tm-city-price-container">
                                 <span>Bambino <br>(0-15 anni)</span>
@@ -131,7 +131,7 @@
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-6">
                     <div class="tm-home-box-2">
-                        <img src="img/disabled_icon.png" alt="image" class="img-responsive">
+                        <img src="./resources/img/disabled_icon.png" alt="image" class="img-responsive">
                         <a href="#">
                             <div class="tm-yellow-gradient-bg tm-city-price-container">
                                 <span>Anziani <br>& Disabili</span>
@@ -142,7 +142,7 @@
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-6">
                     <div class="tm-home-box-2">
-                        <img src="img/military_icon.png" alt="image" class="img-responsive">
+                        <img src="./resources/img/military_icon.png" alt="image" class="img-responsive">
                         <a href="#">
                             <div class="tm-yellow-gradient-bg tm-city-price-container">
                                 <span>Militari [-80%]</span>
@@ -164,42 +164,42 @@
             <div class="row">
                 <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
                     <div class="tm-home-box-2 tm-home-box-2-right">
-                        <img src="img/egizi1_index.jpg" alt="image" class="img-responsive">
+                        <img src="./resources/img/egizi1_index.jpg" alt="image" class="img-responsive">
                         <h3>Proin Gravida Nibhvel Lorem Quis Bind</h3>
                         <p class="tm-date">lorem ipsum</p>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
                     <div class="tm-home-box-2 tm-home-box-2-center">
-                        <img src="img/egizi2_index.jpg" alt="image" class="img-responsive">
+                        <img src="./resources/img/egizi2_index.jpg" alt="image" class="img-responsive">
                         <h3>Proin Gravida Nibhvel Lorem Quis Bind</h3>
                         <p class="tm-date">lorem ipsum</p>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
                     <div class="tm-home-box-2 tm-home-box-2-center">
-                        <img src="img/egizi3_index.jpg" alt="image" class="img-responsive">
+                        <img src="./resources/img/egizi3_index.jpg" alt="image" class="img-responsive">
                         <h3>Proin Gravida Nibhvel Lorem Quis Bind</h3>
                         <p class="tm-date">lorem ipsum</p>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
                     <div class="tm-home-box-2 tm-home-box-2-center">
-                        <img src="img/egizi4_index.jpg" alt="image" class="img-responsive">
+                        <img src="./resources/img/egizi4_index.jpg" alt="image" class="img-responsive">
                         <h3>Proin Gravida Nibhvel Lorem Quis Bind</h3>
                         <p class="tm-date">lorem ipsum</p>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
                     <div class="tm-home-box-2 tm-home-box-2-right">
-                        <img src="img/noimage.png" alt="image" class="img-responsive">
+                        <img src="./resources/img/noimage.png" alt="image" class="img-responsive">
                         <h3>Proin Gravida Nibhvel Lorem Quis Bind</h3>
                         <p class="tm-date">lorem ipsum</p>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
                     <div class="tm-home-box-2 tm-home-box-2-left">
-                        <img src="img/noimage.png" alt="image" class="img-responsive">
+                        <img src="./resources/img/noimage.png" alt="image" class="img-responsive">
                         <h3>Proin Gravida Nibhvel Lorem Quis Bind</h3>
                         <p class="tm-date">lorem ipsum</p>
                     </div>
@@ -224,7 +224,7 @@
                     <div class="col-lg-12">
                         <div class="tm-what-we-do-right">
                             <div class="tm-about-box-2 margin-bottom-30">
-                                <img src="img/egizi1_evento.jpg" alt="image" class="tm-about-box-2-img">
+                                <img src="./resources/img/egizi1_evento.jpg" alt="image" class="tm-about-box-2-img">
                                 <div class="tm-about-box-2-text">
                                     <h3 class="tm-about-box-2-title">Evento Esposizione 1</h3>
                                     <p class="tm-about-box-2-description gray-text">Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis.</p>
@@ -232,7 +232,7 @@
                                 </div>
                             </div>
                             <div class="tm-about-box-2">
-                                <img src="img/egizi2_evento.jpg" alt="image" class="tm-about-box-2-img">
+                                <img src="./resources/img/egizi2_evento.jpg" alt="image" class="tm-about-box-2-img">
                                 <div class="tm-about-box-2-text">
                                     <h3 class="tm-about-box-2-title">Evento Esposizione 2</h3>
                                     <p class="tm-about-box-2-description gray-text">Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis.</p>
@@ -244,19 +244,19 @@
                             <h3 class="tm-testimonials-title">Infobox</h3>
                             <div class="tm-testimonials-content">
                                 <div class="tm-testimonial">
-                                    <img src="img/clock.png" alt="image">
+                                    <img src="./resources/img/clock.png" alt="image">
                                     <p>
                                         <span><strong class="text-uppercase">Orari di Apertura</strong> <br> Lun: 9:00/14:00 <br> Mar-Dom: 8:30/19:30</span>
                                     </p>
                                 </div>
                                 <div class="tm-testimonial">
-                                    <img src="img/location.png" alt="image">
+                                    <img src="./resources/img/location.png" alt="image">
                                     <p>
                                         <span><strong class="text-uppercase">Indirizzo</strong> <br> Via Nome della Strada 10,<br> 35100 Padova </span>
                                     </p>
                                 </div>
                                 <div class="tm-testimonial">
-                                    <img src="img/mail.png" alt="image">
+                                    <img src="./resources/img/mail.png" alt="image">
                                     <p>
                                         <span><strong class="text-uppercase">Info & Prenotazioni</strong> <br> Tel. - 000 1111 222<br> info@museo.it</span>
                                     </p>
@@ -277,16 +277,16 @@
                 </div>
             </div>
         </footer>
-        <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
-        <script type="text/javascript" src="js/moment.js"></script>							<!-- moment.js -->
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>					<!-- bootstrap js -->
-        <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>	<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
-        <script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+        <script type="text/javascript" src="./resources/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
+        <script type="text/javascript" src="./resources/js/moment.js"></script>							<!-- moment.js -->
+        <script type="text/javascript" src="./resources/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
+        <script type="text/javascript" src="./resources/js/bootstrap-datetimepicker.min.js"></script>	<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
+        <script type="text/javascript" src="./resources/js/jquery.flexslider-min.js"></script>
         <!--
                 <script src="js/froogaloop.js"></script>
                 <script src="js/jquery.fitvid.js"></script>
         -->
-        <script type="text/javascript" src="js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
+        <script type="text/javascript" src="./resources/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
         <script>
             // HTML document is loaded. DOM is ready.
             $(function () {
