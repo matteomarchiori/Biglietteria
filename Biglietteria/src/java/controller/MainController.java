@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import mappa.*;
 import hibernate.*;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -59,12 +60,13 @@ public class MainController {
        return "about";
     }
     
-    @RequestMapping(value="/registration", params = {"email","password"},method= RequestMethod.POST)
-    public String registration(ModelMap map, @RequestParam(value="email") String email,@RequestParam(value="password") String password){
-        Visitatore v = new Visitatore(email,password,null,null);
+    @RequestMapping(value="/registration", params = {"email","password","numeroCarta","tipoCarta","scadenza"},method= RequestMethod.POST)
+    public String registration(@RequestParam(value="email") String email,@RequestParam(value="password") String password, @RequestParam(value="numeroCarta") String numeroCarta, @RequestParam(value="tipoCarta") String tipoCarta, @RequestParam(value="scadenza") Date scadenza){
+        
+        
+        CartaDiCredito carta=null;
+        Visitatore v = new Visitatore(email,password,carta,null);
         crud.insertVisitatore(v);
-        map.put("email",v.getMail());
-        map.put("password",v.getPassword());
         return "index";
     }
     

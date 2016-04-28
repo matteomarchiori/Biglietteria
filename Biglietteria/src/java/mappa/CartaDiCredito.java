@@ -10,7 +10,6 @@ import java.util.Date;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -26,9 +25,9 @@ public class CartaDiCredito implements Serializable {
     
     //variabili esemplare
     
-    @Id @GeneratedValue
+    @Id
     @Column(name="numero")
-    private int numeroCarta;
+    private String numeroCarta;
 
     @Column(name="tipo")
     private String tipoCarta;
@@ -37,23 +36,19 @@ public class CartaDiCredito implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date scadenza;
     
-    @Column(name="descrizione")
-    private String descrizione;
-    
     @OneToMany(mappedBy="carta")
     private Set<Visitatore> visitatori;
 
     public CartaDiCredito() {
     }//costruttore
 
-    public CartaDiCredito(String tipoCarta, Date scadenza, String descrizione, Set<Visitatore> visitatori) {
+    public CartaDiCredito(String tipoCarta, Date scadenza, Set<Visitatore> visitatori) {
         this.tipoCarta = tipoCarta;
         this.scadenza = scadenza;
-        this.descrizione = descrizione;
         this.visitatori = visitatori;
     }
 
-    public int getNumeroCarta() {
+    public String getNumeroCarta() {
         return numeroCarta;
     }
 
@@ -65,15 +60,11 @@ public class CartaDiCredito implements Serializable {
         return scadenza;
     }
 
-    public String getDescrizione() {
-        return descrizione;
-    }
-
     public Set<Visitatore> getVisitatori() {
         return visitatori;
     }
 
-    public void setNumeroCarta(int numeroCarta) {
+    public void setNumeroCarta(String numeroCarta) {
         this.numeroCarta = numeroCarta;
     }
 
@@ -83,10 +74,6 @@ public class CartaDiCredito implements Serializable {
 
     public void setScadenza(Date scadenza) {
         this.scadenza = scadenza;
-    }
-
-    public void setDescrizione(String descrizione) {
-        this.descrizione = descrizione;
     }
 
     public void setVisitatori(Set<Visitatore> visitatori) {

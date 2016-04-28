@@ -74,7 +74,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-3"><hr></div>
             </div>
             <div class="col-lg-6 col-sm-6 col-lg-offset-3">
-                <form action="./registration${email}${password}" method="post" class="hotel-search-form">
+                <form action="./registration${email}${password}${tipoCarta}" method="post" class="hotel-search-form">
                     <div class="tm-form-inner">
                         <div class="form-group">
                             <div class="inner-addon left-addon">
@@ -90,7 +90,7 @@
                         <div class="form-group">
                             <div class="inner-addon left-addon">
                                 <h4>Tipo :
-                                    <select>
+                                    <select name="tipoCarta">
                                         <option value="mastercard">MasterCard</option>
                                         <option value="paypal">PayPal</option>
                                         <option value="americanexpress">American Express</option>
