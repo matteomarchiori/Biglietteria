@@ -143,6 +143,14 @@ http://www.templatemo.com/tm-475-holiday
               </div>
             </div>
           </form>
+          <div class="infoBox">
+            <div class="loginTitle" align="center">
+              <h3 class="tm-section-title-box"> Riassunto Informazioni </h3>
+            </div>
+            <div class="col-lg-4 col-md-4 col-md-offset-9">
+              <button type="submit" name="submit" class="tm-yellow-btn selButton">Seleziona</button>
+            </div>
+          </div>
       </div>
     </section>
 
