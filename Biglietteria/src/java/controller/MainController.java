@@ -45,14 +45,13 @@ public class MainController {
        return "index";
     }
     
-    @RequestMapping(value="/login", method= RequestMethod.GET)
-    public String login(){
-       return "login";
-    }
-    
-    @RequestMapping(value="/log", method= RequestMethod.GET)
-    public String log(){
-       return "log";
+    @RequestMapping(value="/login", method= RequestMethod.POST)
+    public String login(@RequestParam(value="email") String email,@RequestParam(value="password") String password){
+       Visitatore v = crud.selectVisitatore(email);
+       if (v!=null){
+           if(v.getPassword().equals(password)) return "index";
+           else return "login";
+       } return "login";  
     }
     
     @RequestMapping(value="/about", method= RequestMethod.GET)

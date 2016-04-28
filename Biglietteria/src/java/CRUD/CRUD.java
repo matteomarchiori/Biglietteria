@@ -58,6 +58,44 @@ public class CRUD {
         }
     }
     
+     public List selectVisitatori(){
+        Session sessione = factory.openSession();
+        Transaction transazione = null;
+        SQLQuery query;
+        try{
+            transazione = sessione.beginTransaction();
+            query = sessione.createSQLQuery("select * from VISITATORI").addEntity(Visitatore.class);
+            List<Visitatore> visitatori = query.list();
+            transazione.commit();
+            return visitatori;
+        }catch(HibernateException e){
+            if(transazione!=null) transazione.rollback();
+        }finally{
+            sessione.close();
+        }
+        return null;
+    }
+     
+    public Visitatore selectVisitatore(Integer numero){
+        List visitatori = selectVisitatori();
+        Visitatore v;
+        for(Iterator i = visitatori.iterator();i.hasNext();){
+            v = (Visitatore)i.next();
+            if(v.getNumero()==numero)return v;
+        }
+        return null;
+    }
+    
+    public Visitatore selectVisitatore(String mail){
+        List visitatori = selectVisitatori();
+        Visitatore v;
+        for(Iterator i = visitatori.iterator();i.hasNext();){
+            v = (Visitatore)i.next();
+            if(v.getMail().equals(mail))return v;
+        }
+        return null;
+    }
+    
     public List selectCategorie(){
         Session sessione = factory.openSession();
         Transaction transazione = null;
@@ -85,145 +123,4 @@ public class CRUD {
         }
         return null;
     }
-    /*
-    public List leggiDipartimenti(){
-        Session sessione = factory.openSession();
-        Transaction transazione = null;
-        try{
-            transazione = sessione.beginTransaction();
-            List dipartimenti = sessione.createQuery("FROM Dipartimento").list();
-            transazione.commit();
-            return dipartimenti;
-        }catch(HibernateException e){
-            if(transazione!=null) transazione.rollback();
-        }finally{
-            sessione.close();
-        }
-        return null;
-    }
-    
-    public Dipartimento leggiDipartimento(Integer id){
-        List dipartimenti = leggiDipartimenti();
-        Dipartimento d;
-        for(Iterator i = dipartimenti.iterator();i.hasNext();){
-            d = (Dipartimento)i.next();
-            if(d.getId()==id)return d;
-        }
-        return null;
-    }
-    
-    public void modificaDipartimento(Integer id, String nome){
-        Session sessione = factory.openSession();
-        Transaction transazione = null;
-        try{
-            transazione = sessione.beginTransaction();
-            Dipartimento d = (Dipartimento) sessione.get(Dipartimento.class,id);
-            d.setNome(nome);
-            sessione.update(d);
-            transazione.commit();
-        }catch(HibernateException e){
-            if(transazione!=null) transazione.rollback();
-        }finally{
-            sessione.close();
-        }
-    }
-    
-    public void eliminaDipartimento(Integer id){
-        Session sessione = factory.openSession();
-        Transaction transazione = null;
-        try{
-            transazione = sessione.beginTransaction();
-            Dipartimento d = (Dipartimento) sessione.get(Dipartimento.class, id);
-            sessione.delete(d);
-            transazione.commit();
-        }catch(HibernateException e){
-            if(transazione!=null) transazione.rollback();
-        }finally{
-            sessione.close();
-        }
-    }
-    
-    public void aggiungiPersona(Persona p){
-        Session sessione = factory.openSession();
-        Transaction transazione = null;
-        try{
-            transazione = sessione.beginTransaction();
-            sessione.save(p);
-            transazione.commit();
-        }catch(HibernateException e){
-            if(transazione!=null)transazione.rollback();
-        }
-        finally{
-            sessione.close();
-        }
-    }
-    
-    public List leggiPersone(){
-        Session sessione = factory.openSession();
-        Transaction transazione = null;
-        try{
-            transazione = sessione.beginTransaction();
-            List jobs = sessione.createQuery("FROM Persona").list();
-            transazione.commit();
-            return jobs;
-        }catch(HibernateException e){
-            if(transazione!=null) transazione.rollback();
-        }finally{
-            sessione.close();
-        }
-        return null;
-    }
-    
-    public Persona leggiPersona(Integer id){
-        List jobs = leggiPersone();
-        Persona p;
-        for(Iterator i = jobs.iterator();i.hasNext();){
-            p = (Persona)i.next();
-            if(p.getId()==id)return p;
-        }
-        return null;
-    }
-    
-    public void aggiungiJob(Job j){
-        Session sessione = factory.openSession();
-        Transaction transazione = null;
-        try{
-            transazione = sessione.beginTransaction();
-            sessione.save(j);
-            transazione.commit();
-        }catch(HibernateException e){
-            if(transazione!=null)transazione.rollback();
-        }
-        finally{
-            sessione.close();
-        }
-    }
-    
-    public List leggiJobs(){
-        Session sessione = factory.openSession();
-        Transaction transazione = null;
-        try{
-            transazione = sessione.beginTransaction();
-            List jobs = sessione.createQuery("FROM Job").list();
-            transazione.commit();
-            return jobs;
-        }catch(HibernateException e){
-            if(transazione!=null) transazione.rollback();
-        }finally{
-            sessione.close();
-        }
-        return null;
-    }
-    
-    public Job leggiJob(Integer id){
-        List jobs = leggiJobs();
-        Job j;
-        for(Iterator i = jobs.iterator();i.hasNext();){
-            j = (Job)i.next();
-            if(j.getId()==id)return j;
-        }
-        return null;
-    }
-*/
-    
-}//CRUD
+}

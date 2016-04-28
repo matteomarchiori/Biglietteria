@@ -99,10 +99,8 @@
                         <img src="./resources/img/intero_icon.png" alt="image" class="img-responsive">
                         <a href="#">
                             <div class="tm-yellow-gradient-bg tm-city-price-container">
-                                <span>Intero</span>
+                                <span>{categoria1.descrizione}</span>
                                 <span>€8,00</span>
-                                <span>${email}</span>
-                                <span>${password}</span>
                             </div>
                         </a>
                     </div>
@@ -113,7 +111,7 @@
                         <a href="#">
                             <div class="tm-yellow-gradient-bg tm-city-price-container">
                                 <span>Studente <br>(15-18 anni)</span>
-                                <span>[-25%]</span>
+                                <span>[-{categoria2.sconto}%]</span>
                             </div>
                         </a>
                     </div>
