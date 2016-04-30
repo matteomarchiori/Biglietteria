@@ -45,7 +45,12 @@ public class MainController {
        return "index";
     }
     
-    @RequestMapping(value="/login", method= RequestMethod.POST)
+    @RequestMapping(value="/login", method= RequestMethod.GET)
+    public String login(){
+       return "login";  
+    }
+    
+    @RequestMapping(value="/log", method= RequestMethod.POST)
     public String login(@RequestParam(value="email") String email,@RequestParam(value="password") String password){
        Visitatore v = crud.selectVisitatore(email);
        if (v!=null){
@@ -61,8 +66,6 @@ public class MainController {
     
     @RequestMapping(value="/registration", params = {"email","password","numeroCarta","tipoCarta","scadenza"},method= RequestMethod.POST)
     public String registration(@RequestParam(value="email") String email,@RequestParam(value="password") String password, @RequestParam(value="numeroCarta") String numeroCarta, @RequestParam(value="tipoCarta") String tipoCarta, @RequestParam(value="scadenza") Date scadenza){
-        
-        
         CartaDiCredito carta=null;
         Visitatore v = new Visitatore(email,password,carta,null);
         crud.insertVisitatore(v);
