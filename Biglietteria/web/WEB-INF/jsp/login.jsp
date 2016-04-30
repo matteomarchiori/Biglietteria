@@ -99,7 +99,7 @@
                     <div class="loginTitle" align="center">
                         <h3> Login </h3>
                     </div>
-                    <form action="#" method="post" class="hotel-search-form">
+                    <form action="./log${email}${password}" method="post" class="hotel-search-form">
                         <div class="tm-form-inner">
                             <div class="form-group">
                                 <div class="inner-addon left-addon">

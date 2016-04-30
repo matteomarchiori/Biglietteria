@@ -123,4 +123,32 @@ public class CRUD {
         }
         return null;
     }
+    
+     public List selectCarte(){
+        Session sessione = factory.openSession();
+        Transaction transazione = null;
+        SQLQuery query;
+        try{
+            transazione = sessione.beginTransaction();
+            query = sessione.createSQLQuery("select * from CARTEDICREDITO").addEntity(CartaDiCredito.class);
+            List<CartaDiCredito> carte = query.list();
+            transazione.commit();
+            return carte;
+        }catch(HibernateException e){
+            if(transazione!=null) transazione.rollback();
+        }finally{
+            sessione.close();
+        }
+        return null;
+    }
+    
+    public CartaDiCredito selectCarta(String numero){
+        List carte = selectCarte();
+        CartaDiCredito c;
+        for(Iterator i = carte.iterator();i.hasNext();){
+            c = (CartaDiCredito)i.next();
+            if(c.getNumeroCarta().equals(numero))return c;
+        }
+        return null;  
+    }
 }

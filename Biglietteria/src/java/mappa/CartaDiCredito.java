@@ -42,7 +42,8 @@ public class CartaDiCredito implements Serializable {
     public CartaDiCredito() {
     }//costruttore
 
-    public CartaDiCredito(String tipoCarta, Date scadenza, Set<Visitatore> visitatori) {
+    public CartaDiCredito(String numero, String tipoCarta, Date scadenza, Set<Visitatore> visitatori) {
+        this.numeroCarta = numero;
         this.tipoCarta = tipoCarta;
         this.scadenza = scadenza;
         this.visitatori = visitatori;

@@ -102,7 +102,7 @@
                         <div class="form-group">
                             <div class="inner-addon left-addon">
                                 <h4>Numero Carta di Credito :</h4>
-                                <input type="text" id="cartadicredito" class="form-control" placeholder="Numero Carta di Credito" required="" autofocus="">
+                                <input type="text" name="numeroCarta" id="cartadicredito" class="form-control" placeholder="Numero Carta di Credito" required="" autofocus="">
                             </div>
                         </div>
                         <div class="form-group">
