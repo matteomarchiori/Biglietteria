@@ -5,7 +5,6 @@
  */
 package CRUD;
 
-import java.util.Iterator;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -77,21 +76,37 @@ public class CRUD {
     }
      
     public Visitatore selectVisitatore(Integer numero){
-        List visitatori = selectVisitatori();
-        Visitatore v;
-        for(Iterator i = visitatori.iterator();i.hasNext();){
-            v = (Visitatore)i.next();
-            if(v.getNumero()==numero)return v;
+        Session sessione = factory.openSession();
+        Transaction transazione = null;
+        SQLQuery query;
+        try{
+            transazione = sessione.beginTransaction();
+            query = sessione.createSQLQuery("select * from VISITATORI where numero = "+numero+";").addEntity(Visitatore.class);
+            Visitatore v = (Visitatore) query.list().get(0);
+            transazione.commit();
+            return v;
+        }catch(HibernateException e){
+            if(transazione!=null) transazione.rollback();
+        }finally{
+            sessione.close();
         }
         return null;
     }
     
     public Visitatore selectVisitatore(String mail){
-        List visitatori = selectVisitatori();
-        Visitatore v;
-        for(Iterator i = visitatori.iterator();i.hasNext();){
-            v = (Visitatore)i.next();
-            if(v.getMail().equals(mail))return v;
+       Session sessione = factory.openSession();
+        Transaction transazione = null;
+        SQLQuery query;
+        try{
+            transazione = sessione.beginTransaction();
+            query = sessione.createSQLQuery("select * from VISITATORI where mail = "+mail+";").addEntity(Visitatore.class);
+            Visitatore v = (Visitatore) query.list().get(0);
+            transazione.commit();
+            return v;
+        }catch(HibernateException e){
+            if(transazione!=null) transazione.rollback();
+        }finally{
+            sessione.close();
         }
         return null;
     }
@@ -115,11 +130,19 @@ public class CRUD {
     }
     
     public Categoria selectCategoria(Integer codice){
-        List categorie = selectCategorie();
-        Categoria c;
-        for(Iterator i = categorie.iterator();i.hasNext();){
-            c = (Categoria)i.next();
-            if(c.getCodice()==codice)return c;
+        Session sessione = factory.openSession();
+        Transaction transazione = null;
+        SQLQuery query;
+        try{
+            transazione = sessione.beginTransaction();
+            query = sessione.createSQLQuery("select * from CATEGORIE where codice = "+codice+";").addEntity(Categoria.class);
+            Categoria c = (Categoria) query.list().get(0);
+            transazione.commit();
+            return c;
+        }catch(HibernateException e){
+            if(transazione!=null) transazione.rollback();
+        }finally{
+            sessione.close();
         }
         return null;
     }
@@ -143,12 +166,20 @@ public class CRUD {
     }
     
     public CartaDiCredito selectCarta(String numero){
-        List carte = selectCarte();
-        CartaDiCredito c;
-        for(Iterator i = carte.iterator();i.hasNext();){
-            c = (CartaDiCredito)i.next();
-            if(c.getNumeroCarta().equals(numero))return c;
+        Session sessione = factory.openSession();
+        Transaction transazione = null;
+        SQLQuery query;
+        try{
+            transazione = sessione.beginTransaction();
+            query = sessione.createSQLQuery("select * from CARTEDICREDITO where numero = "+numero+";").addEntity(CartaDiCredito.class);
+            CartaDiCredito c = (CartaDiCredito) query.list().get(0);
+            transazione.commit();
+            return c;
+        }catch(HibernateException e){
+            if(transazione!=null) transazione.rollback();
+        }finally{
+            sessione.close();
         }
-        return null;  
+        return null;
     }
 }
