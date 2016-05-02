@@ -11,10 +11,10 @@
     </head>
 
     <body>
-        <a href="./register">Registrati</a>
-        <c:forEach items="${categorie}" var="categoria">
-            ${categoria.descrizione}
-            <br/>
-        </c:forEach>
+        <%
+        
+        session.getId();
+        
+        %>
     </body>
 </html>

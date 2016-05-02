@@ -57,6 +57,20 @@ public class CRUD {
         }
     }
     
+    public void insertCarta(CartaDiCredito c){
+        Session sessione = factory.openSession();
+        Transaction transazione = null;
+        try{
+            transazione = sessione.beginTransaction();
+            sessione.save(c);
+            transazione.commit();
+        }catch(HibernateException e){
+            if(transazione!=null) transazione.rollback();
+        }finally{
+            sessione.close();
+        }
+    }
+    
      public List selectVisitatori(){
         Session sessione = factory.openSession();
         Transaction transazione = null;
@@ -171,8 +185,9 @@ public class CRUD {
         SQLQuery query;
         try{
             transazione = sessione.beginTransaction();
+            CartaDiCredito c = null;
             query = sessione.createSQLQuery("select * from CARTEDICREDITO where numero = "+numero+";").addEntity(CartaDiCredito.class);
-            CartaDiCredito c = (CartaDiCredito) query.list().get(0);
+            if(!query.list().isEmpty()) c = (CartaDiCredito) query.list().get(0);
             transazione.commit();
             return c;
         }catch(HibernateException e){

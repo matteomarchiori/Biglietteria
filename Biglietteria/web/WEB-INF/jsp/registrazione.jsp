@@ -74,7 +74,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-3"><hr></div>
             </div>
             <div class="col-lg-6 col-sm-6 col-lg-offset-3">
-                <form action="./registration${email}${password}${tipoCarta}" method="post" class="hotel-search-form">
+                <form action="./registration${email}${password}${numeroCarta}${tipoCarta}${scadenzaMM}${scadenzaYY}" method="post" class="hotel-search-form">
                     <div class="tm-form-inner">
                         <div class="form-group">
                             <div class="inner-addon left-addon">
@@ -108,13 +108,13 @@
                         <div class="form-group">
                             <h4> Data di Scadenza :</h4>
                             <div class="col-lg-2 col-md-2">
-                                <input type="text" id="inputPassword" class="form-control" placeholder="MM" required="" autofocus="">
+                                <input type="text" id="inputPassword" name="scadenzaMM" class="form-control" placeholder="MM" required="" autofocus="">
                             </div>
                             <div class="col-lg-2 col-md-2" align="center">
                                 <h4 align="center">/</h4>
                             </div>
                             <div class="col-lg-2 col-md-2">
-                                <input type="text" id="inputPassword" class="form-control" placeholder="YY" required="" autofocus="">
+                                <input type="text" id="inputPassword" name="scadenzaYY" class="form-control" placeholder="YY" required="" autofocus="">
                             </div>
                         </div>
                         <div class="form-group">

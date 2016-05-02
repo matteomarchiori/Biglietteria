@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import mappa.*;
 import hibernate.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class MainController {
@@ -52,11 +54,13 @@ public class MainController {
     }
     
     @RequestMapping(value = "/log", method = RequestMethod.POST)
-    public String login(@RequestParam(value="email") String email,@RequestParam(value="password") String password){
+    public String login(HttpSession session,@RequestParam(value="email") String email,@RequestParam(value="password") String password){
        Visitatore v = crud.selectVisitatore(email);
        if (v!=null){
            if(v.getPassword().equals(password)) {
-               return "index";
+               session.setAttribute("email",email);
+               session.setAttribute("password",password);
+               return "acquisto";
            }
            else return "registrazione";
        } return "registrazione";  
@@ -69,17 +73,25 @@ public class MainController {
     
     @RequestMapping(value="/registration", params = {"email","password","numeroCarta","tipoCarta","scadenzaMM","scadenzaYY"},method= RequestMethod.POST)
     public String registration(@RequestParam(value="email") String email,@RequestParam(value="password") String password, @RequestParam(value="numeroCarta") String numeroCarta, @RequestParam(value="tipoCarta") String tipoCarta, @RequestParam(value="scadenzaMM") int mm, @RequestParam(value="scadenzaYY") int yy){
-        Date scadenza = new Date(yy,mm,0);
+        
         CartaDiCredito c = crud.selectCarta(numeroCarta);
-        Visitatore v = new Visitatore(email,password,c,null);
-        if(c.getNumeroCarta().equals(numeroCarta)){
+        if(c!=null){
+            Visitatore v = new Visitatore(email,password,c,null);
             Set<Visitatore> visitatori = c.getVisitatori();
             visitatori.add(v);
             c.setVisitatori(visitatori);
+            crud.insertVisitatore(v);
         }
-        CartaDiCredito carta= new CartaDiCredito(numeroCarta,tipoCarta,scadenza,null);
-        
-        crud.insertVisitatore(v);
+        else{
+            Date scadenza = new Date(yy,mm,1);
+            CartaDiCredito carta = new CartaDiCredito(numeroCarta,tipoCarta,scadenza,null);
+            Visitatore v = new Visitatore(email,password,c,null);
+            Set<Visitatore> visitatori = new HashSet<>();
+            visitatori.add(v);
+            carta.setVisitatori(visitatori);
+            crud.insertCarta(carta);
+            crud.insertVisitatore(v);
+        } 
         return "index";
     }
     

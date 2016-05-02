@@ -38,6 +38,9 @@
         </style>
     </head>
     <body class="tm-gray-bg">
+        <%
+        out.print(session.getAttribute("email"));
+        %>
         <!-- Header -->
         <div class="tm-header">
             <div class="container">
