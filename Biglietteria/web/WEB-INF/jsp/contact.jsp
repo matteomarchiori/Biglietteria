@@ -37,7 +37,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-md-3 col-sm-1 tm-site-name-container">
-                        <a href="#" class="tm-site-name">Museo</a>
+                        <a href="./index" class="tm-site-name">Museo</a>
                     </div>
                     <div class="col-lg-8 col-md-9 col-sm-11">
                         <div class="mobile-menu-icon">
@@ -49,7 +49,13 @@
                                 <li><a href="./about">Chi Siamo</a></li>
                                 <li><a href="./tours">Esposizioni</a></li>
                                 <li><a href="./contact" class="active">Contattaci</a></li>
-                                <li><a href="./login">Login</a></li>
+                                <%
+                                        if (session.getAttribute("email") == null) {
+                                            out.print("<li><a href=\"./login\">Login</a></li>");
+                                        } else {
+                                            out.print("<li><a href=\"./logout\">Logout</a></li>");
+                                        }
+                                    %>
                             </ul>
                         </nav>
                     </div>
@@ -66,7 +72,10 @@
                         <div class="tm-banner-inner">
                             <h1 class="tm-banner-title">Visita il <span class="tm-yellow-text">Miglior</span> Museo Egizio</h1>
                             <p class="tm-banner-subtitle">lorem ipsum</p>
-                            <a href="#more" class="tm-banner-link">Learn More</a>
+                            <%
+                            if(session.getAttribute("email")==null)out.print("<a href=\"./login\" class=\"tm-banner-link\">Area acquisti</a>");
+                            else out.print("<a href=\"./acquisto\" class=\"tm-banner-link\">Area acquisti</a>");
+                            %>
                         </div>
                         <img src="./resources/img/egizi1_banner.jpg" alt="Image" />
                     </li>
@@ -74,7 +83,10 @@
                         <div class="tm-banner-inner">
                             <h1 class="tm-banner-title">Lorem <span class="tm-yellow-text">Ipsum</span> Dolor</h1>
                             <p class="tm-banner-subtitle">Meravigliose Mostre</p>
-                            <a href="#more" class="tm-banner-link">Learn More</a>
+                            <%
+                            if(session.getAttribute("email")==null)out.print("<a href=\"./login\" class=\"tm-banner-link\">Area acquisti</a>");
+                            else out.print("<a href=\"./acquisto\" class=\"tm-banner-link\">Area acquisti</a>");
+                            %>
                         </div>
                         <img src="./resources/img/egizi2_banner.jpg" alt="Image" />
                     </li>
@@ -82,7 +94,10 @@
                         <div class="tm-banner-inner">
                             <h1 class="tm-banner-title">Proin <span class="tm-yellow-text">Gravida</span> Nibhvell</h1>
                             <p class="tm-banner-subtitle">Reperti Misteriosi</p>
-                            <a href="#more" class="tm-banner-link">Learn More</a>
+                            <%
+                            if(session.getAttribute("email")==null)out.print("<a href=\"./login\" class=\"tm-banner-link\">Area acquisti</a>");
+                            else out.print("<a href=\"./acquisto\" class=\"tm-banner-link\">Area acquisti</a>");
+                            %>
                         </div>
                         <img src="./resources/img/egizi3_banner.jpg" alt="Image" />
                     </li>

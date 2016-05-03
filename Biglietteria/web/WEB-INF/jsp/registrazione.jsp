@@ -47,7 +47,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-md-3 col-sm-1 tm-site-name-container">
-                        <a href="#" class="tm-site-name">Museo</a>
+                        <a href="./index" class="tm-site-name">Museo</a>
                     </div>
                     <div class="col-lg-8 col-md-9 col-sm-11">
                         <div class="mobile-menu-icon">

@@ -113,7 +113,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-md-3 col-sm-1 tm-site-name-container">
-                        <a href="#" class="tm-site-name">Museo</a>
+                        <a href="./index" class="tm-site-name">Museo</a>
                     </div>
                     <div class="col-lg-8 col-md-9 col-sm-11">
                         <div class="mobile-menu-icon">
@@ -121,16 +121,17 @@
                         </div>
                         <nav class="tm-nav">
                             <ul>
-                                <li><a href="./login">Home</a></li>
+                                <li><a href="./index">Home</a></li>
                                 <li><a href="./about">Chi Siamo</a></li>
                                 <li><a href="./tours">Esposizioni</a></li>
                                 <li><a href="./contact">Contattaci</a></li>
-                                <li>
-                                    <% 
-                                        if(session.getAttribute("email")==null) out.print("<a href=\"./login\">Login</a>");
-                                        else out.print("<a href=\"./logout\">Logout</a>");
+                                <%
+                                        if (session.getAttribute("email") == null) {
+                                            out.print("<li><a href=\"./login\">Login</a></li>");
+                                        } else {
+                                            out.print("<li><a href=\"./logout\">Logout</a></li>");
+                                        }
                                     %>
-                                </li>
                             </ul>
                         </nav>
                     </div>

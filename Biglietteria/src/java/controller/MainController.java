@@ -53,6 +53,16 @@ public class MainController {
        return "login";  
     }
     
+    @RequestMapping(value="/logout", method= RequestMethod.GET)
+    public String logout(HttpSession session,ModelMap map){
+        session.invalidate();
+        List<Categoria> categorie = crud.selectCategorie();
+        for(int i=0;i<categorie.size();i++){
+           map.put("categoria"+(i+1), categorie.get(i));
+       }
+        return "index";  
+    }
+    
     @RequestMapping(value = "/log", params = {"email","password"}, method = RequestMethod.POST)
     public String log(@RequestParam(value="email") String email,@RequestParam(value="password") String password,HttpSession session){
        Visitatore v = crud.selectVisitatore(email);
@@ -62,13 +72,19 @@ public class MainController {
                session.setAttribute("password", password);
                return "acquisto";
            }
-           else return "registrazione";
+           return "registrazione";
        } return "registrazione";  
     }
     
     @RequestMapping(value="/about", method= RequestMethod.GET)
     public String about(){
        return "about";
+    }
+    
+    @RequestMapping(value="/acquisto", method= RequestMethod.GET)
+    public String acquisto(HttpSession session){
+        if(session.getAttribute("email")!=null) return "acquisto";
+        return "login";
     }
     
     @RequestMapping(value="/registration", params = {"email","password","numeroCarta","tipoCarta","scadenzaMM","scadenzaYY"},method= RequestMethod.POST)
