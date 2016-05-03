@@ -53,13 +53,12 @@ public class MainController {
        return "login";  
     }
     
-    @RequestMapping(value = "/log", method = RequestMethod.POST)
-    public String login(HttpSession session,@RequestParam(value="email") String email,@RequestParam(value="password") String password){
+    @RequestMapping(value = "/log", params = {"email","password"} , method = RequestMethod.POST)
+    public String login(ModelMap map,@RequestParam(value="email") String email,@RequestParam(value="password") String password){
        Visitatore v = crud.selectVisitatore(email);
        if (v!=null){
+           
            if(v.getPassword().equals(password)) {
-               session.setAttribute("email",email);
-               session.setAttribute("password",password);
                return "acquisto";
            }
            else return "registrazione";
@@ -73,19 +72,15 @@ public class MainController {
     
     @RequestMapping(value="/registration", params = {"email","password","numeroCarta","tipoCarta","scadenzaMM","scadenzaYY"},method= RequestMethod.POST)
     public String registration(@RequestParam(value="email") String email,@RequestParam(value="password") String password, @RequestParam(value="numeroCarta") String numeroCarta, @RequestParam(value="tipoCarta") String tipoCarta, @RequestParam(value="scadenzaMM") int mm, @RequestParam(value="scadenzaYY") int yy){
-        
         CartaDiCredito c = crud.selectCarta(numeroCarta);
         if(c!=null){
             Visitatore v = new Visitatore(email,password,c,null);
-            Set<Visitatore> visitatori = c.getVisitatori();
-            visitatori.add(v);
-            c.setVisitatori(visitatori);
             crud.insertVisitatore(v);
         }
         else{
-            Date scadenza = new Date(yy,mm,1);
+            Date scadenza = new Date(100+yy,mm-1,1);
             CartaDiCredito carta = new CartaDiCredito(numeroCarta,tipoCarta,scadenza,null);
-            Visitatore v = new Visitatore(email,password,c,null);
+            Visitatore v = new Visitatore(email,password,carta,null);
             Set<Visitatore> visitatori = new HashSet<>();
             visitatori.add(v);
             carta.setVisitatori(visitatori);

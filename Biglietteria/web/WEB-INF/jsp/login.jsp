@@ -103,12 +103,12 @@
                         <div class="tm-form-inner">
                             <div class="form-group">
                                 <div class="inner-addon left-addon">
-                                    <h4>Email :</h4><input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+                                    <h4>Email :</h4><input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="inner-addon left-addon">
-                                    <h4>Password :</h4><input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" autofocus="">
+                                    <h4>Password :</h4><input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="" autofocus="">
                                 </div>
                                 <div class="checkbox">
                                     <label>

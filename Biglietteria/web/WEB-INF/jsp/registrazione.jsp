@@ -42,6 +42,8 @@
         </style>
     </head>
     <body class="tm-gray-bg">
+        ${email}
+        ${password}
         <!-- Header -->
         <div class="tm-header">
             <div class="container">

@@ -96,7 +96,8 @@ public class CRUD {
         try{
             transazione = sessione.beginTransaction();
             query = sessione.createSQLQuery("select * from VISITATORI where numero = "+numero+";").addEntity(Visitatore.class);
-            Visitatore v = (Visitatore) query.list().get(0);
+            Visitatore v = null;
+            if(!query.list().isEmpty()) v = (Visitatore) query.list().get(0);
             transazione.commit();
             return v;
         }catch(HibernateException e){
@@ -113,7 +114,7 @@ public class CRUD {
         SQLQuery query;
         try{
             transazione = sessione.beginTransaction();
-            query = sessione.createSQLQuery("select * from VISITATORI where mail = "+mail+";").addEntity(Visitatore.class);
+            query = sessione.createSQLQuery("select * from VISITATORI where mail = \""+mail+"\";").addEntity(Visitatore.class);
             Visitatore v = (Visitatore) query.list().get(0);
             transazione.commit();
             return v;
@@ -186,7 +187,7 @@ public class CRUD {
         try{
             transazione = sessione.beginTransaction();
             CartaDiCredito c = null;
-            query = sessione.createSQLQuery("select * from CARTEDICREDITO where numero = "+numero+";").addEntity(CartaDiCredito.class);
+            query = sessione.createSQLQuery("select * from CARTEDICREDITO where numero = \""+numero+"\";").addEntity(CartaDiCredito.class);
             if(!query.list().isEmpty()) c = (CartaDiCredito) query.list().get(0);
             transazione.commit();
             return c;
