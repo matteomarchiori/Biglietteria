@@ -31,9 +31,68 @@
         <![endif]-->
         <style>
             .cssFooter {
-                position: relative;
-                top : 290px;
-            }
+      position: relative;
+      top : 500px;
+    }
+    .registerText {
+      position: relative;
+      top : 10px;
+    }
+    .dateBox{
+      position: relative;
+       margin-left: auto;
+       margin-right: auto;
+       top: 100px;
+       width: 900px;
+       height: 200px;
+       border: 2px;
+       border-radius: 5px;
+       background-color: white;
+    }
+    .cateBox{
+      position: relative;
+       margin-left: auto;
+       margin-right: auto;
+       top: 150px;
+       width: 900px;
+       height: 200px;
+       border: 2px;
+       border-radius: 5px;
+       background-color: white;
+    }
+    .infoBox{
+      position: relative;
+       margin-left: auto;
+       margin-right: auto;
+       top: 200px;
+       width: 900px;
+       height: 200px;
+       border: 2px;
+       border-radius: 5px;
+       background-color: white;
+    }
+    .loginTitle{
+      position: absolute;
+      width: 900px;
+      height: 50px;
+      border-radius: inherit;
+      background-color: #FCDD44;
+      padding-top: 10px;
+    }
+    .selButton{
+      position: relative;
+      top: 10px;
+    }
+    .tm-form-inner{
+      position: relative;
+      top: 40px;
+    }
+    .tm-section-title-box {
+    	text-align: center;
+    	text-transform: uppercase;
+    	font-size: 24px;
+    	font-weight: 300;
+    }
 
         </style>
         <script>
