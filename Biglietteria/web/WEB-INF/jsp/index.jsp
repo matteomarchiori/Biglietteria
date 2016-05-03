@@ -99,7 +99,7 @@
                         <img src="./resources/img/intero_icon.png" alt="image" class="img-responsive">
                         <a href="#">
                             <div class="tm-yellow-gradient-bg tm-city-price-container">
-                                <span>{categoria1.descrizione}</span>
+                                <span>${categoria1.descrizione}</span>
                                 <span>€8,00</span>
                             </div>
                         </a>
@@ -110,8 +110,8 @@
                         <img src="./resources/img/student_icon.png" alt="image" class="img-responsive">
                         <a href="#">
                             <div class="tm-yellow-gradient-bg tm-city-price-container">
-                                <span>Studente <br>(15-18 anni)</span>
-                                <span>[-{categoria2.sconto}%]</span>
+                                <span>${categoria2.descrizione}</span>
+                                <span>[-${categoria2.sconto}%]</span>
                             </div>
                         </a>
                     </div>
@@ -121,8 +121,8 @@
                         <img src="./resources/img/children_icon.png" alt="image" class="img-responsive">
                         <a href="#">
                             <div class="tm-yellow-gradient-bg tm-city-price-container">
-                                <span>Bambino <br>(0-15 anni)</span>
-                                <span>[-50%]</span>
+                                <span>${categoria3.descrizione}</span>
+                                <span>[-${categoria3.sconto}%]</span>
                             </div>
                         </a>
                     </div>
@@ -132,8 +132,8 @@
                         <img src="./resources/img/disabled_icon.png" alt="image" class="img-responsive">
                         <a href="#">
                             <div class="tm-yellow-gradient-bg tm-city-price-container">
-                                <span>Anziani <br>& Disabili</span>
-                                <span>[-80%]</span>
+                                <span>${categoria4.descrizione}</span>
+                                <span>[-${categoria4.sconto}%]</span>
                             </div>
                         </a>
                     </div>
@@ -143,7 +143,8 @@
                         <img src="./resources/img/military_icon.png" alt="image" class="img-responsive">
                         <a href="#">
                             <div class="tm-yellow-gradient-bg tm-city-price-container">
-                                <span>Militari [-80%]</span>
+                                <span>${categoria5.descrizione}</span>
+                                <span>[-${categoria5.sconto}%]</span>
                             </div>
                         </a>
                     </div>
