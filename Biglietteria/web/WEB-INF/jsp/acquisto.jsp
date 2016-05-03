@@ -36,6 +36,16 @@
             }
 
         </style>
+        <script>
+        function prova() {
+          var div1 = document.createElement('div');
+          div1.className = 'col-lg-4 col-md-4';
+          document.getElementsById('info').appendChild(div1);
+          var e = document.getElementsById('categoria');
+          var e2 = e.options[e.selectedIndex].text;
+          div1.appendChild(e2);
+        }
+        </script>
     </head>
     <body class="tm-gray-bg">
         <%
@@ -66,96 +76,86 @@
             </div>
         </div>
 
-        <section class="container tm-home-section-2">
-            <div class="registerText">
-                <div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
-                <div class="col-lg-4 col-md-6 col-sm-6"><h2 class="tm-section-title">Acquisto</h2></div>
-                <div class="col-lg-4 col-md-6 col-sm-3"><hr></div>
-            </div>
-            <div class="dateBox">
-                <div class="loginTitle" align="center">
-                    <h3 class="tm-section-title"> Data & Orario </h3>
+       <section class="container tm-home-section-2">
+      <div class="registerText">
+        <div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
+        <div class="col-lg-4 col-md-6 col-sm-6"><h2 class="tm-section-title">Acquisto</h2></div>
+        <div class="col-lg-4 col-md-6 col-sm-3"><hr></div>
+      </div>
+      <div class="dateBox">
+          <div class="loginTitle" align="center">
+            <h3 class="tm-section-title-box"> Data & Orario </h3>
+          </div>
+          <form action="#" method="post" class="hotel-search-form">
+            <div class="tm-form-inner">
+              <div class="col-lg-6 col-md-6" align="center">
+                  <div class="form-group">
+                  <h4 align="left">Data della Visita :</h4>
+      					  <div class="input-group date" id="datetimepicker1">
+                    <input id="data" type="text" class="form-control" placeholder="Check-in Date">
+                    <span class="input-group-addon">
+                        <span class="fa fa-calendar"></span>
+                    </span>
+      					  </div>
                 </div>
-                <form action="#" method="post" class="hotel-search-form">
-                    <div class="tm-form-inner">
-                        <div class="col-lg-4 col-md-4" align="center">
-                            <div class="form-group">
-                                <h4 align="left">Data della Visita :</h4>
-                                <div class="input-group date" id="datetimepicker1">
-                                    <input type="text" class="form-control" placeholder="Check-in Date">
-                                    <span class="input-group-addon">
-                                        <span class="fa fa-calendar"></span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 " align="center">
-                            <div class="form-group">
-                                <h4 align="left">Orario della Visita :</h4>
-                                <select class="form-control">
-                                    <option value="">-- Orario -- </option>
-                                    <option value="nove">9:00</option>
-                                    <option value="dodici">12:00</option>
-                                    <option value="diciassette">17:00</option>
-                                    <option value="venti">20:00</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4" align="center">
-                            <div class="form-group">
-                                <button type="submit" name="submit" class="tm-yellow-btn selButton">Seleziona</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="cateBox">
-                <div class="loginTitle" align="center">
-                    <h3 class="tm-section-title"> Categorie & Servizi </h3>
+              </div>
+              <div class="col-lg-6 col-md-6 " align="center">
+                <div class="form-group">
+                  <h4 align="left">Orario della Visita :</h4>
+                  <select id="orario" class="form-control">
+                    <option value="">-- Orario -- </option>
+                    <option value="nove">9:00</option>
+                    <option value="dodici">12:00</option>
+                    <option value="diciassette">17:00</option>
+                    <option value="venti">20:00</option>
+                  </select>
                 </div>
-                <form action="#" method="post" class="hotel-search-form">
-                    <div class="tm-form-inner">
-                        <div class="col-lg-4 col-md-4" align="center">
-                            <div class="form-group">
-                                <h4 align="left">Categorie</h4>
-                                <select class="form-control">
-                                    <option value="">-- Categorie -- </option>
-                                    <option value="intero">Intero</option>
-                                    <option value="bambino">Bambino</option>
-                                    <option value="studente">Studente</option>
-                                    <option value="anzianidisabili">Anziani&Disabili</option>
-                                    <option value="militari">Militari</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 " align="center">
-                            <div class="form-group">
-                                <h4 align="left">Servizi</h4>
-                                <select class="form-control">
-                                    <option value="">-- Servizi -- </option>
-                                    <option value="guida">Guida</option>
-                                    <option value="audio">Audio-Guida</option>
-                                    <option value="catalogo">Catalogo</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4" align="center">
-                            <div class="form-group">
-                                <button type="submit" name="submit" class="tm-yellow-btn selButton">Seleziona</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <div class="infoBox">
-                    <div class="loginTitle" align="center">
-                        <h3 class="tm-section-title-box"> Riassunto Informazioni </h3>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-md-offset-9">
-                        <button type="submit" name="submit" class="tm-yellow-btn selButton">Seleziona</button>
-                    </div>
+              </div>
+          </div>
+      </div>
+      <div class="cateBox">
+          <div class="loginTitle" align="center">
+            <h3 class="tm-section-title-box"> Categorie & Servizi </h3>
+          </div>
+            <div class="tm-form-inner">
+              <div class="col-lg-6 col-md-6" align="center">
+                <div class="form-group">
+                  <h4 align="left">Categorie</h4>
+                  <select id="categoria" class="form-control">
+                    <option value="">-- Categorie -- </option>
+                    <option value="intero">Intero</option>
+                    <option value="bambino">Bambino</option>
+                    <option value="studente">Studente</option>
+                    <option value="anzianidisabili">Anziani&Disabili</option>
+                    <option value="militari">Militari</option>
+                  </select>
                 </div>
+              </div>
+              <div class="col-lg-6 col-md-6 " align="center">
+                <div class="form-group">
+                  <h4 align="left">Servizi</h4>
+                  <select id="servizio" class="form-control">
+                    <option value="">-- Servizi -- </option>
+                    <option value="guida">Guida</option>
+                    <option value="audio">Audio-Guida</option>
+                    <option value="catalogo">Catalogo</option>
+                  </select>
+                </div>
+              </div>
             </div>
-        </section>
+        </div>
+        <div class="infoBox" >
+          <div class="loginTitle" align="center">
+            <h3 class="tm-section-title-box"> Riassunto Informazioni </h3>
+          </div>
+          <div class="tm-form-inner" id="info">
+            <div class="col-lg-4 col-md-4">
+              <button class="tm-yellow-btn" onclick="prova()">Seleziona</button>
+            </div>
+          </div>
+      </div>
+      </form>
+    </section>
 
 
     </section>
