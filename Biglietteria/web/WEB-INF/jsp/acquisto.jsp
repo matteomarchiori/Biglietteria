@@ -125,7 +125,12 @@
                                 <li><a href="./about">Chi Siamo</a></li>
                                 <li><a href="./tours">Esposizioni</a></li>
                                 <li><a href="./contact">Contattaci</a></li>
-                                <li><a href="./login">Login</a></li>
+                                <li>
+                                    <% 
+                                        if(session.getAttribute("email")==null) out.print("<a href=\"./login\">Login</a>");
+                                        else out.print("<a href=\"./logout\">Logout</a>");
+                                    %>
+                                </li>
                             </ul>
                         </nav>
                     </div>

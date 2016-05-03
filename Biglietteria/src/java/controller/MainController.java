@@ -53,12 +53,13 @@ public class MainController {
        return "login";  
     }
     
-    @RequestMapping(value = "/log", params = {"email","password"} , method = RequestMethod.POST)
-    public String login(ModelMap map,@RequestParam(value="email") String email,@RequestParam(value="password") String password){
+    @RequestMapping(value = "/log", params = {"email","password"}, method = RequestMethod.POST)
+    public String log(@RequestParam(value="email") String email,@RequestParam(value="password") String password,HttpSession session){
        Visitatore v = crud.selectVisitatore(email);
        if (v!=null){
-           
            if(v.getPassword().equals(password)) {
+               session.setAttribute("email", email);
+               session.setAttribute("password", password);
                return "acquisto";
            }
            else return "registrazione";
