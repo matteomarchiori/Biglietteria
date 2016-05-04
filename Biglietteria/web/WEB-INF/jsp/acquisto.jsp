@@ -53,7 +53,7 @@
                 position: relative;
                 margin-left: auto;
                 margin-right: auto;
-                top: 150px;
+                top: 200px;
                 width: 900px;
                 height: 200px;
                 border: 2px;
@@ -97,12 +97,9 @@
         </style>
         <script>
             function prova() {
-                var div1 = document.createElement('div');
-                div1.className = 'col-lg-4 col-md-4';
-                document.getElementsById('info').appendChild(div1);
-                var e = document.getElementsById('categoria');
-                var e2 = e.options[e.selectedIndex].text;
-                div1.appendChild(e2);
+                var e = document.getElementById("categoria").value;
+                var d = document.getElementById("informazioni");
+                d.innerHTML += e;
             }
         </script>
     </head>
@@ -149,12 +146,13 @@
                 <div class="loginTitle" align="center">
                     <h3 class="tm-section-title-box"> Data & Orario </h3>
                 </div>
-                <form action="#" method="post" class="hotel-search-form">
+                
+                <form class="hotel-search-form">
                     <div class="tm-form-inner">
                         <div class="col-lg-6 col-md-6" align="center">
                             <div class="form-group">
                                 <h4 align="left">Data della Visita :</h4>
-                                <div class="input-group date" id="datetimepicker1">
+                                <div class='input-group date' id="datetimepicker1">
                                     <input id="data" type="text" class="form-control" placeholder="Check-in Date">
                                     <span class="input-group-addon">
                                         <span class="fa fa-calendar"></span>
@@ -184,7 +182,7 @@
                                 <div class="form-group">
                                     <h4 align="left">Categorie</h4>
                                     <select id="categoria" class="form-control">
-                                        <option value="">-- Categorie -- </option>
+                                        <option value="">-- Categorie --</option>
                                         <option value="intero">Intero</option>
                                         <option value="bambino">Bambino</option>
                                         <option value="studente">Studente</option>
@@ -206,6 +204,7 @@
                             </div>
                         </div>
                     </div>
+                      </form>
                     <div class="infoBox" >
                         <div class="loginTitle" align="center">
                             <h3 class="tm-section-title-box"> Riassunto Informazioni </h3>
@@ -213,10 +212,13 @@
                         <div class="tm-form-inner" id="info">
                             <div class="col-lg-4 col-md-4">
                                 <button class="tm-yellow-btn" onclick="prova()">Seleziona</button>
+                                
                             </div>
+                            <div class="col-lg-4 col-md-4" id="informazioni"></div>
                         </div>
                     </div>
-                </form>
+              
+                
         </section>
 
         <footer class=" cssFooter">
@@ -230,7 +232,12 @@
                 </div>
             </div>
         </footer>
-        <script type="text/javascript" src="./resources/js/myjquery.js"></script>      		<!-- Templatemo Script -->
+        <script type="text/javascript" src="./resources/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
+  	<script type="text/javascript" src="./resources/js/moment.js"></script>							<!-- moment.js -->
+	<script type="text/javascript" src="./resources/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
+	<script type="text/javascript" src="./resources/js/bootstrap-datetimepicker.min.js"></script>	<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
+	<script type="text/javascript" src="./resources/js/jquery.flexslider-min.js"></script>
+                            <!-- Templatemo Script -->
         <script type="text/javascript" src="./resources/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
         <script>
             // HTML document is loaded. DOM is ready.
@@ -240,7 +247,7 @@
                     $(this).tab('show');
                 });
                 $('.date').datetimepicker({
-                    format: 'MM/DD/YYYY'
+                    format: 'DD/MM/YYYY'
                 });
                 $('.date-time').datetimepicker();
                 // https://css-tricks.com/snippets/jquery/smooth-scrolling/
