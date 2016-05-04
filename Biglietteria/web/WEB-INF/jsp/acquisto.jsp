@@ -53,7 +53,7 @@
                 position: relative;
                 margin-left: auto;
                 margin-right: auto;
-                top: 200px;
+                top: 150px;
                 width: 900px;
                 height: 200px;
                 border: 2px;
@@ -78,10 +78,6 @@
                 border-radius: inherit;
                 background-color: #FCDD44;
                 padding-top: 10px;
-            }
-            .selButton{
-                position: relative;
-                top: 10px;
             }
             .tm-form-inner{
                 position: relative;
@@ -173,50 +169,51 @@
                             </div>
                         </div>
                     </div>
-                    <div class="cateBox">
-                        <div class="loginTitle" align="center">
-                            <h3 class="tm-section-title-box"> Categorie & Servizi </h3>
-                        </div>
-                        <div class="tm-form-inner">
-                            <div class="col-lg-6 col-md-6" align="center">
-                                <div class="form-group">
-                                    <h4 align="left">Categorie</h4>
-                                    <select id="categoria" class="form-control">
-                                        <option value="">-- Categorie --</option>
-                                        <option value="intero">Intero</option>
-                                        <option value="bambino">Bambino</option>
-                                        <option value="studente">Studente</option>
-                                        <option value="anzianidisabili">Anziani&Disabili</option>
-                                        <option value="militari">Militari</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 " align="center">
-                                <div class="form-group">
-                                    <h4 align="left">Servizi</h4>
-                                    <select id="servizio" class="form-control">
-                                        <option value="">-- Servizi -- </option>
-                                        <option value="guida">Guida</option>
-                                        <option value="audio">Audio-Guida</option>
-                                        <option value="catalogo">Catalogo</option>
-                                    </select>
-                                </div>
-                            </div>
+            </div>
+            <div class="cateBox">
+                <div class="loginTitle" align="center">
+                    <h3 class="tm-section-title-box"> Categorie & Servizi </h3>
+                </div>
+                <div class="tm-form-inner">
+                    <div class="col-lg-6 col-md-6" align="center">
+                        <div class="form-group">
+                            <h4 align="left">Categorie</h4>
+                            <select id="categoria" class="form-control">
+                                <option value="">-- Categorie --</option>
+                                <option value="intero">Intero</option>
+                                <option value="bambino">Bambino</option>
+                                <option value="studente">Studente</option>
+                                <option value="anzianidisabili">Anziani&Disabili</option>
+                                <option value="militari">Militari</option>
+                            </select>
                         </div>
                     </div>
-                      </form>
-                    <div class="infoBox" >
-                        <div class="loginTitle" align="center">
-                            <h3 class="tm-section-title-box"> Riassunto Informazioni </h3>
-                        </div>
-                        <div class="tm-form-inner" id="info">
-                            <div class="col-lg-4 col-md-4">
-                                <button class="tm-yellow-btn" onclick="prova()">Seleziona</button>
-                                
-                            </div>
-                            <div class="col-lg-4 col-md-4" id="informazioni"></div>
+                    <div class="col-lg-6 col-md-6 " align="center">
+                        <div class="form-group">
+                            <h4 align="left">Servizi</h4>
+                            <select id="servizio" class="form-control">
+                                <option value="">-- Servizi -- </option>
+                                <option value="guida">Guida</option>
+                                <option value="audio">Audio-Guida</option>
+                                <option value="catalogo">Catalogo</option>
+                            </select>
                         </div>
                     </div>
+                </div>
+            </div>
+              </form>
+            <div class="infoBox" >
+                <div class="loginTitle" align="center">
+                    <h3 class="tm-section-title-box"> Riassunto Informazioni </h3>
+                </div>
+                <div class="tm-form-inner" id="info">
+                    <div class="col-lg-4 col-md-4">
+                        <button class="tm-yellow-btn" onclick="prova()">Seleziona</button>
+
+                    </div>
+                    <div class="col-lg-4 col-md-4" id="informazioni"></div>
+                </div>
+            </div>
               
                 
         </section>
