@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : acquisto
     Created on : 26-apr-2016, 8.50.36
     Author     : matteo
@@ -142,7 +142,7 @@
                 <div class="loginTitle" align="center">
                     <h3 class="tm-section-title-box"> Data & Orario </h3>
                 </div>
-                
+
                 <form class="hotel-search-form">
                     <div class="tm-form-inner">
                         <div class="col-lg-6 col-md-6" align="center">
@@ -209,13 +209,14 @@
                 <div class="tm-form-inner" id="info">
                     <div class="col-lg-4 col-md-4">
                         <button class="tm-yellow-btn" onclick="prova()">Seleziona</button>
+                        <button class="tm-yellow-btn"><a href="summary.jsp">Seleziona</a></button>
 
                     </div>
                     <div class="col-lg-4 col-md-4" id="informazioni"></div>
                 </div>
             </div>
-              
-                
+
+
         </section>
 
         <footer class=" cssFooter">
