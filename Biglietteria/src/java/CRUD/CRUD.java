@@ -127,6 +127,26 @@ public class CRUD {
         return null;
     }
     
+    public Visitatore selectEmail(String parziale){
+        if(parziale.equals("")) return null;
+        Session sessione = factory.openSession();
+        Transaction transazione = null;
+        SQLQuery query;
+        try{
+            transazione = sessione.beginTransaction();
+            query = sessione.createSQLQuery("select * from VISITATORI where mail like \""+parziale+"%\";").addEntity(Visitatore.class);
+            Visitatore v = null;
+            if(!query.list().isEmpty()) v = (Visitatore) query.list().get(0);
+            transazione.commit();
+            return v;
+        }catch(HibernateException e){
+            if(transazione!=null) transazione.rollback();
+        }finally{
+            sessione.close();
+        }
+        return null;
+    }
+    
     public List selectCategorie(){
         Session sessione = factory.openSession();
         Transaction transazione = null;

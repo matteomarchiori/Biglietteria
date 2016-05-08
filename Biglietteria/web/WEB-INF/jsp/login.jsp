@@ -50,7 +50,7 @@
                 top: 100px;
                 right : 100px;
                 width: 400px;
-                height: 400px;
+                height: 430px;
                 border: 2px solid black;
                 border-radius: 5px;
                 background-color: white;
@@ -65,6 +65,30 @@
                 padding-top: 10px;
             }
         </style>
+        <script>
+            function autoCompleta(){
+                daCompletare = document.getElementById("inputEmail");
+                proposte = document.getElementById("proposte");
+                request = new XMLHttpRequest();
+                request.onreadystatechange = function () {
+                    showResponseText(request);
+                };
+                request.open("GET", "email?daCompletare="+daCompletare.value, true);
+                request.send();
+            }
+            
+            function showResponseText(request) {
+                if ((request.readyState === 4) && (request.status === 200)) {
+                    document.getElementById("risultato").innerHTML = request.responseText;
+                }
+            }
+            
+            function link(){
+                uno = document.getElementById("risultato");
+                due = document.getElementById("inputEmail");
+                due.innerHTML = uno.value;
+            }
+        </script>
     </head>
     <body class="tm-gray-bg">
         <!-- Header -->
@@ -103,7 +127,8 @@
                         <div class="tm-form-inner">
                             <div class="form-group">
                                 <div class="inner-addon left-addon">
-                                    <h4>Email :</h4><input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+                                    <h4>Email :</h4><input onkeyup="autoCompleta()" type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+                                    <i>Suggerimento : <span value="valore" onclick="link()" id="risultato"></span></i>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -125,6 +150,7 @@
                                 </div>
                             </div>
                         </div>
+                        <br/>
                     </form>
                 </div>
             </div>

@@ -18,13 +18,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import javax.servlet.http.HttpSession;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class MainController {
+public class ControllerMain {
     
    private static CRUD crud;
 
-    public MainController() {
+    public ControllerMain() {
         crud = new CRUD(HibernateUtil.getSessionFactory());
     }
     
@@ -121,4 +122,12 @@ public class MainController {
     public String contact(){
         return "contact";
     }
+    
+    @RequestMapping(value = "/email", method = RequestMethod.GET)
+    public @ResponseBody
+    String getEmail(@RequestParam(value = "daCompletare", required = true) String daCompletare) {
+        Visitatore v = crud.selectEmail(daCompletare);
+        if(v==null) return "Nessun suggerimento.";
+        return v.getMail();
+    }//getEmail
 }
