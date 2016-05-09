@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import mappa.*;
 import hibernate.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -131,7 +132,13 @@ public class ControllerMain {
            map.put("servizio"+(i+1), servizi.get(i));
         }
         List<VisitaEvento> eventi = crud.selectEventi();
+        List<Integer> nrBiglietti = new ArrayList<>();
+        for(int i=0; i<eventi.size(); i++){
+            int j = crud.contaBigliettiEvento(eventi.get(i).getId());
+            nrBiglietti.add(j);
+        }
         map.put("eventi", eventi);
+        map.put("nrBiglietti", nrBiglietti);
         return "tours";
     }
     

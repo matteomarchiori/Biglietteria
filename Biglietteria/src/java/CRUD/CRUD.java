@@ -256,4 +256,23 @@ public class CRUD {
         }
         return null;
     }
+    
+    public int contaBigliettiEvento(int idEvento){
+        Session sessione = factory.openSession();
+        Transaction transazione = null;
+        SQLQuery query;
+        try{
+            transazione = sessione.beginTransaction();
+            int n = 0;
+            query = sessione.createSQLQuery("SELECT COUNT(*) from BIGLIETTI where visitaE = "+idEvento+";").addEntity(Biglietto.class);
+            n = (Integer) query.list().get(0);
+            transazione.commit();
+            return n;
+        }catch(HibernateException e){
+            if(transazione!=null) transazione.rollback();
+        }finally{
+            sessione.close();
+        }
+        return 0;
+    }
 }

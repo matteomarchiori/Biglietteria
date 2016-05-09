@@ -102,7 +102,7 @@
                 var o = document.getElementById("orario").value;
                 var s = document.getElementById("servizio").value;
                 var i = document.getElementById("informazioni");
-                i.innerHTML += "Data : "+d+" Ora : "+o+" Categoria : "+c+" Servizio : "+s+"<br/>";
+                i.innerHTML += "Data : <span id='d'>"+d+"</span> Ora : <span id='o'>"+o+"</span> Categoria : <span id='c'>"+c+"</span> Servizio : <span id='s'>"+s+"</span><br/>";
             }
         </script>
     </head>

@@ -191,6 +191,9 @@
                                     </div> 
                                 </div>
                             </c:forEach>
+                            <c:forEach items="${nrBiglietti}" var="n">
+                                ${n}<br/>
+                            </c:forEach>
                         </div>
                         <div class="tm-testimonials-box">
                             <h3 class="tm-testimonials-title">Infobox</h3>
