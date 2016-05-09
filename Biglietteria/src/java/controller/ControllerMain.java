@@ -32,7 +32,8 @@ public class ControllerMain {
     
     
     @RequestMapping(value="/", method= RequestMethod.GET)
-    public String index(ModelMap map){
+    public String index(HttpSession session, ModelMap map){
+       session.setMaxInactiveInterval(180);
        List<Categoria> categorie = crud.selectCategorie();
        for(int i=0;i<categorie.size();i++){
            map.put("categoria"+(i+1), categorie.get(i));
@@ -82,10 +83,20 @@ public class ControllerMain {
        return "about";
     }
     
+    @RequestMapping(value = "/summary", params = {"informazioni"}, method= RequestMethod.GET)
+    public String summary(@RequestParam(value="informazioni") String informazioni, HttpSession session){
+       session.setAttribute("informazioni", informazioni);
+       return "summary";
+    }
+    
     @RequestMapping(value="/acquisto", method= RequestMethod.GET)
-    public String acquisto(HttpSession session){
-        if(session.getAttribute("email")!=null) return "acquisto";
-        return "login";
+    public String acquisto(HttpSession session, ModelMap map){
+        if(session.getAttribute("email")==null) return "login";
+        List<Categoria> categorie = crud.selectCategorie();
+        map.put("categorie", categorie);
+        List<Servizio> servizi = crud.selectServizi();
+        map.put("servizi", servizi);
+        return "acquisto";
     }
     
     @RequestMapping(value="/registration", params = {"email","password","numeroCarta","tipoCarta","scadenzaMM","scadenzaYY"},method= RequestMethod.POST)
@@ -114,7 +125,13 @@ public class ControllerMain {
     }
     
     @RequestMapping(value="/tours", method=RequestMethod.GET)
-    public String tours(){
+    public String tours(ModelMap map){
+        List<Servizio> servizi = crud.selectServizi();
+        for(int i=0;i<servizi.size();i++){
+           map.put("servizio"+(i+1), servizi.get(i));
+        }
+        List<VisitaEvento> eventi = crud.selectEventi();
+        map.put("eventi", eventi);
         return "tours";
     }
     

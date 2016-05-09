@@ -4,7 +4,11 @@
     Author     : matteo
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="mappa.Categoria"%>
+<%@page import="mappa.Servizio"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -21,7 +25,7 @@
         <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
         <link href="./resources/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
         <link href="./resources/css/flexslider.css" rel="stylesheet">
-        <link href="./resources/css/templatemo-style.css" rel="stylesheet">
+        <link href="./resources/css/templatemo-style.css" rel="stylesheet">   
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -66,7 +70,7 @@
                 margin-right: auto;
                 top: 200px;
                 width: 900px;
-                height: 200px;
+                height: 350px;
                 border: 2px;
                 border-radius: 5px;
                 background-color: white;
@@ -92,10 +96,13 @@
 
         </style>
         <script>
-            function prova() {
-                var e = document.getElementById("categoria").value;
-                var d = document.getElementById("informazioni");
-                d.innerHTML += e;
+            function informazioni() {
+                var c = document.getElementById("categoria").value;
+                var d = document.getElementById("data").value;
+                var o = document.getElementById("orario").value;
+                var s = document.getElementById("servizio").value;
+                var i = document.getElementById("informazioni");
+                i.innerHTML += "Data : "+d+" Ora : "+o+" Categoria : "+c+" Servizio : "+s+"<br/>";
             }
         </script>
     </head>
@@ -161,10 +168,10 @@
                                 <h4 align="left">Orario della Visita :</h4>
                                 <select id="orario" class="form-control">
                                     <option value="">-- Orario -- </option>
-                                    <option value="nove">9:00</option>
-                                    <option value="dodici">12:00</option>
-                                    <option value="diciassette">17:00</option>
-                                    <option value="venti">20:00</option>
+                                    <option value="9:00">9:00</option>
+                                    <option value="12:00">12:00</option>
+                                    <option value="17:00">17:00</option>
+                                    <option value="20:00">20:00</option>
                                 </select>
                             </div>
                         </div>
@@ -179,12 +186,10 @@
                         <div class="form-group">
                             <h4 align="left">Categorie</h4>
                             <select id="categoria" class="form-control">
-                                <option value="">-- Categorie --</option>
-                                <option value="intero">Intero</option>
-                                <option value="bambino">Bambino</option>
-                                <option value="studente">Studente</option>
-                                <option value="anzianidisabili">Anziani&Disabili</option>
-                                <option value="militari">Militari</option>
+                                <option value="">-- Categorie -- </option>
+                                <c:forEach items="${categorie}" var="categoria">
+                                    <option value="${categoria.descrizione}">${categoria.descrizione}</option>
+                                </c:forEach>
                             </select>
                         </div>
                     </div>
@@ -193,9 +198,9 @@
                             <h4 align="left">Servizi</h4>
                             <select id="servizio" class="form-control">
                                 <option value="">-- Servizi -- </option>
-                                <option value="guida">Guida</option>
-                                <option value="audio">Audio-Guida</option>
-                                <option value="catalogo">Catalogo</option>
+                                <c:forEach items="${servizi}" var="servizio">
+                                    <option value="${servizio.descrizione}">${servizio.descrizione}</option>
+                                </c:forEach>
                             </select>
                         </div>
                     </div>
@@ -208,11 +213,11 @@
                 </div>
                 <div class="tm-form-inner" id="info">
                     <div class="col-lg-4 col-md-4">
-                        <button class="tm-yellow-btn" onclick="prova()">Seleziona</button>
-                        <button class="tm-yellow-btn"><a href="summary.jsp">Seleziona</a></button>
-
+                        <button class="tm-yellow-btn" onclick="informazioni()">Aggiungi</button>
+                        <button class="tm-yellow-btn" onclick="location.reload()">Annulla</button>
+                        <button class="tm-yellow-btn" onclick="location.href='./summary?informazioni='+document.getElementById('informazioni').innerHTML;">Conferma</button>
                     </div>
-                    <div class="col-lg-4 col-md-4" id="informazioni"></div>
+                    <div class="col-lg-8 col-md-8" id="informazioni"></div>
                 </div>
             </div>
 

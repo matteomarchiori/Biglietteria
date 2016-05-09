@@ -220,4 +220,40 @@ public class CRUD {
         }
         return null;
     }
+    
+    public List selectServizi(){
+        Session sessione = factory.openSession();
+        Transaction transazione = null;
+        SQLQuery query;
+        try{
+            transazione = sessione.beginTransaction();
+            query = sessione.createSQLQuery("select * from SERVIZI").addEntity(Servizio.class);
+            List<Servizio> servizi = query.list();
+            transazione.commit();
+            return servizi;
+        }catch(HibernateException e){
+            if(transazione!=null) transazione.rollback();
+        }finally{
+            sessione.close();
+        }
+        return null;
+    }
+    
+    public List selectEventi(){
+        Session sessione = factory.openSession();
+        Transaction transazione = null;
+        SQLQuery query;
+        try{
+            transazione = sessione.beginTransaction();
+            query = sessione.createSQLQuery("select * from VISITE_EVENTO").addEntity(VisitaEvento.class);
+            List<VisitaEvento> eventi = query.list();
+            transazione.commit();
+            return eventi;
+        }catch(HibernateException e){
+            if(transazione!=null) transazione.rollback();
+        }finally{
+            sessione.close();
+        }
+        return null;
+    }
 }

@@ -50,7 +50,7 @@
                 top: 100px;
                 right : 100px;
                 width: 400px;
-                height: 430px;
+                height: 400px;
                 border: 2px solid black;
                 border-radius: 5px;
                 background-color: white;
@@ -68,7 +68,6 @@
         <script>
             function autoCompleta(){
                 daCompletare = document.getElementById("inputEmail");
-                proposte = document.getElementById("proposte");
                 request = new XMLHttpRequest();
                 request.onreadystatechange = function () {
                     showResponseText(request);
@@ -86,7 +85,7 @@
             function link(){
                 uno = document.getElementById("risultato");
                 due = document.getElementById("inputEmail");
-                due.innerHTML = uno.value;
+                due.value=uno.innerHTML;
             }
         </script>
     </head>
@@ -128,17 +127,12 @@
                             <div class="form-group">
                                 <div class="inner-addon left-addon">
                                     <h4>Email :</h4><input onkeyup="autoCompleta()" type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-                                    <i>Suggerimento : <span value="valore" onclick="link()" id="risultato"></span></i>
+                                    <i>Suggerimento : </i><a style="cursor:pointer" onclick="link()" id="risultato"></a>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="inner-addon left-addon">
                                     <h4>Password :</h4><input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="" autofocus="">
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="remember-me"> Remember me
-                                    </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>

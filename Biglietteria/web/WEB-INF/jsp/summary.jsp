@@ -91,13 +91,6 @@
             }
 
         </style>
-        <script>
-            function prova() {
-                var e = document.getElementById("categoria").value;
-                var d = document.getElementById("informazioni");
-                d.innerHTML += e;
-            }
-        </script>
     </head>
     <body class="tm-gray-bg">
 
@@ -118,7 +111,7 @@
                                 <li><a href="./about">Chi Siamo</a></li>
                                 <li><a href="./tours">Esposizioni</a></li>
                                 <li><a href="./contact">Contattaci</a></li>
-                                <%
+                                    <%
                                         if (session.getAttribute("email") == null) {
                                             out.print("<li><a href=\"./login\">Login</a></li>");
                                         } else {
@@ -138,22 +131,27 @@
                 <div class="col-lg-4 col-md-6 col-sm-6"><h2 class="tm-section-title">Riassunto</h2></div>
                 <div class="col-lg-4 col-md-6 col-sm-3"><hr></div>
             </div>
-            <div class="dateBox">
+            <div class="infoBox" >
                 <div class="loginTitle" align="center">
-                    <h3 class="tm-section-title-box"> Data & Orario </h3>
+                    <h3 class="tm-section-title-box"> Riassunto Informazioni </h3>
                 </div>
-
-        <footer class=" cssFooter">
-            <div class="tm-black-bg">
-                <div class="container">
-                    <div class="row">
-                        <p class="tm-copyright-text">Copyright &copy; 2084 Your Company Name
-
-                            | Designed by <a rel="nofollow" href="http://www.templatemo.com" target="_parent">templatemo</a></p>
-                    </div>
+                <div class="tm-form-inner" id="info">
+                    <%
+                        out.print(session.getAttribute("informazioni"));
+                    %>
                 </div>
             </div>
-        </footer>
+            <footer class=" cssFooter">
+                <div class="tm-black-bg">
+                    <div class="container">
+                        <div class="row">
+                            <p class="tm-copyright-text">Copyright &copy; 2084 Your Company Name
+
+                                | Designed by <a rel="nofollow" href="http://www.templatemo.com" target="_parent">templatemo</a></p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
 
     </body>
 </html>

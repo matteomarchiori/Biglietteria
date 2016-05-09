@@ -114,56 +114,56 @@
                 <div class="col-lg-2 col-md-2 col-sm-6">
                     <div class="tm-home-box-2">
                         <img src="./resources/img/intero_icon.png" alt="image" class="img-responsive">
-                        <a href="#">
+                        
                             <div class="tm-yellow-gradient-bg tm-city-price-container">
                                 <span>${categoria1.descrizione}</span>
                                 <span>€8,00</span>
                             </div>
-                        </a>
+                        
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-6">
                     <div class="tm-home-box-2">
                         <img src="./resources/img/student_icon.png" alt="image" class="img-responsive">
-                        <a href="#">
+                        
                             <div class="tm-yellow-gradient-bg tm-city-price-container">
                                 <span>${categoria2.descrizione}</span>
                                 <span>[-${categoria2.sconto}%]</span>
                             </div>
-                        </a>
+                        
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-6">
                     <div class="tm-home-box-2">
                         <img src="./resources/img/children_icon.png" alt="image" class="img-responsive">
-                        <a href="#">
+                        
                             <div class="tm-yellow-gradient-bg tm-city-price-container">
                                 <span>${categoria3.descrizione}</span>
                                 <span>[-${categoria3.sconto}%]</span>
                             </div>
-                        </a>
+                        
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-6">
                     <div class="tm-home-box-2">
                         <img src="./resources/img/disabled_icon.png" alt="image" class="img-responsive">
-                        <a href="#">
+                        
                             <div class="tm-yellow-gradient-bg tm-city-price-container">
                                 <span>${categoria4.descrizione}</span>
                                 <span>[-${categoria4.sconto}%]</span>
                             </div>
-                        </a>
+                        
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-6">
                     <div class="tm-home-box-2">
                         <img src="./resources/img/military_icon.png" alt="image" class="img-responsive">
-                        <a href="#">
+                        
                             <div class="tm-yellow-gradient-bg tm-city-price-container">
                                 <span>${categoria5.descrizione}</span>
                                 <span>[-${categoria5.sconto}%]</span>
                             </div>
-                        </a>
+                        
                     </div>
                 </div>
             </div>

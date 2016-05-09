@@ -4,7 +4,10 @@
     Author     : matteo
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="mappa.VisitaEvento"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -113,45 +116,45 @@
                 <div class="col-lg-2 col-md-2 col-sm-6">
                     <div class="tm-home-box-2">
                         <img src="./resources/img/noimage2.png" alt="image" class="img-responsive">
-                        <a href="#">
+                        
                             <div class="tm-yellow-gradient-bg tm-city-price-container">
-                                <span>Servizio</span>
-                                <span>1</span>
+                                <span>${servizio1.descrizione}<br/>
+                                € ${servizio1.prezzo}</span>
                             </div>
-                        </a>
+                        
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-6">
                     <div class="tm-home-box-2">
                         <img src="./resources/img/noimage2.png" alt="image" class="img-responsive">
-                        <a href="#">
+                        
                             <div class="tm-yellow-gradient-bg tm-city-price-container">
-                                <span>Servizio</span>
-                                <span>2</span>
+                                <span>${servizio2.descrizione}<br/>
+                                € ${servizio2.prezzo}</span>
                             </div>
-                        </a>
+                        
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-6">
                     <div class="tm-home-box-2">
                         <img src="./resources/img/noimage2.png" alt="image" class="img-responsive">
-                        <a href="#">
+                        
                             <div class="tm-yellow-gradient-bg tm-city-price-container">
-                                <span>Servizio</span>
-                                <span>3</span>
+                                <span>${servizio3.descrizione}<br/>
+                                € ${servizio3.prezzo}</span>
                             </div>
-                        </a>
+                       
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-6">
                     <div class="tm-home-box-2">
                         <img src="./resources/img/noimage2.png" alt="image" class="img-responsive" aligh="middle">
-                        <a href="#">
+                       
                             <div class="tm-yellow-gradient-bg tm-city-price-container">
-                                <span>Servizio</span>
-                                <span>4</span>
+                                <span>${servizio4.descrizione}<br/>
+                                € ${servizio4.prezzo}</span>
                             </div>
-                        </a>
+                        
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-6">
@@ -179,27 +182,15 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="tm-what-we-do-right">
-                            <div class="tm-about-box-2 margin-bottom-30">
-
-                                <div class="tm-about-box-2-text">
-                                    <h3 class="tm-about-box-2-title">Evento Esposizione 1</h3>
-                                    <p class="tm-about-box-2-description gray-text">Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis.</p>
-                                    <p class="tm-about-box-2-footer"><a href="#">Scopri di più!</a></p>
+                            <c:forEach items="${eventi}" var="evento">
+                                <div class="tm-about-box-2 margin-bottom-30">
+                                    <div class="tm-about-box-2-text">
+                                        <h3 class="tm-about-box-2-title">${evento.titolo}</h3>
+                                        <p class="tm-about-box-2-description gray-text">${evento.descrizione}</p>
+                                        <p class="tm-about-box-2-footer">Tariffa : € ${evento.tariffa}</p>
+                                    </div> 
                                 </div>
-                                <div class="tm-about-box-2-text">
-                                    <h3 class="tm-about-box-2-title">Evento Esposizione 1</h3>
-                                    <p class="tm-about-box-2-description gray-text">Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis.</p>
-                                    <p class="tm-about-box-2-footer"><a href="#">Scopri di più!</a></p>
-                                </div>
-                            </div>
-                            <div class="tm-about-box-2">
-
-                                <div class="tm-about-box-2-text">
-                                    <h3 class="tm-about-box-2-title">Evento Esposizione 2</h3>
-                                    <p class="tm-about-box-2-description gray-text">Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis.</p>
-                                    <p class="tm-about-box-2-footer"><a href="#">Scopri di più!</a></p>
-                                </div>
-                            </div>
+                            </c:forEach>
                         </div>
                         <div class="tm-testimonials-box">
                             <h3 class="tm-testimonials-title">Infobox</h3>
