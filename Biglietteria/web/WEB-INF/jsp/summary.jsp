@@ -89,8 +89,14 @@
                 font-size: 24px;
                 font-weight: 300;
             }
-
         </style>
+        <script>
+            function registra() {
+                for (var z = 1; z <= '<%=session.getAttribute("nu")%>'; z++) {
+                    location.href = './newBiglietto?tipo=' + document.getElementById('t' + z).innerHTML + '&data=' + document.getElementById('d' + z).innerHTML + '&titolo=' + document.getElementById('n' + z).innerHTML + '&categoria=' + document.getElementById('c' + z).innerHTML + '&servizio='document.getElementById('s' + z).innerHTML;
+                }
+            }
+        </script>
     </head>
     <body class="tm-gray-bg">
 
@@ -136,11 +142,18 @@
                     <h3 class="tm-section-title-box"> Riassunto Informazioni </h3>
                 </div>
                 <div class="tm-form-inner" id="info">
+                    <div class="col-lg-4 col-md-4">
+                        <button class="tm-yellow-btn" onclick="registra()">Registra biglietti</button>
+                    </div>
+                    <div class="col-lg-8 col-md-8" id="informazioni"></div>
+                </div>
+                <div class="tm-form-inner" id="info">
                     <%
                         out.print(session.getAttribute("informazioni"));
                     %>
                 </div>
             </div>
+        </section>
             <footer class=" cssFooter">
                 <div class="tm-black-bg">
                     <div class="container">
@@ -152,6 +165,38 @@
                     </div>
                 </div>
             </footer>
-
+            <script type="text/javascript" src="./resources/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
+            <script type="text/javascript" src="./resources/js/moment.js"></script>							<!-- moment.js -->
+            <script type="text/javascript" src="./resources/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
+            <script type="text/javascript" src="./resources/js/bootstrap-datetimepicker.min.js"></script>	<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
+            <script type="text/javascript" src="./resources/js/jquery.flexslider-min.js"></script>
+            <!-- Templatemo Script -->
+            <script type="text/javascript" src="./resources/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
+            <script>
+                                // HTML document is loaded. DOM is ready.
+                                $(function () {
+                                    $('#hotelCarTabs a').click(function (e) {
+                                        e.preventDefault();
+                                        $(this).tab('show');
+                                    });
+                                    $('.date').datetimepicker({
+                                        format: 'DD/MM/YYYY'
+                                    });
+                                    $('.date-time').datetimepicker();
+                                    // https://css-tricks.com/snippets/jquery/smooth-scrolling/
+                                    $('a[href*=#]:not([href=#])').click(function () {
+                                        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                                            var target = $(this.hash);
+                                            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                                            if (target.length) {
+                                                $('html,body').animate({
+                                                    scrollTop: target.offset().top
+                                                }, 1000);
+                                                return false;
+                                            }
+                                        }
+                                    });
+                                });
+            </script>
     </body>
 </html>

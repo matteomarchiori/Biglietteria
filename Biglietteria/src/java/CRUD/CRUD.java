@@ -71,6 +71,20 @@ public class CRUD {
         }
     }
     
+    public void insertBiglietto(Biglietto b){
+        Session sessione = factory.openSession();
+        Transaction transazione = null;
+        try{
+            transazione = sessione.beginTransaction();
+            sessione.save(b);
+            transazione.commit();
+        }catch(HibernateException e){
+            if(transazione!=null) transazione.rollback();
+        }finally{
+            sessione.close();
+        }
+    }
+    
      public List selectVisitatori(){
         Session sessione = factory.openSession();
         Transaction transazione = null;
@@ -184,7 +198,26 @@ public class CRUD {
         return null;
     }
     
-     public List selectCarte(){
+    public Categoria selectCategoria(String descrizione){
+        Session sessione = factory.openSession();
+        Transaction transazione = null;
+        SQLQuery query;
+        try{
+            transazione = sessione.beginTransaction();
+            query = sessione.createSQLQuery("select * from CATEGORIE where decrizione = \""+descrizione+"\";").addEntity(Categoria.class);
+            Categoria c = null;
+            if(!query.list().isEmpty()) c = (Categoria) query.list().get(0);
+            transazione.commit();
+            return c;
+        }catch(HibernateException e){
+            if(transazione!=null) transazione.rollback();
+        }finally{
+            sessione.close();
+        }
+        return null;
+    }
+    
+    public List selectCarte(){
         Session sessione = factory.openSession();
         Transaction transazione = null;
         SQLQuery query;
@@ -227,7 +260,7 @@ public class CRUD {
         SQLQuery query;
         try{
             transazione = sessione.beginTransaction();
-            query = sessione.createSQLQuery("select * from SERVIZI").addEntity(Servizio.class);
+            query = sessione.createSQLQuery("select * from SERVIZI;").addEntity(Servizio.class);
             List<Servizio> servizi = query.list();
             transazione.commit();
             return servizi;
@@ -245,10 +278,48 @@ public class CRUD {
         SQLQuery query;
         try{
             transazione = sessione.beginTransaction();
-            query = sessione.createSQLQuery("select * from VISITE_EVENTO").addEntity(VisitaEvento.class);
+            query = sessione.createSQLQuery("select * from VISITE_EVENTO;").addEntity(VisitaEvento.class);
             List<VisitaEvento> eventi = query.list();
             transazione.commit();
             return eventi;
+        }catch(HibernateException e){
+            if(transazione!=null) transazione.rollback();
+        }finally{
+            sessione.close();
+        }
+        return null;
+    }
+    
+    public Servizio selectServizio(String descrizione){
+        Session sessione = factory.openSession();
+        Transaction transazione = null;
+        SQLQuery query;
+        try{
+            transazione = sessione.beginTransaction();
+            Servizio s = null;
+            query = sessione.createSQLQuery("select * from SERVIZI where descrizione = \""+descrizione+"\";").addEntity(Servizio.class);
+            if(!query.list().isEmpty()) s = (Servizio) query.list().get(0);
+            transazione.commit();
+            return s;
+        }catch(HibernateException e){
+            if(transazione!=null) transazione.rollback();
+        }finally{
+            sessione.close();
+        }
+        return null;
+    }
+    
+    public VisitaEvento selectVisitaEvento(String titolo){
+        Session sessione = factory.openSession();
+        Transaction transazione = null;
+        SQLQuery query;
+        try{
+            transazione = sessione.beginTransaction();
+            VisitaEvento ve = null;
+            query = sessione.createSQLQuery("select * from VISITE_EVENTO where titolo = \""+titolo+"\";").addEntity(VisitaEvento.class);
+            if(!query.list().isEmpty()) ve = (VisitaEvento) query.list().get(0);
+            transazione.commit();
+            return ve;
         }catch(HibernateException e){
             if(transazione!=null) transazione.rollback();
         }finally{
@@ -264,7 +335,7 @@ public class CRUD {
         try{
             transazione = sessione.beginTransaction();
             int n = 0;
-            query = sessione.createSQLQuery("SELECT COUNT(*) from BIGLIETTI where visitaE = "+idEvento+";").addEntity(Biglietto.class);
+            query = sessione.createSQLQuery("SELECT COUNT(*) from BIGLIETTI where visitaE = "+(idEvento)+";").addEntity(Biglietto.class).addEntity(VisitaEvento.class);
             n = (Integer) query.list().get(0);
             transazione.commit();
             return n;

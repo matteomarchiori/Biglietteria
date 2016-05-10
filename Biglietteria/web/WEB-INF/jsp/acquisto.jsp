@@ -6,6 +6,7 @@
 
 <%@page import="java.util.List"%>
 <%@page import="mappa.Categoria"%>
+<%@page import="mappa.VisitaEvento"%>
 <%@page import="mappa.Servizio"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -96,13 +97,33 @@
 
         </style>
         <script>
+            var n;
+            var nu = 1;
             function informazioni() {
+                var t = document.getElementById("tipo").value;
                 var c = document.getElementById("categoria").value;
                 var d = document.getElementById("data").value;
                 var o = document.getElementById("orario").value;
                 var s = document.getElementById("servizio").value;
                 var i = document.getElementById("informazioni");
-                i.innerHTML += "Data : <span id='d'>"+d+"</span> Ora : <span id='o'>"+o+"</span> Categoria : <span id='c'>"+c+"</span> Servizio : <span id='s'>"+s+"</span><br/>";
+                i.innerHTML += "Tipo:<span id='t" + nu + "'>" + t + "</span>|Nome:<span id='n" + nu + "'>" + n + "</span>|Data:<span id='d" + nu + "'>" + d + "</span>|Ora:<span id='o" + nu + "'>" + o + "</span>|Categoria:<span id='c" + nu + "'>" + c + "</span>|Servizio:<span id='s" + nu + "'>" + s + "</span><br/><br/>";
+                nu++;
+            }
+
+            function evento() {
+                n = document.getElementById("nomeEvento").value;
+                document.getElementById("visita").style.display = "none";
+                document.getElementById("evento").style.display = "block";
+            }
+
+            function visita() {
+                n = "Visita Normale";
+                document.getElementById("evento").style.display = "none";
+                document.getElementById("visita").style.display = "block";
+            }
+
+            function go() {
+                location.href = './summary?informazioni=' + document.getElementById('informazioni').innerHTML + '&nu=' + nu;
             }
         </script>
     </head>
@@ -125,7 +146,7 @@
                                 <li><a href="./about">Chi Siamo</a></li>
                                 <li><a href="./tours">Esposizioni</a></li>
                                 <li><a href="./contact">Contattaci</a></li>
-                                <%
+                                    <%
                                         if (session.getAttribute("email") == null) {
                                             out.print("<li><a href=\"./login\">Login</a></li>");
                                         } else {
@@ -145,68 +166,104 @@
                 <div class="col-lg-4 col-md-6 col-sm-6"><h2 class="tm-section-title">Acquisto</h2></div>
                 <div class="col-lg-4 col-md-6 col-sm-3"><hr></div>
             </div>
-            <div class="dateBox">
-                <div class="loginTitle" align="center">
-                    <h3 class="tm-section-title-box"> Data & Orario </h3>
-                </div>
-
-                <form class="hotel-search-form">
+            <form class="hotel-search-form">
+                <div class="dateBox">
+                    <div class="loginTitle" align="center">
+                        <h3 class="tm-section-title-box"> Tipo Visita </h3>
+                    </div>
                     <div class="tm-form-inner">
-                        <div class="col-lg-6 col-md-6" align="center">
+                        <div class="col-lg-12 col-md-12" align="center">
                             <div class="form-group">
-                                <h4 align="left">Data della Visita :</h4>
-                                <div class='input-group date' id="datetimepicker1">
-                                    <input id="data" type="text" class="form-control" placeholder="Check-in Date">
-                                    <span class="input-group-addon">
-                                        <span class="fa fa-calendar"></span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 " align="center">
-                            <div class="form-group">
-                                <h4 align="left">Orario della Visita :</h4>
-                                <select id="orario" class="form-control">
-                                    <option value="">-- Orario -- </option>
-                                    <option value="9:00">9:00</option>
-                                    <option value="12:00">12:00</option>
-                                    <option value="17:00">17:00</option>
-                                    <option value="20:00">20:00</option>
+                                <h4 align="left">Tipo della Visita :</h4>
+                                <select id="tipo" class="form-control">
+                                    <option value="">-- Tipo -- </option>
+                                    <option onclick="visita()" value="Normale">Normale</option>
+                                    <option onclick="evento()" value="Evento">Evento</option>
                                 </select>
                             </div>
                         </div>
                     </div>
-            </div>
-            <div class="cateBox">
-                <div class="loginTitle" align="center">
-                    <h3 class="tm-section-title-box"> Categorie & Servizi </h3>
                 </div>
-                <div class="tm-form-inner">
-                    <div class="col-lg-6 col-md-6" align="center">
-                        <div class="form-group">
-                            <h4 align="left">Categorie</h4>
-                            <select id="categoria" class="form-control">
-                                <option value="">-- Categorie -- </option>
-                                <c:forEach items="${categorie}" var="categoria">
-                                    <option value="${categoria.descrizione}">${categoria.descrizione}</option>
-                                </c:forEach>
-                            </select>
+                <div id="evento" class="dateBox" style='display: none;'>
+                    <div class="loginTitle" align="center">
+                        <h3 class="tm-section-title-box"> Nome Evento </h3>
+                    </div>
+                    <form class="hotel-search-form">
+                        <div class="tm-form-inner">
+                            <div class="col-lg-12 col-md-12" align="center">
+                                <div class="form-group">
+                                    <h4 align="left">Nome dell'evento :</h4>
+                                    <select id="nomeEvento" class="form-control">
+                                        <option value="">-- Nome -- </option>
+                                        <c:forEach items="${eventi}" var="evento">
+                                            <option value="${evento.titolo}">${evento.titolo} (€ ${evento.tariffa}, Data inizio: ${evento.dataI}, Data fine: ${evento.dataF})</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div id="visita" class="dateBox" style='display: none;'>
+                    <div class="loginTitle" align="center">
+                        <h3 class="tm-section-title-box"> Data & Orario </h3>
+                    </div>
+                    <form class="hotel-search-form">
+                        <div class="tm-form-inner">
+                            <div class="col-lg-6 col-md-6" align="left">
+                                <div class="form-group">
+                                    <h4 align="left">Data della Visita :</h4>
+                                    <div class='input-group date' id="datetimepicker1">
+                                        <input id="data" type="text" class="form-control" placeholder="Check-in Date">
+                                        <span class="input-group-addon">
+                                            <span class="fa fa-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 " align="right">
+                                <div class="form-group">
+                                    <h4 align="left">Orario della Visita :</h4>
+                                    <select id="orario" class="form-control">
+                                        <option value="">-- Orario -- </option>
+                                        <option value="9:00">9:00</option>
+                                        <option value="12:00">12:00</option>
+                                        <option value="17:00">17:00</option>
+                                        <option value="20:00">20:00</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="cateBox">
+                    <div class="loginTitle" align="center">
+                        <h3 class="tm-section-title-box"> Categorie & Servizi </h3>
+                    </div>
+                    <div class="tm-form-inner">
+                        <div class="col-lg-6 col-md-6" align="center">
+                            <div class="form-group">
+                                <h4 align="left">Categorie</h4>
+                                <select id="categoria" class="form-control">
+                                    <option value="">-- Categorie -- </option>
+                                    <c:forEach items="${categorie}" var="categoria">
+                                        <option value="${categoria.descrizione}">${categoria.descrizione}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 " align="center">
+                            <div class="form-group">
+                                <h4 align="left">Servizi</h4>
+                                <select id="servizio" class="form-control">
+                                    <option value="">-- Servizi -- </option>
+                                    <c:forEach items="${servizi}" var="servizio">
+                                        <option value="${servizio.descrizione}">${servizio.descrizione}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 " align="center">
-                        <div class="form-group">
-                            <h4 align="left">Servizi</h4>
-                            <select id="servizio" class="form-control">
-                                <option value="">-- Servizi -- </option>
-                                <c:forEach items="${servizi}" var="servizio">
-                                    <option value="${servizio.descrizione}">${servizio.descrizione}</option>
-                                </c:forEach>
-                            </select>
-                        </div>
-                    </div>
                 </div>
-            </div>
-              </form>
+            </form>
             <div class="infoBox" >
                 <div class="loginTitle" align="center">
                     <h3 class="tm-section-title-box"> Riassunto Informazioni </h3>
@@ -215,13 +272,11 @@
                     <div class="col-lg-4 col-md-4">
                         <button class="tm-yellow-btn" onclick="informazioni()">Aggiungi</button>
                         <button class="tm-yellow-btn" onclick="location.reload()">Annulla</button>
-                        <button class="tm-yellow-btn" onclick="location.href='./summary?informazioni='+document.getElementById('informazioni').innerHTML;">Conferma</button>
+                        <button class="tm-yellow-btn" onclick="go()">Conferma</button>
                     </div>
                     <div class="col-lg-8 col-md-8" id="informazioni"></div>
                 </div>
             </div>
-
-
         </section>
 
         <footer class=" cssFooter">
@@ -236,37 +291,37 @@
             </div>
         </footer>
         <script type="text/javascript" src="./resources/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
-  	<script type="text/javascript" src="./resources/js/moment.js"></script>							<!-- moment.js -->
-	<script type="text/javascript" src="./resources/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
-	<script type="text/javascript" src="./resources/js/bootstrap-datetimepicker.min.js"></script>	<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
-	<script type="text/javascript" src="./resources/js/jquery.flexslider-min.js"></script>
-                            <!-- Templatemo Script -->
+        <script type="text/javascript" src="./resources/js/moment.js"></script>							<!-- moment.js -->
+        <script type="text/javascript" src="./resources/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
+        <script type="text/javascript" src="./resources/js/bootstrap-datetimepicker.min.js"></script>	<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
+        <script type="text/javascript" src="./resources/js/jquery.flexslider-min.js"></script>
+        <!-- Templatemo Script -->
         <script type="text/javascript" src="./resources/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
         <script>
-            // HTML document is loaded. DOM is ready.
-            $(function () {
-                $('#hotelCarTabs a').click(function (e) {
-                    e.preventDefault();
-                    $(this).tab('show');
-                });
-                $('.date').datetimepicker({
-                    format: 'DD/MM/YYYY'
-                });
-                $('.date-time').datetimepicker();
-                // https://css-tricks.com/snippets/jquery/smooth-scrolling/
-                $('a[href*=#]:not([href=#])').click(function () {
-                    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-                        var target = $(this.hash);
-                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                        if (target.length) {
-                            $('html,body').animate({
-                                scrollTop: target.offset().top
-                            }, 1000);
-                            return false;
-                        }
-                    }
-                });
-            });
+                            // HTML document is loaded. DOM is ready.
+                            $(function () {
+                                $('#hotelCarTabs a').click(function (e) {
+                                    e.preventDefault();
+                                    $(this).tab('show');
+                                });
+                                $('.date').datetimepicker({
+                                    format: 'DD/MM/YYYY'
+                                });
+                                $('.date-time').datetimepicker();
+                                // https://css-tricks.com/snippets/jquery/smooth-scrolling/
+                                $('a[href*=#]:not([href=#])').click(function () {
+                                    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                                        var target = $(this.hash);
+                                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                                        if (target.length) {
+                                            $('html,body').animate({
+                                                scrollTop: target.offset().top
+                                            }, 1000);
+                                            return false;
+                                        }
+                                    }
+                                });
+                            });
         </script>
     </body>
 </html>
