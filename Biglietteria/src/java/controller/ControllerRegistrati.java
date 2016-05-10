@@ -53,12 +53,18 @@ public class ControllerRegistrati {
     }
     
     @RequestMapping(value = "/log", params = {"email","password"}, method = RequestMethod.POST)
-    public String log(@RequestParam(value="email") String email,@RequestParam(value="password") String password,HttpSession session){
+    public String log(ModelMap map,@RequestParam(value="email") String email,@RequestParam(value="password") String password,HttpSession session){
        Visitatore v = crud.selectVisitatore(email);
        if (v!=null){
            if(v.getPassword().equals(password)) {
                session.setAttribute("email", email);
                session.setAttribute("password", password);
+               List<Categoria> categorie = crud.selectCategorie();
+                map.put("categorie", categorie);
+                List<Servizio> servizi = crud.selectServizi();
+                map.put("servizi", servizi);
+                List<VisitaEvento> eventi = crud.selectEventi();
+                map.put("eventi", eventi);
                return "acquisto";
            }
            return "registrazione";
@@ -70,18 +76,6 @@ public class ControllerRegistrati {
        session.setAttribute("informazioni", informazioni);
        session.setAttribute("nu", nu);
        return "summary";
-    }
-    
-    @RequestMapping(value="/acquisto", method= RequestMethod.GET)
-    public String acquisto(HttpSession session, ModelMap map){
-        if(session.getAttribute("email")==null) return "login";
-        List<Categoria> categorie = crud.selectCategorie();
-        map.put("categorie", categorie);
-        List<Servizio> servizi = crud.selectServizi();
-        map.put("servizi", servizi);
-        List<VisitaEvento> eventi = crud.selectEventi();
-        map.put("eventi", eventi);
-        return "acquisto";
     }
     
     @RequestMapping(value = "/email", method = RequestMethod.GET)
