@@ -93,7 +93,7 @@
         <script>
             function registra() {
                 for (var z = 1 ; z <= <%=session.getAttribute("nu")%> ; z++) {
-                    location.href = './newBiglietto?tipo=' + document.getElementById('t' + z).innerHTML + '&data=' + document.getElementById('d' + z).innerHTML + '&titolo=' + document.getElementById('n' + z).innerHTML + '&categoria=' + document.getElementById('c' + z).innerHTML + '&servizio='document.getElementById('s' + z).innerHTML;
+                    location.href = './newBiglietto?tipo=' + document.getElementById('t' + z).value + '&data=' + document.getElementById('d' + z).value + '&titolo=' + document.getElementById('n' + z).value + '&categoria=' + document.getElementById('c' + z).value + '&servizio='document.getElementById('s' + z).value;
                 }
             }
         </script>

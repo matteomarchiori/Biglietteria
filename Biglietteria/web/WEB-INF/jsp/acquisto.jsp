@@ -194,9 +194,9 @@
                                 <div class="form-group">
                                     <h4 align="left">Nome dell'evento :</h4>
                                     <select id="nomeEvento" class="form-control">
-                                        <option value="">-- Nome -- </option>
+                                        <option value="">-- Nome --</option>
                                         <c:forEach items="${eventi}" var="evento">
-                                            <option value="${evento.titolo}">${evento.titolo} (€ ${evento.tariffa}, Data inizio: ${evento.dataI}, Data fine: ${evento.dataF})</option>
+                                            <option value = "${evento.titolo}">${evento.titolo} (€ ${evento.tariffa}, Data inizio: ${evento.dataI}, Data fine: ${evento.dataF})</option>
                                         </c:forEach>
                                     </select>
                                 </div>
