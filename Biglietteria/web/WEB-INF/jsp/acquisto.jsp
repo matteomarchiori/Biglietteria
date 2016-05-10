@@ -106,7 +106,7 @@
                 var o = document.getElementById("orario").value;
                 var s = document.getElementById("servizio").value;
                 var i = document.getElementById("informazioni");
-                i.innerHTML += "Tipo:<span id='t" + nu + "'>" + t + "</span>|Nome:<span id='n" + nu + "'>" + n + "</span>|Data:<span id='d" + nu + "'>" + d + "</span>|Ora:<span id='o" + nu + "'>" + o + "</span>|Categoria:<span id='c" + nu + "'>" + c + "</span>|Servizio:<span id='s" + nu + "'>" + s + "</span><br/><br/>";
+                i.innerHTML += "Tipo: <span id='t" + nu + "'>" + t + "</span>|Nome: <span id='n" + nu + "'>" + n + "</span>|Data: <span id='d" + nu + "'>" + d + "</span>|Ora: <span id='o" + nu + "'>" + o + "</span>|Categoria: <span id='c" + nu + "'>" + c + "</span>|Servizio: <span id='s" + nu + "'>" + s + "</span><br/><br/>";
                 nu++;
             }
 

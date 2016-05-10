@@ -92,7 +92,7 @@
         </style>
         <script>
             function registra() {
-                for (var z = 1; z <= '<%=session.getAttribute("nu")%>'; z++) {
+                for (var z = 1 ; z <= <%=session.getAttribute("nu")%> ; z++) {
                     location.href = './newBiglietto?tipo=' + document.getElementById('t' + z).innerHTML + '&data=' + document.getElementById('d' + z).innerHTML + '&titolo=' + document.getElementById('n' + z).innerHTML + '&categoria=' + document.getElementById('c' + z).innerHTML + '&servizio='document.getElementById('s' + z).innerHTML;
                 }
             }
@@ -145,7 +145,6 @@
                     <div class="col-lg-4 col-md-4">
                         <button class="tm-yellow-btn" onclick="registra()">Registra biglietti</button>
                     </div>
-                    <div class="col-lg-8 col-md-8" id="informazioni"></div>
                 </div>
                 <div class="tm-form-inner" id="info">
                     <%

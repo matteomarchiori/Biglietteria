@@ -71,6 +71,11 @@ public class ControllerRegistrati {
        } return "registrazione";  
     }
     
+    @RequestMapping(value="/acquisto")
+    public String acquisto(){
+        return "acquisto";
+    }
+    
     @RequestMapping(value = "/summary", params = {"informazioni", "nu"}, method= RequestMethod.GET)
     public String summary(@RequestParam(value="informazioni") String informazioni,@RequestParam(value="nu") int nu, HttpSession session){
        session.setAttribute("informazioni", informazioni);
