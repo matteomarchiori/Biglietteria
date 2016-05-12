@@ -97,9 +97,10 @@
 
         </style>
         <script>
-            var n;
-            var nu = 1;
-            function informazioni() {
+            var nu = 0;
+            function prova() {
+                nu++;
+                document.getElementById("nu").value = nu;
                 var t = document.getElementById("tipo").value;
                 var c = document.getElementById("categoria").value;
                 var d = document.getElementById("data").value;
@@ -107,11 +108,11 @@
                 var s = document.getElementById("servizio").value;
                 var i = document.getElementById("informazioni");
                 i.innerHTML += "Tipo: <span id='t" + nu + "'>" + t + "</span>|Nome: <span id='n" + nu + "'>" + n + "</span>|Data: <span id='d" + nu + "'>" + d + "</span>|Ora: <span id='o" + nu + "'>" + o + "</span>|Categoria: <span id='c" + nu + "'>" + c + "</span>|Servizio: <span id='s" + nu + "'>" + s + "</span><br/><br/>";
-                nu++;
+                var j = document.getElementById("informa");
+                j.value = i.innerHTML;
             }
 
             function evento() {
-                n = document.getElementById("nomeEvento").value;
                 document.getElementById("visita").style.display = "none";
                 document.getElementById("evento").style.display = "block";
             }
@@ -124,6 +125,15 @@
 
             function go() {
                 location.href = './summary?informazioni=' + document.getElementById('informazioni').innerHTML + '&nu=' + nu;
+            }
+
+            function setNome() {
+                n = document.getElementById("nomeEvento").value;
+            }
+
+            function reset() {
+                document.getElementById("informazioni").innerHTML = "";
+                nu = 0;
             }
         </script>
     </head>
@@ -166,7 +176,9 @@
                 <div class="col-lg-4 col-md-6 col-sm-6"><h2 class="tm-section-title">Acquisto</h2></div>
                 <div class="col-lg-4 col-md-6 col-sm-3"><hr></div>
             </div>
-            <form class="hotel-search-form">
+            <form class="hotel-search-form" action="./summary?${informazioni}${nu}" method="POST">
+                <input style="display: none" name="informazioni" id="informa"/>
+                <input style="display: none" name="nu" id="nu"/>
                 <div class="dateBox">
                     <div class="loginTitle" align="center">
                         <h3 class="tm-section-title-box"> Tipo Visita </h3>
@@ -188,26 +200,26 @@
                     <div class="loginTitle" align="center">
                         <h3 class="tm-section-title-box"> Nome Evento </h3>
                     </div>
-                    <form class="hotel-search-form">
+                    <div class="hotel-search-form">
                         <div class="tm-form-inner">
                             <div class="col-lg-12 col-md-12" align="center">
                                 <div class="form-group">
                                     <h4 align="left">Nome dell'evento :</h4>
                                     <select id="nomeEvento" class="form-control">
-                                        <option value="">-- Nome --</option>
                                         <c:forEach items="${eventi}" var="evento">
-                                            <option value = "${evento.titolo}">${evento.titolo} (€ ${evento.tariffa}, Data inizio: ${evento.dataI}, Data fine: ${evento.dataF})</option>
+                                            <option onclick="setNome()" value = "${evento.titolo}">${evento.titolo} (€ ${evento.tariffa}, Data inizio: ${evento.dataI}, Data fine: ${evento.dataF})</option>
                                         </c:forEach>
                                     </select>
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </div>
                 <div id="visita" class="dateBox" style='display: none;'>
                     <div class="loginTitle" align="center">
                         <h3 class="tm-section-title-box"> Data & Orario </h3>
                     </div>
-                    <form class="hotel-search-form">
+                    <div class="hotel-search-form">
                         <div class="tm-form-inner">
                             <div class="col-lg-6 col-md-6" align="left">
                                 <div class="form-group">
@@ -224,7 +236,6 @@
                                 <div class="form-group">
                                     <h4 align="left">Orario della Visita :</h4>
                                     <select id="orario" class="form-control">
-                                        <option value="">-- Orario -- </option>
                                         <option value="9:00">9:00</option>
                                         <option value="12:00">12:00</option>
                                         <option value="17:00">17:00</option>
@@ -233,6 +244,7 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </div>
                 <div class="cateBox">
                     <div class="loginTitle" align="center">
@@ -243,7 +255,6 @@
                             <div class="form-group">
                                 <h4 align="left">Categorie</h4>
                                 <select id="categoria" class="form-control">
-                                    <option value="">-- Categorie -- </option>
                                     <c:forEach items="${categorie}" var="categoria">
                                         <option value="${categoria.descrizione}">${categoria.descrizione}</option>
                                     </c:forEach>
@@ -254,7 +265,6 @@
                             <div class="form-group">
                                 <h4 align="left">Servizi</h4>
                                 <select id="servizio" class="form-control">
-                                    <option value="">-- Servizi -- </option>
                                     <c:forEach items="${servizi}" var="servizio">
                                         <option value="${servizio.descrizione}">${servizio.descrizione}</option>
                                     </c:forEach>
@@ -263,22 +273,22 @@
                         </div>
                     </div>
                 </div>
-            </form>
-            <div class="infoBox" >
-                <div class="loginTitle" align="center">
-                    <h3 class="tm-section-title-box"> Riassunto Informazioni </h3>
-                </div>
-                <div class="tm-form-inner" id="info">
-                    <div class="col-lg-4 col-md-4">
-                        <button class="tm-yellow-btn" onclick="informazioni()">Aggiungi</button>
-                        <button class="tm-yellow-btn" onclick="location.reload()">Annulla</button>
-                        <button class="tm-yellow-btn" onclick="go()">Conferma</button>
+                <div class="infoBox" >
+                    <div class="loginTitle" align="center">
+                        <h3 class="tm-section-title-box"> Riassunto Informazioni </h3>
                     </div>
-                    <div class="col-lg-8 col-md-8" id="informazioni"></div>
+                    <div class="tm-form-inner" id="info">
+                        <div class="col-lg-4 col-md-4">
+                            <input type="button" class="tm-yellow-btn" value="Aggiungi" onclick="prova()"/>
+                            <input type="button" class="tm-yellow-btn" value="Annulla" onclick="reset()"/>
+                            <button type="submit" name="submit" class="tm-yellow-btn">Conferma</button>
+                        </div>
+                        <div class="col-lg-8 col-md-8" id="informazioni"></div>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </form>
 
+        </section>
         <footer class=" cssFooter">
             <div class="tm-black-bg">
                 <div class="container">
@@ -298,30 +308,30 @@
         <!-- Templatemo Script -->
         <script type="text/javascript" src="./resources/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
         <script>
-                            // HTML document is loaded. DOM is ready.
-                            $(function () {
-                                $('#hotelCarTabs a').click(function (e) {
-                                    e.preventDefault();
-                                    $(this).tab('show');
-                                });
-                                $('.date').datetimepicker({
-                                    format: 'DD/MM/YYYY'
-                                });
-                                $('.date-time').datetimepicker();
-                                // https://css-tricks.com/snippets/jquery/smooth-scrolling/
-                                $('a[href*=#]:not([href=#])').click(function () {
-                                    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-                                        var target = $(this.hash);
-                                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                                        if (target.length) {
-                                            $('html,body').animate({
-                                                scrollTop: target.offset().top
-                                            }, 1000);
-                                            return false;
+                                // HTML document is loaded. DOM is ready.
+                                $(function () {
+                                    $('#hotelCarTabs a').click(function (e) {
+                                        e.preventDefault();
+                                        $(this).tab('show');
+                                    });
+                                    $('.date').datetimepicker({
+                                        format: 'DD/MM/YYYY'
+                                    });
+                                    $('.date-time').datetimepicker();
+                                    // https://css-tricks.com/snippets/jquery/smooth-scrolling/
+                                    $('a[href*=#]:not([href=#])').click(function () {
+                                        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                                            var target = $(this.hash);
+                                            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                                            if (target.length) {
+                                                $('html,body').animate({
+                                                    scrollTop: target.offset().top
+                                                }, 1000);
+                                                return false;
+                                            }
                                         }
-                                    }
+                                    });
                                 });
-                            });
         </script>
     </body>
 </html>

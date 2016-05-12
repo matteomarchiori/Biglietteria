@@ -28,6 +28,7 @@ public class ControllerMain {
     
     @RequestMapping(value="/", method= RequestMethod.GET)
     public String index(HttpSession session, ModelMap map){
+       session.invalidate();
        session.setMaxInactiveInterval(180);
        List<Categoria> categorie = crud.selectCategorie();
        for(int i=0;i<categorie.size();i++){

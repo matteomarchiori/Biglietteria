@@ -92,8 +92,13 @@
         </style>
         <script>
             function registra() {
-                for (var z = 1 ; z <= <%=session.getAttribute("nu")%> ; z++) {
-                    location.href = './newBiglietto?tipo=' + document.getElementById('t' + z).value + '&data=' + document.getElementById('d' + z).value + '&titolo=' + document.getElementById('n' + z).value + '&categoria=' + document.getElementById('c' + z).value + '&servizio='document.getElementById('s' + z).value;
+                for (var z = 0; z < <%=session.getAttribute("nu")%>; z++) {
+                    document.getElementById("nascosto").value =
+                            "<input style='diplay: none' value=" + document.getElementById('t' + z).value + " name='tipo" + z + "'" / > "+
+                            "<input style='diplay: none' value=" + document.getElementById('d' + z).value + " name='data" + z + "'" / > "+
+                            "<input style='diplay: none' value=" + document.getElementById('n' + z).value + " name='titolo" + z + "'" / > "+
+                            "<input style='diplay: none' value=" + document.getElementById('c' + z).value + " name='categoria" + z + "'" / > "+
+                            "<input style='diplay: none' value=" + document.getElementById('s' + z).value + " name='servizio" + z + "'" / > ";
                 }
             }
         </script>
@@ -137,41 +142,41 @@
                 <div class="col-lg-4 col-md-6 col-sm-6"><h2 class="tm-section-title">Riassunto</h2></div>
                 <div class="col-lg-4 col-md-6 col-sm-3"><hr></div>
             </div>
-            <div class="infoBox" >
-                <div class="loginTitle" align="center">
-                    <h3 class="tm-section-title-box"> Riassunto Informazioni </h3>
-                </div>
-                <div class="tm-form-inner" id="info">
-                    <div class="col-lg-4 col-md-4">
-                        <button class="tm-yellow-btn" onclick="registra()">Registra biglietti</button>
+            <form class="hotel-search-form" action="./registraBiglietti?" method="post">
+                <div style="display: none" id="nascosto"></div>
+                <div class="infoBox" >
+                    <div class="loginTitle" align="center">
+                        <h3 class="tm-section-title-box"> Riassunto Informazioni </h3>
+                    </div>
+                    <div class="tm-form-inner" id="info">
+                        <div class="col-lg-4 col-md-4">
+                            <input type="button" value="Conferma" name="button" onclick="registra()" class="tm-yellow-btn"/>
+                        </div>
+                        <div class="col-lg-8 col-md-8" id="informazioni"><%out.print(session.getAttribute("informazioni"));%></div>
                     </div>
                 </div>
-                <div class="tm-form-inner" id="info">
-                    <%
-                        out.print(session.getAttribute("informazioni"));
-                    %>
+                </div>
+            </form>
+        </section>
+        <footer class=" cssFooter">
+            <div class="tm-black-bg">
+                <div class="container">
+                    <div class="row">
+                        <p class="tm-copyright-text">Copyright &copy; 2084 Your Company Name
+
+                            | Designed by <a rel="nofollow" href="http://www.templatemo.com" target="_parent">templatemo</a></p>
+                    </div>
                 </div>
             </div>
-        </section>
-            <footer class=" cssFooter">
-                <div class="tm-black-bg">
-                    <div class="container">
-                        <div class="row">
-                            <p class="tm-copyright-text">Copyright &copy; 2084 Your Company Name
-
-                                | Designed by <a rel="nofollow" href="http://www.templatemo.com" target="_parent">templatemo</a></p>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <script type="text/javascript" src="./resources/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
-            <script type="text/javascript" src="./resources/js/moment.js"></script>							<!-- moment.js -->
-            <script type="text/javascript" src="./resources/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
-            <script type="text/javascript" src="./resources/js/bootstrap-datetimepicker.min.js"></script>	<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
-            <script type="text/javascript" src="./resources/js/jquery.flexslider-min.js"></script>
-            <!-- Templatemo Script -->
-            <script type="text/javascript" src="./resources/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
-            <script>
+        </footer>
+        <script type="text/javascript" src="./resources/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
+        <script type="text/javascript" src="./resources/js/moment.js"></script>							<!-- moment.js -->
+        <script type="text/javascript" src="./resources/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
+        <script type="text/javascript" src="./resources/js/bootstrap-datetimepicker.min.js"></script>	<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
+        <script type="text/javascript" src="./resources/js/jquery.flexslider-min.js"></script>
+        <!-- Templatemo Script -->
+        <script type="text/javascript" src="./resources/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
+        <script>
                                 // HTML document is loaded. DOM is ready.
                                 $(function () {
                                     $('#hotelCarTabs a').click(function (e) {
@@ -196,6 +201,6 @@
                                         }
                                     });
                                 });
-            </script>
+        </script>
     </body>
 </html>
