@@ -5,8 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="it">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -90,21 +91,35 @@
                 font-weight: 300;
             }
         </style>
-        <script>
-            function registra() {
-                for (var z = 0; z < <%=session.getAttribute("nu")%>; z++) {
-                    document.getElementById("nascosto").value =
-                            "<input style='diplay: none' value=" + document.getElementById('t' + z).value + " name='tipo" + z + "'" / > "+
-                            "<input style='diplay: none' value=" + document.getElementById('d' + z).value + " name='data" + z + "'" / > "+
-                            "<input style='diplay: none' value=" + document.getElementById('n' + z).value + " name='titolo" + z + "'" / > "+
-                            "<input style='diplay: none' value=" + document.getElementById('c' + z).value + " name='categoria" + z + "'" / > "+
-                            "<input style='diplay: none' value=" + document.getElementById('s' + z).value + " name='servizio" + z + "'" / > ";
-                }
+        <script type="text/javascript">
+            function inserimento() {
+                for (var z = 1 ; z <= <%=session.getAttribute("nu")%> ; z+=1) {
+                    var j = "<input style='display: none' value='"+ document.getElementById('t'+z).innerHTML + "' id='tipo"+z+"'/><input style='display: none' value='" + document.getElementById('d'+z).innerHTML + "' id='data"+z+"'/><input style='display: none' value='" + document.getElementById('n'+z).innerHTML + "' id='titolo"+z+"'/><input style='display: none' value='" + document.getElementById('c'+z).innerHTML + "' id='categoria"+z+"'/><input style='display: none' value='" + document.getElementById('s'+z).innerHTML + "' id='servizio"+z+"'/><br/>";
+                    document.getElementById("nascosti").innerHTML += j;
+                }            
+            }
+            
+            function registra(){
+                    var tipo = document.getElementById("tipo1").value;
+                    var data = document.getElementById("data1").value;
+                    var titolo = document.getElementById("titolo1").value;
+                    var categoria = document.getElementById("categoria1").value;
+                    var servizio = document.getElementById("servizio1").value;
+                    var param = "tipo="+tipo+"&data="+data+"&titolo="+titolo+"&categoria="+categoria+"&servizio="+servizio;
+                    var req = new XMLHttpRequest();            
+                    req.onreadystatechange = function(){
+                        if(req.readyState==4 && req.status==200){
+                            req.responseText;
+                        }
+                    };
+                    req.open("POST","registraBiglietti",true);
+                    req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    req.send(param);
+                
             }
         </script>
     </head>
-    <body class="tm-gray-bg">
-
+    <body onload="inserimento()" class="tm-gray-bg">
         <!-- Header -->
         <div class="tm-header">
             <div class="container">
@@ -135,22 +150,22 @@
                 </div>
             </div>
         </div>
-
+        
         <section class="container tm-home-section-2">
             <div class="registerText">
                 <div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
                 <div class="col-lg-4 col-md-6 col-sm-6"><h2 class="tm-section-title">Riassunto</h2></div>
                 <div class="col-lg-4 col-md-6 col-sm-3"><hr></div>
             </div>
-            <form class="hotel-search-form" action="./registraBiglietti?" method="post">
-                <div style="display: none" id="nascosto"></div>
+            <form class="hotel-search-form">
+                <div id="nascosti"></div>
                 <div class="infoBox" >
                     <div class="loginTitle" align="center">
                         <h3 class="tm-section-title-box"> Riassunto Informazioni </h3>
                     </div>
                     <div class="tm-form-inner" id="info">
                         <div class="col-lg-4 col-md-4">
-                            <input type="button" value="Conferma" name="button" onclick="registra()" class="tm-yellow-btn"/>
+                        <input type="button" value="Conferma" onclick='registra()' class="tm-yellow-btn"/>
                         </div>
                         <div class="col-lg-8 col-md-8" id="informazioni"><%out.print(session.getAttribute("informazioni"));%></div>
                     </div>

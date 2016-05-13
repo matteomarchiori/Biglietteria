@@ -91,8 +91,7 @@ public class ControllerRegistrati {
     }
 
     @RequestMapping(value = "/email", method = RequestMethod.GET)
-    public @ResponseBody
-    String getEmail(@RequestParam(value = "daCompletare", required = true) String daCompletare) {
+    public @ResponseBody String getEmail(@RequestParam(value = "daCompletare", required = true) String daCompletare) {
         Visitatore v = crud.selectEmail(daCompletare);
         if (v == null) {
             return "Nessun suggerimento.";
@@ -101,7 +100,7 @@ public class ControllerRegistrati {
     }//getEmail
 
     @RequestMapping(value = "/registraBiglietti",method = RequestMethod.POST)
-    public void newBiglietto(HttpSession session, @RequestParam(value = "tipo") String tipo, @RequestParam(value = "data") Date data, @RequestParam(value = "titolo") String titolo, @RequestParam(value = "categoria") String categoria, @RequestParam(value = "servizio") String servizio) {
+    public @ResponseBody void newBiglietto(HttpSession session, @RequestParam(value = "tipo") String tipo, @RequestParam(value = "data") Date data, @RequestParam(value = "titolo") String titolo, @RequestParam(value = "categoria") String categoria, @RequestParam(value = "servizio") String servizio) {
         String email = (String) session.getAttribute("email");
         Visitatore v = crud.selectVisitatore(email);
         Categoria c = crud.selectCategoria(categoria);

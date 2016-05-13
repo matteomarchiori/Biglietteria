@@ -123,10 +123,6 @@
                 document.getElementById("visita").style.display = "block";
             }
 
-            function go() {
-                location.href = './summary?informazioni=' + document.getElementById('informazioni').innerHTML + '&nu=' + nu;
-            }
-
             function setNome() {
                 n = document.getElementById("nomeEvento").value;
             }
@@ -196,7 +192,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="evento" class="dateBox" style='display: none;'>
+                <div id="evento" class="dateBox" style='display: none'>
                     <div class="loginTitle" align="center">
                         <h3 class="tm-section-title-box"> Nome Evento </h3>
                     </div>
@@ -215,7 +211,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="visita" class="dateBox" style='display: none;'>
+                <div id="visita" class="dateBox" style='display: none'>
                     <div class="loginTitle" align="center">
                         <h3 class="tm-section-title-box"> Data & Orario </h3>
                     </div>
@@ -315,7 +311,7 @@
                                         $(this).tab('show');
                                     });
                                     $('.date').datetimepicker({
-                                        format: 'DD/MM/YYYY'
+                                        format: 'YYYY-MM-DD'
                                     });
                                     $('.date-time').datetimepicker();
                                     // https://css-tricks.com/snippets/jquery/smooth-scrolling/
