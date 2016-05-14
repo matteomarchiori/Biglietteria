@@ -7,9 +7,15 @@ package controller;
 
 import CRUD.CRUD;
 import hibernate.HibernateUtil;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
 import mappa.Biglietto;
 import mappa.Categoria;
@@ -100,12 +106,12 @@ public class ControllerRegistrati {
     }//getEmail
 
     @RequestMapping(value = "/registraBiglietti",method = RequestMethod.POST)
-    public @ResponseBody void newBiglietto(HttpSession session, @RequestParam(value = "tipo") String tipo, @RequestParam(value = "data") Date data, @RequestParam(value = "titolo") String titolo, @RequestParam(value = "categoria") String categoria, @RequestParam(value = "servizio") String servizio) {
+    public @ResponseBody String newBiglietto(HttpSession session, @RequestParam(value = "tipo") String tipo, @RequestParam(value = "data") String data, @RequestParam(value = "titolo") String titolo, @RequestParam(value = "categoria") String categoria, @RequestParam(value = "servizio") String servizio) {
         String email = (String) session.getAttribute("email");
         Visitatore v = crud.selectVisitatore(email);
         Categoria c = crud.selectCategoria(categoria);
         Servizio s = crud.selectServizio(servizio);
-        HashSet<Servizio> servizi = new HashSet<>();
+        Set<Servizio> servizi = new HashSet<>();
         servizi.add(s);
         if (tipo.equals("Evento")) {
             VisitaEvento ve = crud.selectVisitaEvento(titolo);
@@ -113,9 +119,20 @@ public class ControllerRegistrati {
             Biglietto b = new Biglietto(d, v, null, ve, servizi, c);
             crud.insertBiglietto(b);
         } else {
-            VisitaBase vb = new VisitaBase(titolo, 3, titolo, null);
-            Biglietto b = new Biglietto(data, v, vb, null, servizi, c);
-            crud.insertBiglietto(b);
+            try {
+                DateFormat format = new SimpleDateFormat("d-M-y");
+                Date d = format.parse(data);
+                VisitaBase vb = crud.selectVisitaBase(titolo);
+                if(vb==null){
+                    vb = new VisitaBase(titolo, 3, titolo, null);
+                    crud.insertVisitaBase(vb);
+                }
+                Biglietto b = new Biglietto(d, v, vb, null, servizi, c);
+                crud.insertBiglietto(b);
+            } catch (ParseException ex) {
+                Logger.getLogger(ControllerRegistrati.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        return "";
     }
 }

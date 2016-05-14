@@ -85,6 +85,20 @@ public class CRUD {
         }
     }
     
+    public void insertVisitaBase(VisitaBase vb){
+        Session sessione = factory.openSession();
+        Transaction transazione = null;
+        try{
+            transazione = sessione.beginTransaction();
+            sessione.save(vb);
+            transazione.commit();
+        }catch(HibernateException e){
+            if(transazione!=null) transazione.rollback();
+        }finally{
+            sessione.close();
+        }
+    }
+    
      public List selectVisitatori(){
         Session sessione = factory.openSession();
         Transaction transazione = null;
@@ -204,7 +218,7 @@ public class CRUD {
         SQLQuery query;
         try{
             transazione = sessione.beginTransaction();
-            query = sessione.createSQLQuery("select * from CATEGORIE where decrizione = \""+descrizione+"\";").addEntity(Categoria.class);
+            query = sessione.createSQLQuery("select * from CATEGORIE where descrizione = \""+descrizione+"\";").addEntity(Categoria.class);
             Categoria c = null;
             if(!query.list().isEmpty()) c = (Categoria) query.list().get(0);
             transazione.commit();
@@ -315,11 +329,30 @@ public class CRUD {
         SQLQuery query;
         try{
             transazione = sessione.beginTransaction();
-            VisitaEvento ve = null;
+            VisitaEvento evento = null;
             query = sessione.createSQLQuery("select * from VISITE_EVENTO where titolo = \""+titolo+"\";").addEntity(VisitaEvento.class);
-            if(!query.list().isEmpty()) ve = (VisitaEvento) query.list().get(0);
+            if(!query.list().isEmpty()) evento = (VisitaEvento) query.list().get(0);
             transazione.commit();
-            return ve;
+            return evento;
+        }catch(HibernateException e){
+            if(transazione!=null) transazione.rollback();
+        }finally{
+            sessione.close();
+        }
+        return null;
+    }
+    
+    public VisitaBase selectVisitaBase(String titolo){
+        Session sessione = factory.openSession();
+        Transaction transazione = null;
+        SQLQuery query;
+        try{
+            transazione = sessione.beginTransaction();
+            VisitaBase visita = null;
+            query = sessione.createSQLQuery("select * from VISITE_BASE where titolo = \""+titolo+"\";").addEntity(VisitaBase.class);
+            if(!query.list().isEmpty()) visita = (VisitaBase) query.list().get(0);
+            transazione.commit();
+            return visita;
         }catch(HibernateException e){
             if(transazione!=null) transazione.rollback();
         }finally{

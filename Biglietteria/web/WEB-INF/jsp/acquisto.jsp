@@ -71,7 +71,7 @@
                 margin-right: auto;
                 top: 200px;
                 width: 900px;
-                height: 350px;
+                height: 700px;
                 border: 2px;
                 border-radius: 5px;
                 background-color: white;
@@ -107,12 +107,13 @@
                 var o = document.getElementById("orario").value;
                 var s = document.getElementById("servizio").value;
                 var i = document.getElementById("informazioni");
-                i.innerHTML += "Tipo: <span id='t" + nu + "'>" + t + "</span>|Nome: <span id='n" + nu + "'>" + n + "</span>|Data: <span id='d" + nu + "'>" + d + "</span>|Ora: <span id='o" + nu + "'>" + o + "</span>|Categoria: <span id='c" + nu + "'>" + c + "</span>|Servizio: <span id='s" + nu + "'>" + s + "</span><br/><br/>";
-                var j = document.getElementById("informa");
-                j.value = i.innerHTML;
+                i.innerHTML += "<tr><td>"+nu+"</td><td id='t" + nu + "'>" + t + "</td><td id='n" + nu + "'>" + n + "</td><td id='d" + nu + "'>" + d + "</td><td id='o" + nu + "'>" + o + "</td><td id='c" + nu + "'>" + c + "</td><td id='s" + nu + "'>" + s + "</td></tr>";
+                var j = document.getElementById("nascosto");
+                j.value = i.outerHTML;
             }
 
             function evento() {
+                n = document.getElementById("nomeEvento").value;
                 document.getElementById("visita").style.display = "none";
                 document.getElementById("evento").style.display = "block";
             }
@@ -128,12 +129,13 @@
             }
 
             function reset() {
-                document.getElementById("informazioni").innerHTML = "";
+                document.getElementById("informazioni").innerHTML = "<tr><th>Nr biglietto</th><th>Tipo</th><th>Nome</th><th>Data</th><th>Ora</th><th>Categoria</th><th>Servizio</th></tr>";
+                document.getElementById("nascosto").value = "";
                 nu = 0;
             }
         </script>
     </head>
-    <body class="tm-gray-bg">
+    <body class="tm-gray-bg" onload="reset()" onunload="reset()">
 
         <!-- Header -->
         <div class="tm-header">
@@ -173,7 +175,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-3"><hr></div>
             </div>
             <form class="hotel-search-form" action="./summary?${informazioni}${nu}" method="POST">
-                <input style="display: none" name="informazioni" id="informa"/>
+                <input style="display: none" name="informazioni" id="nascosto"/>
                 <input style="display: none" name="nu" id="nu"/>
                 <div class="dateBox">
                     <div class="loginTitle" align="center">
@@ -279,7 +281,10 @@
                             <input type="button" class="tm-yellow-btn" value="Annulla" onclick="reset()"/>
                             <button type="submit" name="submit" class="tm-yellow-btn">Conferma</button>
                         </div>
-                        <div class="col-lg-8 col-md-8" id="informazioni"></div>
+                        <div class="col-lg-8 col-md-8">
+                            <table id="informazioni" class="table table-bordered">
+                            </table>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -311,7 +316,7 @@
                                         $(this).tab('show');
                                     });
                                     $('.date').datetimepicker({
-                                        format: 'YYYY-MM-DD'
+                                        format: 'DD-MM-YYYY'
                                     });
                                     $('.date-time').datetimepicker();
                                     // https://css-tricks.com/snippets/jquery/smooth-scrolling/

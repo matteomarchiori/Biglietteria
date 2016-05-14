@@ -67,7 +67,7 @@
                 margin-right: auto;
                 top: 200px;
                 width: 900px;
-                height: 200px;
+                height: 700px;
                 border: 2px;
                 border-radius: 5px;
                 background-color: white;
@@ -94,17 +94,18 @@
         <script type="text/javascript">
             function inserimento() {
                 for (var z = 1 ; z <= <%=session.getAttribute("nu")%> ; z+=1) {
-                    var j = "<input style='display: none' value='"+ document.getElementById('t'+z).innerHTML + "' id='tipo"+z+"'/><input style='display: none' value='" + document.getElementById('d'+z).innerHTML + "' id='data"+z+"'/><input style='display: none' value='" + document.getElementById('n'+z).innerHTML + "' id='titolo"+z+"'/><input style='display: none' value='" + document.getElementById('c'+z).innerHTML + "' id='categoria"+z+"'/><input style='display: none' value='" + document.getElementById('s'+z).innerHTML + "' id='servizio"+z+"'/><br/>";
+                    var j = "<input style='display: none' value='"+ document.getElementById('t'+z).innerHTML + "' id='tipo"+z+"'/><input style='display: none' value='" + document.getElementById('d'+z).innerHTML + "' id='data"+z+"'/><input style='display: none' value='" + document.getElementById('n'+z).innerHTML + "' id='titolo"+z+"'/><input style='display: none' value='" + document.getElementById('c'+z).innerHTML + "' id='categoria"+z+"'/><input style='display: none' value='" + document.getElementById('s'+z).innerHTML + "' id='servizio"+z+"'/>";
                     document.getElementById("nascosti").innerHTML += j;
                 }            
             }
             
             function registra(){
-                    var tipo = document.getElementById("tipo1").value;
-                    var data = document.getElementById("data1").value;
-                    var titolo = document.getElementById("titolo1").value;
-                    var categoria = document.getElementById("categoria1").value;
-                    var servizio = document.getElementById("servizio1").value;
+                for(var z = 1; z <= <%=session.getAttribute("nu")%> ; z+=1){
+                    var tipo = document.getElementById("tipo"+z).value;
+                    var data = document.getElementById("data"+z).value;
+                    var titolo = document.getElementById("titolo"+z).value;
+                    var categoria = document.getElementById("categoria"+z).value;
+                    var servizio = document.getElementById("servizio"+z).value;
                     var param = "tipo="+tipo+"&data="+data+"&titolo="+titolo+"&categoria="+categoria+"&servizio="+servizio;
                     var req = new XMLHttpRequest();            
                     req.onreadystatechange = function(){
@@ -115,7 +116,9 @@
                     req.open("POST","registraBiglietti",true);
                     req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                     req.send(param);
-                
+                }
+                alert("Registrazione biglietti effettuata.");
+                location.href="./index";
             }
         </script>
     </head>
@@ -165,7 +168,9 @@
                     </div>
                     <div class="tm-form-inner" id="info">
                         <div class="col-lg-4 col-md-4">
-                        <input type="button" value="Conferma" onclick='registra()' class="tm-yellow-btn"/>
+                            <input type="button" value="Conferma" onclick='registra()' class="tm-yellow-btn"/>
+                            <br/>*N.B. Una volta premuto il bottone non sar&agrave; pi&ugrave; possibile annullare l'acquisto)
+                            <br/>**N.B. Si prega di stampare o salvare la pagina corrente. Il sito necessita di modifiche per accedere ai propri biglietti.
                         </div>
                         <div class="col-lg-8 col-md-8" id="informazioni"><%out.print(session.getAttribute("informazioni"));%></div>
                     </div>

@@ -38,7 +38,9 @@ public class ControllerMain {
     }
     
     @RequestMapping(value="/index", method= RequestMethod.GET)
-    public String index2(ModelMap map){
+    public String index2(HttpSession session, ModelMap map){
+       session.removeAttribute("informazioni");
+       session.removeAttribute("nu");
        List<Categoria> categorie = crud.selectCategorie();
        for(int i=0;i<categorie.size();i++){
            map.put("categoria"+(i+1), categorie.get(i));
