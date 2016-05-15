@@ -124,7 +124,7 @@ public class ControllerRegistrati {
                 Date d = format.parse(data);
                 VisitaBase vb = crud.selectVisitaBase(titolo);
                 if(vb==null){
-                    vb = new VisitaBase(titolo, 3, titolo, null);
+                    vb = new VisitaBase(titolo, 8, titolo, null);
                     crud.insertVisitaBase(vb);
                 }
                 Biglietto b = new Biglietto(d, v, vb, null, servizi, c);

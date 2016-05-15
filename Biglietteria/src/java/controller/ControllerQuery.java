@@ -8,12 +8,15 @@ package controller;
 import CRUD.CRUD;
 import hibernate.HibernateUtil;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import mappa.VisitaEvento;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import query.Query1;
 
 /**
  *
@@ -28,14 +31,44 @@ public class ControllerQuery {
     }
     
     @RequestMapping(value="/query1", method=RequestMethod.GET)
-    public String query1(ModelMap map){
-        List<VisitaEvento> eventi = crud.selectEventi();
-        List<Integer> nrBiglietti = new ArrayList<>();
-        for(int i=0; i<eventi.size(); i++){
-            int j = crud.contaBigliettiEvento(eventi.get(i).getId());
-            nrBiglietti.add(j);
+    public @ResponseBody String query1(@RequestParam(value="anno") int anno){
+        String res = "<table class='table table-bordered'><tr><th>Evento</th><th>Data inizio</th><th>Data fine</th></tr>";
+        List<Query1> eventi = crud.query1(anno);
+        String t;
+        Date di,df;
+        for(Query1 q : eventi){
+            t = q.getTitolo();
+            di=q.getDataI();
+            df=q.getDataF();
+            res += "<tr><td>"+t+"</td><td>"+di+"</td><td>"+df+"</td></tr>";
         }
-        map.put("nrBiglietti", nrBiglietti);
-        return "";
+        res += "</table>";
+        return res;
     }
+    
+    @RequestMapping(value="/query2", method=RequestMethod.GET)
+    public @ResponseBody String query2(){
+        String res = "<table class='table table-bordered'><tr><th>Evento</th><th>Biglietti venduti</th></tr>";
+        List<VisitaEvento> eventi = crud.selectEventi();
+        for(int i=0; i<eventi.size(); i++){
+            int j = crud.query2(eventi.get(i));
+            res += "<tr><td>"+eventi.get(i).getTitolo()+"</td><td>"+j+"</td></tr>";
+        }
+        res += "</table>";
+        return res;
+    }
+    
+    @RequestMapping(value="/query3", method=RequestMethod.GET)
+    public @ResponseBody String query3(@RequestParam(value="titolo") String titolo){
+        String res = "<table class='table table-bordered'><tr><th>Evento</th><th>Ricavo</th></tr>";
+        VisitaEvento evento = crud.selectVisitaEvento(titolo);
+        res += "<tr><td>"+titolo+"</td><td>"+crud.query3(evento)+"</td></tr></table>";
+        return res;
+    }
+    
+    @RequestMapping(value="/query4", method=RequestMethod.GET)
+    public @ResponseBody String query4(@RequestParam(value="email") String email){
+        return null;
+    }  
+    
 }

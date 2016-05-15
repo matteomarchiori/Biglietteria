@@ -12,7 +12,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Museo Egizio</title>
+        <title>Museo Egizio - Registrazione</title>
         <!--
         Holiday Template
         http://www.templatemo.com/tm-475-holiday
@@ -55,7 +55,7 @@
                         </div>
                         <nav class="tm-nav">
                             <ul>
-                                <li><a href="./index">Home</a></li>
+                                <li><a href="./query">Query</a></li>
                                 <li><a href="./about">Chi Siamo</a></li>
                                 <li><a href="./tours">Esposizioni</a></li>
                                 <li><a href="./contact">Contattaci</a></li>

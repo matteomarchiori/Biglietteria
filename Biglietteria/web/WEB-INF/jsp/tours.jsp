@@ -14,7 +14,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Museo Egizio - Chi Siamo</title>
+        <title>Museo Egizio - Esposizioni</title>
         <!--
         Holiday Template
         http://www.templatemo.com/tm-475-holiday
@@ -48,15 +48,15 @@
                         </div>
                         <nav class="tm-nav">
                             <ul>
-                                <li><a href="./index">Home</a></li>
+                                <li><a href="./query">Query</a></li>
                                 <li><a href="./about">Chi Siamo</a></li>
                                 <li><a href="./tours" class="active">Esposizioni</a></li>
                                 <li><a href="./contact">Contattaci</a></li>
-                                <%
+                                    <%
                                         if (session.getAttribute("email") == null) {
                                             out.print("<li><a href=\"./login\">Login</a></li>");
                                         } else {
-                                            
+
                                             out.print("<li><a href=\"./logout\">Logout</a></li>");
                                         }
                                     %>
@@ -77,8 +77,11 @@
                             <h1 class="tm-banner-title">Visita il <span class="tm-yellow-text">Miglior</span> Museo Egizio</h1>
                             <p class="tm-banner-subtitle">lorem ipsum</p>
                             <%
-                            if(session.getAttribute("email")==null)out.print("<a href=\"./login\" class=\"tm-banner-link\">Area acquisti</a>");
-                            else out.print("<a href=\"./acquisto\" class=\"tm-banner-link\">Area acquisti</a>");
+                                if (session.getAttribute("email") == null) {
+                                    out.print("<a href=\"./login\" class=\"tm-banner-link\">Area acquisti</a>");
+                                } else {
+                                    out.print("<a href=\"./acquisto\" class=\"tm-banner-link\">Area acquisti</a>");
+                                }
                             %>
                         </div>
                         <img src="./resources/img/egizi1_banner.jpg" alt="Image" />
@@ -88,8 +91,11 @@
                             <h1 class="tm-banner-title">Lorem <span class="tm-yellow-text">Ipsum</span> Dolor</h1>
                             <p class="tm-banner-subtitle">Meravigliose Mostre</p>
                             <%
-                            if(session.getAttribute("email")==null)out.print("<a href=\"./login\" class=\"tm-banner-link\">Area acquisti</a>");
-                            else out.print("<a href=\"./acquisto\" class=\"tm-banner-link\">Area acquisti</a>");
+                                if (session.getAttribute("email") == null) {
+                                    out.print("<a href=\"./login\" class=\"tm-banner-link\">Area acquisti</a>");
+                                } else {
+                                    out.print("<a href=\"./acquisto\" class=\"tm-banner-link\">Area acquisti</a>");
+                                }
                             %>
                         </div>
                         <img src="./resources/img/egizi2_banner.jpg" alt="Image" />
@@ -99,8 +105,11 @@
                             <h1 class="tm-banner-title">Proin <span class="tm-yellow-text">Gravida</span> Nibhvell</h1>
                             <p class="tm-banner-subtitle">Reperti Misteriosi</p>
                             <%
-                            if(session.getAttribute("email")==null)out.print("<a href=\"./login\" class=\"tm-banner-link\">Area acquisti</a>");
-                            else out.print("<a href=\"./acquisto\" class=\"tm-banner-link\">Area acquisti</a>");
+                                if (session.getAttribute("email") == null) {
+                                    out.print("<a href=\"./login\" class=\"tm-banner-link\">Area acquisti</a>");
+                                } else {
+                                    out.print("<a href=\"./acquisto\" class=\"tm-banner-link\">Area acquisti</a>");
+                                }
                             %>
                         </div>
                         <img src="./resources/img/egizi3_banner.jpg" alt="Image" />
@@ -113,61 +122,17 @@
         <!-- gray bg -->
         <section class="container tm-home-section-1" id="more">
             <div class="row">
-                <div class="col-lg-2 col-md-2 col-sm-6">
-                    <div class="tm-home-box-2">
-                        <img src="./resources/img/noimage2.png" alt="image" class="img-responsive">
-                        
+                <c:forEach items="${servizi}" var="servizio">
+                    <div class="col-lg-2 col-md-2 col-sm-6">
+                        <div class="tm-home-box-2">
+                            <img src="./resources/img/noimage2.png" alt="image" class="img-responsive">
                             <div class="tm-yellow-gradient-bg tm-city-price-container">
-                                <span>${servizio1.descrizione}<br/>
-                                € ${servizio1.prezzo}</span>
+                                <span>${servizio.descrizione}<br/>
+                                    € ${servizio.prezzo}</span>
                             </div>
-                        
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-6">
-                    <div class="tm-home-box-2">
-                        <img src="./resources/img/noimage2.png" alt="image" class="img-responsive">
-                        
-                            <div class="tm-yellow-gradient-bg tm-city-price-container">
-                                <span>${servizio2.descrizione}<br/>
-                                € ${servizio2.prezzo}</span>
-                            </div>
-                        
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-6">
-                    <div class="tm-home-box-2">
-                        <img src="./resources/img/noimage2.png" alt="image" class="img-responsive">
-                        
-                            <div class="tm-yellow-gradient-bg tm-city-price-container">
-                                <span>${servizio3.descrizione}<br/>
-                                € ${servizio3.prezzo}</span>
-                            </div>
-                       
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-6">
-                    <div class="tm-home-box-2">
-                        <img src="./resources/img/noimage2.png" alt="image" class="img-responsive" aligh="middle">
-                       
-                            <div class="tm-yellow-gradient-bg tm-city-price-container">
-                                <span>${servizio4.descrizione}<br/>
-                                € ${servizio4.prezzo}</span>
-                            </div>
-                        
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-6">
-                    <div class="tm-home-box-2">
-                        <img src="./resources/img/noimage2.png" alt="image" class="img-responsive">
-                        <a href="#">
-                            <div class="tm-yellow-gradient-bg tm-city-price-container">
-                                <span>Servizio</span>
-                                <span>5</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                </c:forEach>
             </div>
         </section>
 

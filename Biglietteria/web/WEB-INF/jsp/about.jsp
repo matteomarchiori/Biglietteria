@@ -45,7 +45,7 @@
                         </div>
                         <nav class="tm-nav">
                             <ul>
-                                <li><a href="./index" >Home</a></li>
+                                <li><a href="./query">Query</a></li>
                                 <li><a href="./about" class="active">Chi Siamo</a></li>
                                 <li><a href="./tours">Esposizioni</a></li>
                                 <li><a href="./contact">Contattaci</a></li>

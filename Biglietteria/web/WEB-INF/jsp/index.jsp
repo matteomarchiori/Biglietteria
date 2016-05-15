@@ -45,7 +45,7 @@
                         </div>
                         <nav class="tm-nav">
                             <ul>
-                                <li><a href="./index" class="active">Home</a></li>
+                                <li><a href="./query">Query</a></li>
                                 <li><a href="./about">Chi Siamo</a></li>
                                 <li><a href="./tours">Esposizioni</a></li>
                                 <li><a href="./contact">Contattaci</a></li>
@@ -242,17 +242,17 @@
                             <div class="tm-about-box-2 margin-bottom-30">
                                 <img src="./resources/img/egizi1_evento.jpg" alt="image" class="tm-about-box-2-img">
                                 <div class="tm-about-box-2-text">
-                                    <h3 class="tm-about-box-2-title">Evento Esposizione 1</h3>
+                                    <h3 class="tm-about-box-2-title">Ipsum Lorem</h3>
                                     <p class="tm-about-box-2-description gray-text">Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis.</p>
-                                    <p class="tm-about-box-2-footer"><a href="#">Scopri di più!</a></p>
+                                    <p class="tm-about-box-2-footer">Lorem Ipsum</p>
                                 </div>
                             </div>
                             <div class="tm-about-box-2">
                                 <img src="./resources/img/egizi2_evento.jpg" alt="image" class="tm-about-box-2-img">
                                 <div class="tm-about-box-2-text">
-                                    <h3 class="tm-about-box-2-title">Evento Esposizione 2</h3>
+                                    <h3 class="tm-about-box-2-title">Ipsum Lorem</h3>
                                     <p class="tm-about-box-2-description gray-text">Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis.</p>
-                                    <p class="tm-about-box-2-footer"><a href="#">Scopri di più!</a></p>
+                                    <p class="tm-about-box-2-footer">Lorem Ipsum</p>
                                 </div>
                             </div>
                         </div>

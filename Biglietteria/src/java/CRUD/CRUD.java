@@ -5,6 +5,8 @@
  */
 package CRUD;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -12,6 +14,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import mappa.*;
 import org.hibernate.SQLQuery;
+import query.Query1;
 
 /**
  * Classe per operazioni Create Read Update Delete sul database
@@ -361,22 +364,63 @@ public class CRUD {
         return null;
     }
     
-    public int contaBigliettiEvento(int idEvento){
+    public List<Query1> query1(int anno){
         Session sessione = factory.openSession();
         Transaction transazione = null;
         SQLQuery query;
         try{
             transazione = sessione.beginTransaction();
-            int n = 0;
-            query = sessione.createSQLQuery("SELECT COUNT(*) from BIGLIETTI where visitaE = "+(idEvento)+";").addEntity(Biglietto.class).addEntity(VisitaEvento.class);
-            n = (Integer) query.list().get(0);
+            query = sessione.createSQLQuery("SELECT titolo, dataI, dataF from VISITE_EVENTO where dataI >= '"+anno+"-01-01' and dataF <= '"+anno+"-12-31';");
+            List<Object[]> righe = query.list();
+            ArrayList<Query1> risultato = new ArrayList<>();
+            String t;
+            Date di,df;
+            for(Object[] riga : righe){
+                Query1 q = new Query1((String)riga[0],(Date)riga[1],(Date)riga[2]);
+                risultato.add(q);
+            }
             transazione.commit();
-            return n;
-        }catch(HibernateException e){
+            return risultato;
+        }catch(HibernateException i){
+            if(transazione!=null) transazione.rollback();
+        }finally{
+            sessione.close();
+        }
+        return null;
+    }
+    
+    public int query2(VisitaEvento e){
+        Session sessione = factory.openSession();
+        Transaction transazione = null;
+        SQLQuery query;
+        try{
+            transazione = sessione.beginTransaction();
+            query = sessione.createSQLQuery("SELECT COUNT(*) from BIGLIETTI where visitaE = "+e.getId()+";");
+            transazione.commit();
+            return ((Number)query.uniqueResult()).intValue();
+        }catch(HibernateException i){
             if(transazione!=null) transazione.rollback();
         }finally{
             sessione.close();
         }
         return 0;
     }
+    
+    public double query3(VisitaEvento e){
+        Session sessione = factory.openSession();
+        Transaction transazione = null;
+        SQLQuery query;
+        try{
+            transazione = sessione.beginTransaction();
+            query = sessione.createSQLQuery("SELECT SUM(tariffa) FROM (SELECT (tariffa-((tariffa*sconto)/100)) AS tariffa FROM (BIGLIETTI  B INNER JOIN VISITE_EVENTO V ON B.visitaE = V.id) INNER JOIN CATEGORIE C ON B.categoria = C.codice WHERE visitaE = "+e.getId()+")AS tmp;");
+            transazione.commit();
+            return ((Number)query.uniqueResult()).doubleValue();
+        }catch(HibernateException i){
+            if(transazione!=null) transazione.rollback();
+        }finally{
+            sessione.close();
+        }
+        return 0;
+    }
+
 }
