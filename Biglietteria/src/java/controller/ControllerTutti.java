@@ -7,10 +7,13 @@ package controller;
 
 import CRUD.CRUD;
 import hibernate.HibernateUtil;
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
 import mappa.CartaDiCredito;
 import mappa.Categoria;
@@ -22,6 +25,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import utili.Password;
 
 /**
  *
@@ -38,26 +42,32 @@ public class ControllerTutti {
 
     @RequestMapping(value = "/registration", params = {"email", "password", "numeroCarta", "tipoCarta", "scadenzaMM", "scadenzaYY"}, method = RequestMethod.POST)
     public String registration(ModelMap map,HttpSession session,@RequestParam(value = "email") String email, @RequestParam(value = "password") String password, @RequestParam(value = "numeroCarta") String numeroCarta, @RequestParam(value = "tipoCarta") String tipoCarta, @RequestParam(value = "scadenzaMM") int mm, @RequestParam(value = "scadenzaYY") int yy) {
-        CartaDiCredito c = crud.selectCarta(numeroCarta);
-        if (c != null) {
-            Visitatore v = new Visitatore(email, password, c, null);
-            crud.insertVisitatore(v);
-        } else {
-            Date scadenza = new Date(100 + yy, mm - 1, 1);
-            CartaDiCredito carta = new CartaDiCredito(numeroCarta, tipoCarta, scadenza, null);
-            Visitatore v = new Visitatore(email, password, carta, null);
-            Set<Visitatore> visitatori = new HashSet<>();
-            visitatori.add(v);
-            carta.setVisitatori(visitatori);
-            crud.insertCarta(carta);
-            crud.insertVisitatore(v);
+        try {
+            CartaDiCredito c = crud.selectCarta(numeroCarta);
+            String hash = Password.getMD5(password);
+            if (c != null) {
+                Visitatore v = new Visitatore(email, hash, c, null);
+                crud.insertVisitatore(v);
+            } else {
+                Date scadenza = new Date(100 + yy, mm - 1, 1);
+                CartaDiCredito carta = new CartaDiCredito(numeroCarta, tipoCarta, scadenza, null);
+                Visitatore v = new Visitatore(email, hash, carta, null);
+                Set<Visitatore> visitatori = new HashSet<>();
+                visitatori.add(v);
+                carta.setVisitatori(visitatori);
+                crud.insertCarta(carta);
+                crud.insertVisitatore(v);
+            }
+            session.setAttribute("email", email);
+            session.setAttribute("password", hash);
+            List<Categoria> categorie = crud.selectCategorie();
+            for(int i=0;i<categorie.size();i++){
+                map.put("categoria"+(i+1), categorie.get(i));
+            }
+            return "index";
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(ControllerTutti.class.getName()).log(Level.SEVERE, null, ex);
         }
-        session.setAttribute("email", email);
-        session.setAttribute("password", password);
-        List<Categoria> categorie = crud.selectCategorie();
-       for(int i=0;i<categorie.size();i++){
-           map.put("categoria"+(i+1), categorie.get(i));
-       }
         return "index";
     }
 

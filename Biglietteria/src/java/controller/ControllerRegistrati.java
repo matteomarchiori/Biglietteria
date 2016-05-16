@@ -7,6 +7,7 @@ package controller;
 
 import CRUD.CRUD;
 import hibernate.HibernateUtil;
+import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -29,6 +30,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import utili.Password;
 
 /**
  *
@@ -62,18 +64,23 @@ public class ControllerRegistrati {
     public String log(ModelMap map, @RequestParam(value = "email") String email, @RequestParam(value = "password") String password, HttpSession session) {
         Visitatore v = crud.selectVisitatore(email);
         if (v != null) {
-            if (v.getPassword().equals(password)) {
-                session.setAttribute("email", email);
-                session.setAttribute("password", password);
-                List<Categoria> categorie = crud.selectCategorie();
-                map.put("categorie", categorie);
-                List<Servizio> servizi = crud.selectServizi();
-                map.put("servizi", servizi);
-                List<VisitaEvento> eventi = crud.selectEventi();
-                map.put("eventi", eventi);
-                return "acquisto";
+            try {
+                String hash = Password.getMD5(password);
+                if (v.getPassword().equals(hash)) {
+                    session.setAttribute("email", email);
+                    session.setAttribute("password", hash);
+                    List<Categoria> categorie = crud.selectCategorie();
+                    map.put("categorie", categorie);
+                    List<Servizio> servizi = crud.selectServizi();
+                    map.put("servizi", servizi);
+                    List<VisitaEvento> eventi = crud.selectEventi();
+                    map.put("eventi", eventi);
+                    return "acquisto";
+                }
+                return "registrazione";
+            } catch (NoSuchAlgorithmException ex) {
+                Logger.getLogger(ControllerRegistrati.class.getName()).log(Level.SEVERE, null, ex);
             }
-            return "registrazione";
         }
         return "registrazione";
     }

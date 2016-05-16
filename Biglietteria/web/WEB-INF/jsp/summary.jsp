@@ -170,7 +170,6 @@
                         <div class="col-lg-4 col-md-4">
                             <input type="button" value="Conferma" onclick='registra()' class="tm-yellow-btn"/>
                             <br/>*N.B. Una volta premuto il bottone non sar&agrave; pi&ugrave; possibile annullare l'acquisto)
-                            <br/>**N.B. Si prega di stampare o salvare la pagina corrente. Il sito necessita di modifiche per accedere ai propri biglietti.
                         </div>
                         <div class="col-lg-8 col-md-8" id="informazioni"><%out.print(session.getAttribute("informazioni"));%></div>
                     </div>

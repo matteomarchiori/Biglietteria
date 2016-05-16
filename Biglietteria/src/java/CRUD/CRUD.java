@@ -14,7 +14,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import mappa.*;
 import org.hibernate.SQLQuery;
-import query.Query1;
+import utili.Query1;
 
 /**
  * Classe per operazioni Create Read Update Delete sul database
@@ -421,6 +421,23 @@ public class CRUD {
             sessione.close();
         }
         return 0;
+    }
+    
+    public List<Biglietto> query4(String email){
+        Session sessione = factory.openSession();
+        Transaction transazione = null;
+        SQLQuery query;
+        try{
+            transazione = sessione.beginTransaction();
+            query = sessione.createSQLQuery("SELECT * from BIGLIETTI B,VISITATORI V where B.visitatore = V.numero and V.mail = \""+email+"\" ORDER BY dataV DESC;").addEntity(Biglietto.class);
+            transazione.commit();
+            return query.list();
+        }catch(HibernateException i){
+            if(transazione!=null) transazione.rollback();
+        }finally{
+            sessione.close();
+        }
+        return null;
     }
 
 }

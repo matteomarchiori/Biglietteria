@@ -10,7 +10,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import mappa.*;
-import query.*;
 
 /**
  * Hibernate Utility class with a convenient method to get Session Factory

@@ -93,10 +93,10 @@
             }
         </style>
         <script type="text/javascript">
-            var req;
-            var ris;
-
+            
             function eseguiQuery1() {
+                var ris = document.getElementById("output");
+                var req = new XMLHttpRequest();
                 req.onreadystatechange = function () {
                     if (req.status == 200 && req.readyState == 4) {
                         ris.innerHTML = req.responseText;
@@ -107,6 +107,8 @@
             }
 
             function eseguiQuery3() {
+                var ris = document.getElementById("output");
+                var req = new XMLHttpRequest();
                 req.onreadystatechange = function () {
                     if (req.status == 200 && req.readyState == 4) {
                         ris.innerHTML = req.responseText;
@@ -126,6 +128,8 @@
                 document.getElementById("query3").style.display = "none";
                 document.getElementById("query1").style.display = "none";
                 document.getElementById("output").innerHTML = "";
+                var ris = document.getElementById("output");
+                var req = new XMLHttpRequest();
                 req.onreadystatechange = function () {
                     if (req.status == 200 && req.readyState == 4) {
                         ris.innerHTML = req.responseText;
@@ -145,22 +149,19 @@
                 document.getElementById("query3").style.display = "none";
                 document.getElementById("query1").style.display = "none";
                 document.getElementById("output").innerHTML = "";
+                var ris = document.getElementById("output");
+                var req = new XMLHttpRequest();
                 req.onreadystatechange = function () {
                     if (req.status == 200 && req.readyState == 4) {
                         ris.innerHTML = req.responseText;
                     }
                 };
-                req.open("POST", "query4", true);
-                req.send(<%=session.getAttribute("email")%>);
-            }
-
-            function inizializza() {
-                req = new XMLHttpRequest();
-                ris = document.getElementById("output");
+                req.open("GET", "query4", true);
+                req.send();
             }
         </script>
     </head>
-    <body class="tm-gray-bg" onload="inizializza()">
+    <body class="tm-gray-bg">
         <!-- Header -->
         <div class="tm-header">
             <div class="container">
@@ -195,7 +196,7 @@
     <section class="container tm-home-section-2">
         <div class="registerText">
             <div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
-            <div class="col-lg-4 col-md-6 col-sm-6"><h2 class="tm-section-title">Riassunto</h2></div>
+            <div class="col-lg-4 col-md-6 col-sm-6"><h2 class="tm-section-title">Query</h2></div>
             <div class="col-lg-4 col-md-6 col-sm-3"><hr></div>
         </div>
         <div class="hotel-search-form">
