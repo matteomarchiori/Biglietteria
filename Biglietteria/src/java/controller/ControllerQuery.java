@@ -67,7 +67,7 @@ public class ControllerQuery {
     String query3(@RequestParam(value = "titolo") String titolo) {
         String res = "<table class='table table-bordered'><tr><th>Evento</th><th>Ricavo</th></tr>";
         VisitaEvento evento = crud.selectVisitaEvento(titolo);
-        res += "<tr><td>" + titolo + "</td><td> € " + crud.query3(evento) + "</td></tr></table>";
+        res += "<tr><td>" + titolo + "</td><td>" + crud.query3(evento) + "</td></tr></table>";
         return res;
     }
 
