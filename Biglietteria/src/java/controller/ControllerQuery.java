@@ -43,7 +43,7 @@ public class ControllerQuery {
             t = q.getTitolo();
             di = q.getDataI();
             df = q.getDataF();
-            res += "<tr><td>" + t + "</td><td>" + di + "</td><td>" + df + "</td></tr>";
+            res += "<tr><td>" + t + "</td><td>" + di.getDate()+"-"+(di.getMonth()+1)+"-"+ (di.getYear()+1900) +"</td><td>" + df.getDate()+"-"+(df.getMonth()+1)+"-"+ (df.getYear()+1900) + "</td></tr>";
         }
         res += "</table>";
         return res;
@@ -65,7 +65,7 @@ public class ControllerQuery {
     @RequestMapping(value = "/query3", method = RequestMethod.GET)
     public @ResponseBody
     String query3(@RequestParam(value = "titolo") String titolo) {
-        String res = "<table class='table table-bordered'><tr><th>Evento</th><th>Ricavo</th></tr>";
+        String res = "<table class='table table-bordered'><tr><th>Evento</th><th>Ricavo (&euro;)</th></tr>";
         VisitaEvento evento = crud.selectVisitaEvento(titolo);
         res += "<tr><td>" + titolo + "</td><td>" + crud.query3(evento) + "</td></tr></table>";
         return res;
